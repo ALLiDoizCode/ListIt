@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CMDQueryStringSerialization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,7 +24,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Stripe.xcscheme</key>
+		<key>SSKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>VENCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Venmo-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,6 +42,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0858FEF10D5C8E99B2910817611BF828</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>401B69996D2F98D180B81D39ABA82EA3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>511B536F0DE06D9C3BD65397A91990C0</key>
 		<dict>
 			<key>primary</key>
@@ -37,12 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD26D8FE76A639382BA17ACA5E73E9CC</key>
+		<key>84BEE9B8CE902675F1E818AAF361EC93</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE6C07AFA4A6B7F05033F82AC718B2A5</key>
+		<key>8D7BABE543F727023199DC651C387C1B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F3FB492A77BD2DC1A65C6B52A4AB1FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

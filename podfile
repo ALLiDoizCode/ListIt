@@ -1,4 +1,4 @@
 use_frameworks!
 
 pod 'Parse'
-pod 'Stripe'
+pod 'Venmo-iOS-SDK', '~>1.3'

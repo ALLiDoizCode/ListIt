@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 import Bolts
-import Stripe
+import Venmo_iOS_SDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,9 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        //Stripe config
-        Stripe.setDefaultPublishableKey("pk_test_jf80Y9HAeRM5KBHQaWyHjv1y")
+        //Venmo config
         
+        let appId = "3282"
+        
+        let secert = "NPpEVNKsJuxUD4KyA4h6GWFfuZgGUF7W"
+        
+        let appName = "List-it"
+        
+        Venmo.startWithAppId(appId, secret: secert, name: appName)
         
         return true
     }
@@ -56,6 +62,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        
+        if Venmo.sharedInstance().handleOpenURL(url) {
+            
+            return true
+        }
+        
+        return false
     }
 
 
