@@ -12,6 +12,7 @@
 		4D0F5F271C171B8A001E4385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F5F261C171B8A001E4385 /* Assets.xcassets */; };
 		4D0F5F351C171B8A001E4385 /* ListItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F5F341C171B8A001E4385 /* ListItTests.swift */; };
 		4D0F5F401C171B8A001E4385 /* ListItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F5F3F1C171B8A001E4385 /* ListItUITests.swift */; };
+		4DA39A801C18D74900B6F2DD /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA39A7F1C18D74900B6F2DD /* Client.swift */; };
 		4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */; };
 		4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E21C1788990010C471 /* Main.storyboard */; };
 		4DD5C0F41C17B3980010C471 /* Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5C0F31C17B3980010C471 /* Pay.swift */; };
@@ -48,6 +49,7 @@
 		4D0F5F3B1C171B8A001E4385 /* ListItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ListItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0F5F3F1C171B8A001E4385 /* ListItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItUITests.swift; sourceTree = "<group>"; };
 		4D0F5F411C171B8A001E4385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DA39A7F1C18D74900B6F2DD /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DD5C0E21C1788990010C471 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4DD5C0EB1C1789C10010C471 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD5C0F21C17B35C0010C471 /* Venmo */,
+				4DA39A7F1C18D74900B6F2DD /* Client.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				4DD5C0F81C17B8D30010C471 /* User.swift in Sources */,
 				4DD5C0F41C17B3980010C471 /* Pay.swift in Sources */,
 				4D0F5F221C171B8A001E4385 /* ViewController.swift in Sources */,
+				4DA39A801C18D74900B6F2DD /* Client.swift in Sources */,
 				4D0F5F201C171B8A001E4385 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

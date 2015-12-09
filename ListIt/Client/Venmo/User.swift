@@ -12,11 +12,13 @@ import Venmo_iOS_SDK
 class User {
     
     //gets the data for teh current logged in user
-    func currentUser(){
+    func currentUser() -> VENUser{
         
         let user:VENUser = Venmo.sharedInstance().session.user
         
-        print(user.username)
+        print(user)
+        
+        return user
     }
     
     // asked permision and sets the app to use the Venmo API
