@@ -27,4 +27,23 @@ class Pay {
             }
         }
     }
+    
+    func requestPayment(recipient:String,amount:Int,note:String){
+        
+        //Using the Venmo API
+        Venmo.sharedInstance().defaultTransactionMethod = .API
+        
+        Venmo.sharedInstance().sendRequestTo(recipient, amount: UInt(amount), note: note) { (transaction, success, error) -> Void in
+            
+            if success {
+                
+                print("transaction succeeded!")
+                
+            }else{
+                
+                print("transaction failed \(error.localizedDescription)")
+            }
+            
+        }
+    }
 }

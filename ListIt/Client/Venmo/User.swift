@@ -11,14 +11,16 @@ import Venmo_iOS_SDK
 
 class User {
     
+    let manger:NetworkManger = NetworkManger()
+    
     //gets the data for teh current logged in user
-    func currentUser() -> VENUser{
+    func currentUser() -> VENSession{
         
-        let user:VENUser = Venmo.sharedInstance().session.user
+        let session = Venmo.sharedInstance().session
         
-        print(user)
+        print(session)
         
-        return user
+        return session
     }
     
     // asked permision and sets the app to use the Venmo API
@@ -29,12 +31,14 @@ class User {
         
         let paramPermissions = ["make_payments","access_payment_history","access_feed","access_profile","access_email","access_phone","access_balance","access_friends"]
         
+        
         //Request permissions
         Venmo.sharedInstance().requestPermissions(paramPermissions) { (success, error) -> Void in
             
             if success {
                 
-                
+                print("success")
+                self.manger.pay(self.currentUser().accessToken)
                 
             }else{
                 
