@@ -15,6 +15,7 @@
 		4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */; };
 		4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E21C1788990010C471 /* Main.storyboard */; };
 		4DD5C0F41C17B3980010C471 /* Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5C0F31C17B3980010C471 /* Pay.swift */; };
+		4DD5C0F81C17B8D30010C471 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5C0F71C17B8D30010C471 /* User.swift */; };
 		C97B09A6C1315B257A04E165 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D5B78ECEEC2DD85378092 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		4DD5C0E21C1788990010C471 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4DD5C0EB1C1789C10010C471 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		4DD5C0F31C17B3980010C471 /* Pay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pay.swift; sourceTree = "<group>"; };
+		4DD5C0F71C17B8D30010C471 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ADA88AF3B04221678820CD54 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B8DDAD8383E3615228AE3991 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EB4D5B78ECEEC2DD85378092 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD5C0F31C17B3980010C471 /* Pay.swift */,
+				4DD5C0F71C17B8D30010C471 /* User.swift */,
 			);
 			path = Venmo;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD5C0F81C17B8D30010C471 /* User.swift in Sources */,
 				4DD5C0F41C17B3980010C471 /* Pay.swift in Sources */,
 				4D0F5F221C171B8A001E4385 /* ViewController.swift in Sources */,
 				4D0F5F201C171B8A001E4385 /* AppDelegate.swift in Sources */,

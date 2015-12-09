@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ListIt/Client/Venmo/Pay.swift"
-            timestampString = "471316320.869289"
+            filePath = "ListIt/Client/Venmo/User.swift"
+            timestampString = "471316828.541017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "requestPermissions(_:amount:note:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "currentUser()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
