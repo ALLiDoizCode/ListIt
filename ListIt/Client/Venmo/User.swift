@@ -8,6 +8,7 @@
 
 import Foundation
 import Venmo_iOS_SDK
+import SwiftEventBus
 
 class User {
     
@@ -38,7 +39,7 @@ class User {
             if success {
                 
                 print("success")
-                self.manger.pay(self.currentUser().accessToken)
+                SwiftEventBus.post("token", sender: self.currentUser().accessToken)
                 
             }else{
                 

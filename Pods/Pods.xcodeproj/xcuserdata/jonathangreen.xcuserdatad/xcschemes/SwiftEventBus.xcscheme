@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A8D1D311D39FBBADEEA8EA28'
-               BlueprintName = 'CMDQueryStringSerialization'
+               BlueprintIdentifier = '40636152A39DF1BD6BEF50F5'
+               BlueprintName = 'SwiftEventBus'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'CMDQueryStringSerialization.framework'>
+               BuildableName = 'SwiftEventBus.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

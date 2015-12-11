@@ -89,6 +89,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/CMDQueryStringSerialization.framework"
   install_framework "Pods/Parse.framework"
   install_framework "Pods/SSKeychain.framework"
+  install_framework "Pods/SwiftEventBus.framework"
   install_framework "Pods/VENCore.framework"
   install_framework "Pods/Venmo_iOS_SDK.framework"
 fi
@@ -98,6 +99,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/CMDQueryStringSerialization.framework"
   install_framework "Pods/Parse.framework"
   install_framework "Pods/SSKeychain.framework"
+  install_framework "Pods/SwiftEventBus.framework"
   install_framework "Pods/VENCore.framework"
   install_framework "Pods/Venmo_iOS_SDK.framework"
 fi
