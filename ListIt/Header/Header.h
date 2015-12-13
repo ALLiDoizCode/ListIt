@@ -13,5 +13,4 @@
 #endif /* Header_h */
 
 
-#import <Parse/Parse.h>
-#import <Stripe/Stripe.h>
+
