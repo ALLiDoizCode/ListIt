@@ -16,7 +16,7 @@ class PresentVenmo {
     let user:User = User()
     var accessToken:String = ""
     
-    func getToken(completionHandler: ((String!) -> Void)?){
+    func getUser(completionHandler: ((String!) -> Void)?){
         
             SwiftEventBus.onBackgroundThread(self, name: "token") { result in
                 

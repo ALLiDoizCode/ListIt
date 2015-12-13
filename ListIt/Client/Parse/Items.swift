@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+class item {
+    
+    var icon:String!
+    var title:String!
+    var userIcon:String!
+    var price:Int!
+    var shares:String!
+    var comments:String!
+    
+init(theIcon:String,theUserIcon:String,theTitle:String,theShares:String,theComments:String,thePrice:Int){
+    
+        icon = theIcon
+        userIcon = theUserIcon
+        title = theTitle
+        shares = theShares
+        comments = theComments
+        price = thePrice
+    }
+}
