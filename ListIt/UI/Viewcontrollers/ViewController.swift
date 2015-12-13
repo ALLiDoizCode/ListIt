@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+       
+
         // Do any additional setup after loading the view, typically from a nib.
         
        //populate variables with data and UI binding here
@@ -28,6 +31,7 @@ class ViewController: UIViewController {
             
             //reload table or collection view
         }
+
         
         //parseData fill the aray for the listview items with this
         self.parseData.getItem { (items) -> Void in

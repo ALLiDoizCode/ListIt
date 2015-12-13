@@ -177,7 +177,7 @@
 		4D7EDE861C1787CF000FC0E1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				4DD5C0E91C1789800010C471 /* Custome */,
+				4DD5C0E91C1789800010C471 /* Custom */,
 				4DD5C0E81C1789640010C471 /* Views */,
 				4DD5C0E71C1789410010C471 /* CollectionViewCells */,
 				4DD5C0E61C17891D0010C471 /* TableVIewCells */,
@@ -210,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				4D0F5F211C171B8A001E4385 /* ViewController.swift */,
+				6BC4C0E01C1BCB8900FDEDB2 /* DiscoverTableViewController.swift */,
 			);
 			path = Viewcontrollers;
 			sourceTree = "<group>";
@@ -235,10 +236,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		4DD5C0E91C1789800010C471 /* Custome */ = {
+		4DD5C0E91C1789800010C471 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
 			);
+			name = Custom;
 			path = Custome;
 			sourceTree = "<group>";
 		};
