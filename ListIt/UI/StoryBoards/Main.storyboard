@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="io2-r2-xIt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="io2-r2-xIt">
                                 <rect key="frame" x="1" y="0.0" width="600" height="551"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -567,7 +567,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Discover" image="List-it_0001s_0000s_0000_Discover-Icon" selectedImage="List-it_0001s_0000s_0000_Discover-Icon" id="VZo-13-r66"/>
                     <navigationItem key="navigationItem" id="9PA-hp-Zfu">
                         <barButtonItem key="rightBarButtonItem" image="List-it_0000s_0000_View-Switcher" id="7U0-fQ-22T">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -582,7 +581,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D08-nS-JCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304.5" y="1997.25"/>
+            <point key="canvasLocation" x="1222.5" y="1997.25"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s0Q-tH-EM2">
@@ -597,12 +596,33 @@
                         <color key="selectedImageTintColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="HkZ-ej-sXQ" kind="relationship" relationship="viewControllers" id="Lch-Dm-E2W"/>
+                        <segue destination="ecP-dj-H2Z" kind="relationship" relationship="viewControllers" id="Lch-Dm-E2W"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4U-1f-jE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="1286"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="LH5-yt-vQZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ecP-dj-H2Z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="List-it_0001s_0000s_0000_Discover-Icon" selectedImage="List-it_0001s_0000s_0000_Discover-Icon" id="VZo-13-r66"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Vw-b9-gLA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="barTintColor" red="0.59607843137254901" green="0.74901960784313726" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HkZ-ej-sXQ" kind="relationship" relationship="rootViewController" id="5PH-4c-w27"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1K-ne-HIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.5" y="1997.25"/>
         </scene>
     </scenes>
     <resources>

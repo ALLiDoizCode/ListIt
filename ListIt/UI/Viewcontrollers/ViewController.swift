@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var itemData:[item] = []
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
+    lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
    
     @IBOutlet weak var tableView: UITableView!
  
@@ -27,7 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+       setupSearchBar()
 
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -110,6 +111,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     
         
+    }
+    
+    func setupSearchBar(){
+        
+        searchBar.placeholder = "Type Here"
+        self.navigationItem.titleView = searchBar
     }
 
 
