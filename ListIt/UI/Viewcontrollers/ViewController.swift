@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let parseData:getData = getData()
     
     var itemData:[item] = []
-    
+    var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
    
     @IBOutlet weak var tableView: UITableView!
  
@@ -58,7 +58,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("Shares: \(items[0].shares)")
             print("Comments: \(items[0].comments)")
             
-            self.tableView.reloadData()
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                self.tableView.reloadData()
+                
+                });
+            
+           
         }
         
   
@@ -80,11 +86,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let cell:ListTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ListTableViewCell
         
-        cell.listHeadingTitle.text = itemData[indexPath.row].title
+         let ran = Int(arc4random_uniform(3))
         
+        cell.listHeadingTitle.text = itemData[indexPath.row].title
         cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!)
         cell.userImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!)
-        cell.userTypeIcon.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].)!)
+        cell.userTypeIcon.image = UIImage(named: itemType[ran])
+        cell.listPrice.text = "$\(itemData[indexPath.row].price)"
+        cell.usersName.text = "Jonathan"
+        cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
+        cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
+        
+       
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            cell.userImage.layer.cornerRadius = cell.userImage.layer.frame.width/2
+            cell.userImage.layer.masksToBounds = true
+            
+        });
+
         
         return cell
     

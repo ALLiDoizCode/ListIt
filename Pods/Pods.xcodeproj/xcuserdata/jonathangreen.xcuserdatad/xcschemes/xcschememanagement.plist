@@ -8,50 +8,83 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>CMDQueryStringSerialization.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>SSKeychain.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>SwiftEventBus.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>VENCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>Venmo-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0B78B1452A81791DB82EDF838107A70A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F7DBC559692DD3D985E09CDFA25658C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>401B69996D2F98D180B81D39ABA82EA3</key>
 		<dict>
 			<key>primary</key>
@@ -77,6 +110,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8120383E6C1162A23A70B9B12EA44162</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>81903922628D96D0A220514A29441665</key>
 		<dict>
 			<key>primary</key>
@@ -88,6 +126,21 @@
 			<true/>
 		</dict>
 		<key>A6819F0402C2B62398B76191F7486C79</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD52C271AB2055C4346E871122D23603</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1FB051BD63CC41F9E81D3D4E75671AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F91226101ECE8FCFD221A3EC54481F82</key>
 		<dict>
 			<key>primary</key>
 			<true/>
