@@ -42,6 +42,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="HCG-pb-dqi" kind="show" id="ENC-vM-TR5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -55,7 +58,7 @@
         <!--Discover-->
         <scene sceneID="aBR-Gv-vJc">
             <objects>
-                <viewController storyboardIdentifier="discoverList" title="Discover" id="HkZ-ej-sXQ" customClass="ListTableViewController" customModule="ListIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="discoverList" title="Discover" id="HkZ-ej-sXQ" customClass="ViewController" customModule="ListIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t9R-aY-WRX"/>
                         <viewControllerLayoutGuide type="bottom" id="3Fb-EU-4kZ"/>
@@ -69,7 +72,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="gcD-In-8E7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="gcD-In-8E7" customClass="ListTableViewCell" customModule="ListIt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="583" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gcD-In-8E7" id="wbi-7B-XSx">
@@ -215,8 +218,24 @@
                                         <color key="backgroundColor" red="0.89402025938034058" green="0.89417368173599243" blue="0.89401060342788696" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.36470588235294116" green="0.68235294117647061" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="listComments" destination="32f-kr-Lhl" id="tTs-Rj-PxB"/>
+                                            <outlet property="listHeadingTitle" destination="q6u-Rn-3gf" id="otx-dd-YUG"/>
+                                            <outlet property="listImage" destination="n48-VS-HA5" id="VDu-VR-r7H"/>
+                                            <outlet property="listPrice" destination="ryu-ir-07j" id="5og-Pf-MLB"/>
+                                            <outlet property="listShares" destination="AXf-0X-alK" id="IVy-I0-o37"/>
+                                            <outlet property="listedTime" destination="NXS-n7-0ay" id="fZN-We-gHX"/>
+                                            <outlet property="onlineIndicator" destination="YxC-Bj-i7s" id="csI-cH-1fB"/>
+                                            <outlet property="userImage" destination="XtK-4b-mms" id="TXf-2a-zfW"/>
+                                            <outlet property="userTypeIcon" destination="eKP-ZG-BzF" id="sB0-n6-lKs"/>
+                                            <outlet property="usersName" destination="gtB-lW-GDb" id="6VI-7Z-j9R"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HkZ-ej-sXQ" id="AhW-hs-6ES"/>
+                                    <outlet property="delegate" destination="HkZ-ej-sXQ" id="zSe-iR-pZ6"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -233,16 +252,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="listComments" destination="32f-kr-Lhl" id="B06-QW-9Of"/>
-                        <outlet property="listHeadingTitle" destination="q6u-Rn-3gf" id="7ak-j0-NmJ"/>
-                        <outlet property="listImage" destination="n48-VS-HA5" id="iva-rc-1bY"/>
-                        <outlet property="listPrice" destination="ryu-ir-07j" id="7cV-9c-ek7"/>
-                        <outlet property="listShares" destination="AXf-0X-alK" id="YRz-sd-B8J"/>
-                        <outlet property="listedTime" destination="NXS-n7-0ay" id="Xxx-Y5-1so"/>
-                        <outlet property="onlineIndicator" destination="YxC-Bj-i7s" id="jG9-gA-kZr"/>
-                        <outlet property="userImage" destination="XtK-4b-mms" id="ryM-mK-Dna"/>
-                        <outlet property="userTypeIcon" destination="eKP-ZG-BzF" id="LVh-Uo-eot"/>
-                        <outlet property="usersName" destination="gtB-lW-GDb" id="wPh-mh-5fg"/>
+                        <outlet property="tableView" destination="io2-r2-xIt" id="x4s-pw-RHv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D08-nS-JCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -298,7 +308,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" id="HRq-ZD-is8">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="collectionCell" id="HRq-ZD-is8">
                                         <rect key="frame" x="0.0" y="64" width="261" height="185"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
