@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Parse
+import Bolts
+import Venmo_iOS_SDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +19,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("TNSeu9vfrUdDkyMEk5px6WKVUWNDsxmHJTTe5ukU",
+            clientKey: "6BZMO0tkYGKrDTtZTECneW8qHkWhUIHLBrDOOtyq")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        //Venmo config
+        
+        let appId = "3282"
+        
+        let secert = "NPpEVNKsJuxUD4KyA4h6GWFfuZgGUF7W"
+        
+        let appName = "List-it"
+        
+        Venmo.startWithAppId(appId, secret: secert, name: appName)
+        
         return true
     }
 
@@ -39,6 +62,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        
+        if Venmo.sharedInstance().handleOpenURL(url) {
+            
+            return true
+        }
+        
+        return false
     }
 
 
