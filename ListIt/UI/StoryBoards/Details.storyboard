@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="DI7-zz-qd2">
             <objects>
-                <viewController id="D6p-oK-Tha" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailView" id="D6p-oK-Tha" customClass="DetailViewController" customModule="ListIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u2i-Ls-7wF"/>
                         <viewControllerLayoutGuide type="bottom" id="IdU-OV-3Jr"/>
@@ -78,12 +79,12 @@
                                         <exclude reference="Oaj-xo-dn8"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="6Xo-fb-dTq"/>
-                                        <exclude reference="fIq-Tz-FpM"/>
                                         <exclude reference="3cn-wn-0sJ"/>
                                         <exclude reference="5om-mP-hMQ"/>
                                         <exclude reference="nCf-44-xT4"/>
                                         <exclude reference="vkM-88-uJq"/>
+                                        <exclude reference="6Xo-fb-dTq"/>
+                                        <exclude reference="fIq-Tz-FpM"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -92,12 +93,12 @@
                                         <include reference="Oaj-xo-dn8"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="6Xo-fb-dTq"/>
-                                        <include reference="fIq-Tz-FpM"/>
                                         <include reference="3cn-wn-0sJ"/>
                                         <include reference="5om-mP-hMQ"/>
                                         <include reference="nCf-44-xT4"/>
                                         <include reference="vkM-88-uJq"/>
+                                        <include reference="6Xo-fb-dTq"/>
+                                        <include reference="fIq-Tz-FpM"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -278,9 +279,27 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="apN-R4-8aD"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6ti-Fe-pqI"/>
-                                <exclude reference="TGC-fF-dnl"/>
-                                <exclude reference="dPY-zc-2ow"/>
+                                <exclude reference="Od4-bU-aVu"/>
+                                <exclude reference="UFW-Mt-Jc7"/>
+                                <exclude reference="nSI-cs-3Ks"/>
+                                <exclude reference="KzL-SQ-uKI"/>
+                                <exclude reference="klH-LW-r3o"/>
+                                <exclude reference="LCZ-u6-sgw"/>
+                                <exclude reference="1LD-JD-cEn"/>
+                                <exclude reference="76P-ul-ZcM"/>
+                                <exclude reference="XEw-z6-rHk"/>
+                                <exclude reference="ees-hO-95g"/>
+                                <exclude reference="gY2-rQ-ifM"/>
+                                <exclude reference="hyA-jr-fwU"/>
+                                <exclude reference="jGf-BG-zTX"/>
+                                <exclude reference="jYu-fX-Q7f"/>
+                                <exclude reference="ikc-6v-wN5"/>
+                                <exclude reference="ldW-IG-Vlz"/>
+                                <exclude reference="3rI-f5-r8f"/>
+                                <exclude reference="cLl-H9-FJh"/>
+                                <exclude reference="cqn-LJ-mJ6"/>
+                                <exclude reference="jPU-kc-A7T"/>
+                                <exclude reference="r7l-fr-diD"/>
                                 <exclude reference="7FQ-RN-Jyd"/>
                                 <exclude reference="AAj-NO-UFf"/>
                                 <exclude reference="iLI-Lq-lA7"/>
@@ -291,33 +310,15 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="cJ0-AV-bca"/>
                                 <exclude reference="cxW-R5-DYa"/>
                                 <exclude reference="ed1-aT-SZK"/>
+                                <exclude reference="tTR-8T-1Bu"/>
                                 <exclude reference="MdC-QO-bdf"/>
                                 <exclude reference="jog-Ji-o7b"/>
-                                <exclude reference="3rI-f5-r8f"/>
-                                <exclude reference="cLl-H9-FJh"/>
-                                <exclude reference="cqn-LJ-mJ6"/>
-                                <exclude reference="jPU-kc-A7T"/>
-                                <exclude reference="r7l-fr-diD"/>
-                                <exclude reference="1LD-JD-cEn"/>
-                                <exclude reference="76P-ul-ZcM"/>
-                                <exclude reference="XEw-z6-rHk"/>
-                                <exclude reference="ees-hO-95g"/>
-                                <exclude reference="gY2-rQ-ifM"/>
-                                <exclude reference="hyA-jr-fwU"/>
-                                <exclude reference="jGf-BG-zTX"/>
-                                <exclude reference="jYu-fX-Q7f"/>
-                                <exclude reference="LCZ-u6-sgw"/>
-                                <exclude reference="tTR-8T-1Bu"/>
-                                <exclude reference="KzL-SQ-uKI"/>
-                                <exclude reference="klH-LW-r3o"/>
                                 <exclude reference="Khe-GL-Lna"/>
                                 <exclude reference="NE8-i9-hwk"/>
                                 <exclude reference="PFf-SK-bgM"/>
-                                <exclude reference="ikc-6v-wN5"/>
-                                <exclude reference="ldW-IG-Vlz"/>
-                                <exclude reference="Od4-bU-aVu"/>
-                                <exclude reference="UFW-Mt-Jc7"/>
-                                <exclude reference="nSI-cs-3Ks"/>
+                                <exclude reference="6ti-Fe-pqI"/>
+                                <exclude reference="TGC-fF-dnl"/>
+                                <exclude reference="dPY-zc-2ow"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -335,9 +336,27 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="apN-R4-8aD"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6ti-Fe-pqI"/>
-                                <include reference="TGC-fF-dnl"/>
-                                <include reference="dPY-zc-2ow"/>
+                                <include reference="Od4-bU-aVu"/>
+                                <include reference="UFW-Mt-Jc7"/>
+                                <include reference="nSI-cs-3Ks"/>
+                                <include reference="KzL-SQ-uKI"/>
+                                <include reference="klH-LW-r3o"/>
+                                <include reference="LCZ-u6-sgw"/>
+                                <include reference="1LD-JD-cEn"/>
+                                <include reference="76P-ul-ZcM"/>
+                                <include reference="XEw-z6-rHk"/>
+                                <include reference="ees-hO-95g"/>
+                                <include reference="gY2-rQ-ifM"/>
+                                <include reference="hyA-jr-fwU"/>
+                                <include reference="jGf-BG-zTX"/>
+                                <include reference="jYu-fX-Q7f"/>
+                                <include reference="ikc-6v-wN5"/>
+                                <include reference="ldW-IG-Vlz"/>
+                                <include reference="3rI-f5-r8f"/>
+                                <include reference="cLl-H9-FJh"/>
+                                <include reference="cqn-LJ-mJ6"/>
+                                <include reference="jPU-kc-A7T"/>
+                                <include reference="r7l-fr-diD"/>
                                 <include reference="7FQ-RN-Jyd"/>
                                 <include reference="AAj-NO-UFf"/>
                                 <include reference="iLI-Lq-lA7"/>
@@ -348,36 +367,28 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="cJ0-AV-bca"/>
                                 <exclude reference="cxW-R5-DYa"/>
                                 <include reference="ed1-aT-SZK"/>
+                                <include reference="tTR-8T-1Bu"/>
                                 <include reference="MdC-QO-bdf"/>
                                 <include reference="jog-Ji-o7b"/>
-                                <include reference="3rI-f5-r8f"/>
-                                <include reference="cLl-H9-FJh"/>
-                                <include reference="cqn-LJ-mJ6"/>
-                                <include reference="jPU-kc-A7T"/>
-                                <include reference="r7l-fr-diD"/>
-                                <include reference="1LD-JD-cEn"/>
-                                <include reference="76P-ul-ZcM"/>
-                                <include reference="XEw-z6-rHk"/>
-                                <include reference="ees-hO-95g"/>
-                                <include reference="gY2-rQ-ifM"/>
-                                <include reference="hyA-jr-fwU"/>
-                                <include reference="jGf-BG-zTX"/>
-                                <include reference="jYu-fX-Q7f"/>
-                                <include reference="LCZ-u6-sgw"/>
-                                <include reference="tTR-8T-1Bu"/>
-                                <include reference="KzL-SQ-uKI"/>
-                                <include reference="klH-LW-r3o"/>
                                 <include reference="Khe-GL-Lna"/>
                                 <include reference="NE8-i9-hwk"/>
                                 <include reference="PFf-SK-bgM"/>
-                                <include reference="ikc-6v-wN5"/>
-                                <include reference="ldW-IG-Vlz"/>
-                                <include reference="Od4-bU-aVu"/>
-                                <include reference="UFW-Mt-Jc7"/>
-                                <include reference="nSI-cs-3Ks"/>
+                                <include reference="6ti-Fe-pqI"/>
+                                <include reference="TGC-fF-dnl"/>
+                                <include reference="dPY-zc-2ow"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="comments" destination="z5c-zu-W0S" id="igG-iF-PeM"/>
+                        <outlet property="itemImage" destination="2hi-x4-ms3" id="UQu-MR-ICR"/>
+                        <outlet property="itemTitle" destination="TNa-5h-m9N" id="4Xr-q6-7eI"/>
+                        <outlet property="name" destination="itI-Ov-Dtz" id="8KI-NG-VQI"/>
+                        <outlet property="price" destination="Oaj-xo-dn8" id="JoH-sT-xWm"/>
+                        <outlet property="shares" destination="Vgj-4H-1r8" id="Ck5-Ma-qy0"/>
+                        <outlet property="theDescription" destination="z7U-JO-Cuf" id="pg3-8r-eeI"/>
+                        <outlet property="time" destination="jzO-SJ-Cso" id="drx-c9-Zei"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p40-ay-N1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
