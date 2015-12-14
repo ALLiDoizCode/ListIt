@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Kingfisher
+
+
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -17,7 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var itemData:[item] = []
     
    
-    //@IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+ 
     
     
     override func viewDidLoad() {
@@ -53,8 +57,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("Price: \(items[0].price)")
             print("Shares: \(items[0].shares)")
             print("Comments: \(items[0].comments)")
+            
+            self.tableView.reloadData()
         }
-        //self.tableView.reloadData()
+        
   
     }
 
@@ -75,6 +81,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell:ListTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ListTableViewCell
         
         cell.listHeadingTitle.text = itemData[indexPath.row].title
+        
+        cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!)
+        cell.userImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!)
+        cell.userTypeIcon.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].)!)
         
         return cell
     
