@@ -19,6 +19,7 @@ class GridCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         backgroundColor = UIColor.clearColor()
         contentView.addSubview(imageViewContent)
         contentView.insertSubview(type, aboveSubview: imageViewContent)

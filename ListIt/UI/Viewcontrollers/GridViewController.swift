@@ -44,6 +44,8 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     func setupCollectionView(){
         let parseData:getData = getData()
         
+       
+        
         //parseData fill the aray for the listview items with this
         parseData.getItem { (items) -> Void in
             
@@ -53,6 +55,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
             collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
             //collection.backgroundColor = UIColor.clearColor()
             collection.registerClass(GridCell.self, forCellWithReuseIdentifier: self.identifier)
+            
                 
                 self.items = items
                 
@@ -103,23 +106,27 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
         return items.count;
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        self.performSegueWithIdentifier("gotoDetail", sender: self)
+    }
+    
     func setupSearchBar(){
         
         searchBar.placeholder = "Type Here"
         self.navigationItem.titleView = searchBar
     }
-
     
-
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if let cell = sender as? GridCell, indexPath = collectionView.indexPathForCell(cell) {
-            
-            if segue.identifier == "Detail" {
+            if segue.identifier == "gotoDetail" {
+                
+                let indexPaths = self.collectionView!.indexPathsForSelectedItems()
+                let indexPath = indexPaths![0] 
                 
                 let controller:DetailViewController = segue.destinationViewController as! DetailViewController
                 
@@ -136,7 +143,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                 });
                 
             }
-        }
+        
         
         
 
