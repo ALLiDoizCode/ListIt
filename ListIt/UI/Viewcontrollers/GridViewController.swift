@@ -15,6 +15,8 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     var items:[item] = []
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
     
+    let parseData:getData = getData()
+    
     let imageView:UIImageView = UIImageView()
     lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 75, 20))
 
@@ -23,14 +25,18 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
     override func viewWillAppear(animated: Bool) {
         
-            setupCollectionView()
-            setupSearchBar()
+        
+        
+       
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setupCollectionView()
+        setupSearchBar()
+       
         print(items.count)
 
         // Do any additional setup after loading the view.
@@ -42,9 +48,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     }
     
     func setupCollectionView(){
-        let parseData:getData = getData()
         
-       
         
         //parseData fill the aray for the listview items with this
         parseData.getItem { (items) -> Void in
@@ -54,14 +58,18 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
             collection.frame = screenBounds
             collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
             //collection.backgroundColor = UIColor.clearColor()
-            collection.registerClass(GridCell.self, forCellWithReuseIdentifier: self.identifier)
+            //collection.registerClass(GridCell.self, forCellWithReuseIdentifier: self.identifier)
             
                 
-                self.items = items
+            self.items = items
+            
+            dispatch_async(dispatch_get_main_queue(), {
                 
-                collection.reloadData()
+                 collection.reloadData()
                 
-
+            })
+                
+        
             //the images are stored as url so as not to take up memory
             print("ItemIcon: \(items[0].icon)")
             print("UserIcon: \(items[0].userIcon)")
@@ -108,7 +116,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        self.performSegueWithIdentifier("gotoDetail", sender: self)
+        //self.performSegueWithIdentifier("gotoDetail", sender: self)
     }
     
     func setupSearchBar(){
@@ -122,16 +130,14 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+       
             if segue.identifier == "gotoDetail" {
                 
+            dispatch_async(dispatch_get_main_queue(), {
                 let indexPaths = self.collectionView!.indexPathsForSelectedItems()
                 let indexPath = indexPaths![0] 
                 
                 let controller:DetailViewController = segue.destinationViewController as! DetailViewController
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    
                     controller.itemImage.kf_setImageWithURL(NSURL(string:self.items[indexPath.item].icon)!)
                     controller.itemTitle.text = self.items[indexPath.item].title
                     controller.price.text = "$\(self.items[indexPath.item].price)"
@@ -145,9 +151,9 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
             }
         
         
-        
-
     }
-    
 
 }
+    
+
+

@@ -13,12 +13,21 @@ class GridCell: UICollectionViewCell {
     var imageViewContent : UIImageView = UIImageView()
     var type : UIImageView = UIImageView()
     
-    required init?(coder aDecoder: NSCoder) {
+    /*required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        backgroundColor = UIColor.clearColor()
+        contentView.addSubview(imageViewContent)
+        contentView.insertSubview(type, aboveSubview: imageViewContent)
+    }*/
+    
+    
+    override func awakeFromNib() {
+        
         
         backgroundColor = UIColor.clearColor()
         contentView.addSubview(imageViewContent)

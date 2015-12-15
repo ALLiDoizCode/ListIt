@@ -38,6 +38,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="iav-39-7rL" kind="show" identifier="gotoDetail" id="e8T-jj-NbV"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -86,7 +89,6 @@
                     <navigationItem key="navigationItem" id="bjA-KH-yV6"/>
                     <connections>
                         <outlet property="collectionView" destination="ecW-FF-6J5" id="nP0-En-c1I"/>
-                        <segue destination="iav-39-7rL" kind="show" identifier="gotoDetail" action="showDetailViewController:sender:" id="01U-QY-upe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5o-i0-NFn" userLabel="First Responder" sceneMemberID="firstResponder"/>

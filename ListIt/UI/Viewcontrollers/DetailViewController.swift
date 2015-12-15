@@ -21,6 +21,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var comments: UILabel!
     @IBOutlet weak var messageBtn: UIButton!
     
+    let venmo:PresentVenmo = PresentVenmo()
+    let user:User = User()
+    
+    override func viewDidLayoutSubviews() {
+        
+        messageBtn.layer.cornerRadius = 3
+        messageBtn.layer.masksToBounds = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +41,18 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func message(sender: AnyObject) {
+        
+        //populate variables with data and UI binding here
+           self.venmo.getUser { (token) -> Void in
+        let username = self.user.currentUser().user.username
+        let userImage = self.user.currentUser().user.profileImageUrl
+        print("The Token: \(token)")
+        print("UserName: \(username)")
+        print("User Image: \(userImage)")
+        
+        }
+    }
 
     /*
     // MARK: - Navigation

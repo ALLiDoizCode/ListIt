@@ -13,8 +13,7 @@ import Kingfisher
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    let venmo:PresentVenmo = PresentVenmo()
-    let user:User = User()
+    
     let parseData:getData = getData()
     
     var itemData:[item] = []
