@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var shares: UILabel!
     @IBOutlet weak var comments: UILabel!
+    @IBOutlet weak var messageBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
