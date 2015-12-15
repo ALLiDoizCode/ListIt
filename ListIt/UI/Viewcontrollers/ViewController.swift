@@ -122,23 +122,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let controller:DetailViewController = segue.destinationViewController as! DetailViewController
-        
-        let index = tableView.indexPathForSelectedRow
-        
-        dispatch_async(dispatch_get_main_queue(), {
+        /*if segue.identifier == "Grid" {
             
-            controller.itemImage.kf_setImageWithURL(NSURL(string:self.itemData[index!.row].icon)!)
-            controller.itemTitle.text = self.itemData[index!.row].title
-            controller.price.text = "$\(self.itemData[index!.row].price)"
-            controller.name.text = "Jonathan"
-            //controller.theDescription.text = theItem.description
-            controller.shares.text = "\(self.itemData[index!.row].shares) Shares"
-            controller.comments.text = "\(self.itemData[index!.row].comments) Comments"
+             let controller:GridViewController = segue.destinationViewController as! GridViewController
             
-        });
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                controller.items = self.itemData
+                
+            });
+        }*/if segue.identifier == "Detail" {
+         
+            let controller:DetailViewController = segue.destinationViewController as! DetailViewController
+            
+            let index = tableView.indexPathForSelectedRow
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                controller.itemImage.kf_setImageWithURL(NSURL(string:self.itemData[index!.row].icon)!)
+                controller.itemTitle.text = self.itemData[index!.row].title
+                controller.price.text = "$\(self.itemData[index!.row].price)"
+                controller.name.text = "Jonathan"
+                //controller.theDescription.text = theItem.description
+                controller.shares.text = "\(self.itemData[index!.row].shares) Shares"
+                controller.comments.text = "\(self.itemData[index!.row].comments) Comments"
+                
+            });
+            
+        }
         
-    
     }
 
 

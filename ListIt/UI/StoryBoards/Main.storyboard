@@ -572,6 +572,9 @@
                     <navigationItem key="navigationItem" id="9PA-hp-Zfu">
                         <barButtonItem key="rightBarButtonItem" image="List-it_0000s_0000_View-Switcher" id="7U0-fQ-22T">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="EtQ-AA-ZqI" kind="show" identifier="Grid" id="hnI-Kv-xPD"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -581,6 +584,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D08-nS-JCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="304.5" y="2687.25"/>
+        </scene>
+        <!--Grid-->
+        <scene sceneID="huB-CY-1dH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Grid" referencedIdentifier="Grid" id="EtQ-AA-ZqI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pyz-Gn-qTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1115.25" y="2434.5"/>
         </scene>
         <!--DetailView-->
         <scene sceneID="4Zd-d9-rtE">
