@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var itemData:[item] = []
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
-    lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
+    lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 75, 20))
    
     @IBOutlet weak var tableView: UITableView!
  
@@ -118,6 +118,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         searchBar.placeholder = "Type Here"
         self.navigationItem.titleView = searchBar
+       
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

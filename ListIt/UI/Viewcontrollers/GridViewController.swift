@@ -13,15 +13,18 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
     let identifier = "GridCell"
     var items:[item] = []
+    var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
     
     let imageView:UIImageView = UIImageView()
+    lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 75, 20))
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     
     override func viewWillAppear(animated: Bool) {
         
-         setupCollectionView()
+            setupCollectionView()
+            setupSearchBar()
     }
     
     override func viewDidLoad() {
@@ -48,7 +51,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
             let collection :UICollectionView = self.collectionView!;
             collection.frame = screenBounds
             collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
-            collection.backgroundColor = UIColor.grayColor()
+            //collection.backgroundColor = UIColor.clearColor()
             collection.registerClass(GridCell.self, forCellWithReuseIdentifier: self.identifier)
                 
                 self.items = items
@@ -85,8 +88,13 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell: GridCell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! GridCell
+    
+        let ran = Int(arc4random_uniform(3))
+    
         cell.imageViewContent.kf_setImageWithURL(NSURL(string: items[indexPath.item].icon)!)
         cell.imageViewContent.contentMode = .ScaleAspectFit
+        cell.type.image = UIImage(named: itemType[ran])
+    
         cell.setNeedsLayout()
         return cell;
     }
@@ -94,6 +102,13 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return items.count;
     }
+    
+    func setupSearchBar(){
+        
+        searchBar.placeholder = "Type Here"
+        self.navigationItem.titleView = searchBar
+    }
+
     
 
     /*
