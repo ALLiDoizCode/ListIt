@@ -113,10 +113,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        self .performSegueWithIdentifier("Detail", sender: indexPath)
-    }
     
     func setupSearchBar(){
         
@@ -128,19 +124,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let controller:DetailViewController = segue.destinationViewController as! DetailViewController
         
-        let row = (sender as! NSIndexPath).row
-        
-        
+        let index = tableView.indexPathForSelectedRow
         
         dispatch_async(dispatch_get_main_queue(), {
             
-            controller.itemImage.kf_setImageWithURL(NSURL(string:self.itemData[row].icon)!)
-            controller.itemTitle.text = self.itemData[row].title
-            controller.price.text = "$\(self.itemData[row].price)"
+            controller.itemImage.kf_setImageWithURL(NSURL(string:self.itemData[index!.row].icon)!)
+            controller.itemTitle.text = self.itemData[index!.row].title
+            controller.price.text = "$\(self.itemData[index!.row].price)"
             controller.name.text = "Jonathan"
             //controller.theDescription.text = theItem.description
-            controller.shares.text = "\(self.itemData[row].shares) Shares"
-            controller.comments.text = "\(self.itemData[row].comments) Comments"
+            controller.shares.text = "\(self.itemData[index!.row].shares) Shares"
+            controller.comments.text = "\(self.itemData[index!.row].comments) Comments"
             
         });
         
