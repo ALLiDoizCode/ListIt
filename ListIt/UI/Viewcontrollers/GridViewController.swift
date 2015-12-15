@@ -92,7 +92,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
         let ran = Int(arc4random_uniform(3))
     
         cell.imageViewContent.kf_setImageWithURL(NSURL(string: items[indexPath.item].icon)!)
-        cell.imageViewContent.contentMode = .ScaleAspectFit
+        cell.imageViewContent.contentMode = .ScaleAspectFill
         cell.type.image = UIImage(named: itemType[ran])
     
         cell.setNeedsLayout()
