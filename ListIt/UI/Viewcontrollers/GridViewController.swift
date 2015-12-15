@@ -111,14 +111,36 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
 
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if let cell = sender as? GridCell, indexPath = collectionView.indexPathForCell(cell) {
+            
+            if segue.identifier == "Detail" {
+                
+                let controller:DetailViewController = segue.destinationViewController as! DetailViewController
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    controller.itemImage.kf_setImageWithURL(NSURL(string:self.items[indexPath.item].icon)!)
+                    controller.itemTitle.text = self.items[indexPath.item].title
+                    controller.price.text = "$\(self.items[indexPath.item].price)"
+                    controller.name.text = "Jonathan"
+                    //controller.theDescription.text = theItem.description
+                    controller.shares.text = "\(self.items[indexPath.item].shares) Shares"
+                    controller.comments.text = "\(self.items[indexPath.item].comments) Comments"
+                    
+                });
+                
+            }
+        }
+        
+        
+
     }
-    */
+    
 
 }

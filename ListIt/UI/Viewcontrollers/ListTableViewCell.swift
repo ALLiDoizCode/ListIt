@@ -24,6 +24,8 @@ class ListTableViewCell: UITableViewCell{
     
     override func awakeFromNib() {
         
+        self.selectionStyle = .None
+        
         theView.layer.borderWidth = 2
         theView.layer.borderColor = UIColor.whiteColor().CGColor
         theView.layer.cornerRadius = 3
