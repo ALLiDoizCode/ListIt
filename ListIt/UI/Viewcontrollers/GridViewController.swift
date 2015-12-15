@@ -14,13 +14,19 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     let identifier = "GridCell"
     var items:[item] = []
     
-    let parseData:getData = getData()
+    let imageView:UIImageView = UIImageView()
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        
+         setupCollectionView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupCollectionView()
         
         print(items.count)
 
@@ -33,9 +39,10 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     }
     
     func setupCollectionView(){
+        let parseData:getData = getData()
         
         //parseData fill the aray for the listview items with this
-        self.parseData.getItem { (items) -> Void in
+        parseData.getItem { (items) -> Void in
             
             
             let collection :UICollectionView = self.collectionView!;
@@ -43,15 +50,11 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
             collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
             collection.backgroundColor = UIColor.grayColor()
             collection.registerClass(GridCell.self, forCellWithReuseIdentifier: self.identifier)
-            
-            dispatch_async(dispatch_get_main_queue(), {
                 
                 self.items = items
                 
                 collection.reloadData()
                 
-            });
-            
 
             //the images are stored as url so as not to take up memory
             print("ItemIcon: \(items[0].icon)")
@@ -69,21 +72,21 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     // Mark delegates
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
         
-        var imageHeight:CGFloat!
+            imageView.kf_setImageWithURL(NSURL(string: self.items[indexPath.item].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
+            }
         
-        let imageView:UIImageView = UIImageView()
-        
-        imageView.kf_setImageWithURL(NSURL(string: items[indexPath.item].icon)!, placeholderImage: nil, optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
+        if  let imageHeight:CGFloat! = imageView.image!.size.height*gridWidth/imageView.image!.size.width {
             
-            imageHeight = image!.size.height*gridWidth/image!.size.width
+            return CGSizeMake(gridWidth, imageHeight)
         }
         
-        return CGSizeMake(gridWidth, imageHeight)
+        
     }
     
    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell: GridCell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! GridCell
         cell.imageViewContent.kf_setImageWithURL(NSURL(string: items[indexPath.item].icon)!)
+        cell.imageViewContent.contentMode = .ScaleAspectFit
         cell.setNeedsLayout()
         return cell;
     }
