@@ -16,6 +16,11 @@
 		4D1BBA361C1B7A6F007FE7DF /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BBA351C1B7A6F007FE7DF /* Items.swift */; };
 		4D1BBA391C1B7B93007FE7DF /* ItemsParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BBA381C1B7B93007FE7DF /* ItemsParse.swift */; };
 		4D1BBA3B1C1B7E88007FE7DF /* ParsePresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BBA3A1C1B7E88007FE7DF /* ParsePresenters.swift */; };
+		4D8BE7B81C1FC3A8005A9CB2 /* Grid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BE7B71C1FC3A8005A9CB2 /* Grid.storyboard */; };
+		4D8BE7BA1C1FC3C6005A9CB2 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7B91C1FC3C6005A9CB2 /* GridViewController.swift */; };
+		4D8BE7C01C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7BF1C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift */; };
+		4D8BE7C21C1FC735005A9CB2 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7C11C1FC735005A9CB2 /* Macro.swift */; };
+		4D8BE7C41C1FC77D005A9CB2 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7C31C1FC77D005A9CB2 /* GridCell.swift */; };
 		4DA39A801C18D74900B6F2DD /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA39A7F1C18D74900B6F2DD /* Client.swift */; };
 		4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */; };
 		4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E21C1788990010C471 /* Main.storyboard */; };
@@ -60,6 +65,11 @@
 		4D1BBA351C1B7A6F007FE7DF /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Items.swift; path = ../Items.swift; sourceTree = "<group>"; };
 		4D1BBA381C1B7B93007FE7DF /* ItemsParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsParse.swift; sourceTree = "<group>"; };
 		4D1BBA3A1C1B7E88007FE7DF /* ParsePresenters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsePresenters.swift; sourceTree = "<group>"; };
+		4D8BE7B71C1FC3A8005A9CB2 /* Grid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Grid.storyboard; sourceTree = "<group>"; };
+		4D8BE7B91C1FC3C6005A9CB2 /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		4D8BE7BF1C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
+		4D8BE7C11C1FC735005A9CB2 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
+		4D8BE7C31C1FC77D005A9CB2 /* GridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridCell.swift; path = ListIt/UI/Custom/GridCell.swift; sourceTree = SOURCE_ROOT; };
 		4DA39A7F1C18D74900B6F2DD /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DD5C0E21C1788990010C471 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -184,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD5C0E91C1789800010C471 /* Custom */,
+				4D8BE7BF1C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift */,
 				4DD5C0E81C1789640010C471 /* Views */,
 				4DD5C0E71C1789410010C471 /* CollectionViewCells */,
 				4DD5C0E61C17891D0010C471 /* TableVIewCells */,
@@ -199,6 +210,7 @@
 				4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */,
 				4DD5C0E21C1788990010C471 /* Main.storyboard */,
 				6B6695681C1F5CA4002395F1 /* Details.storyboard */,
+				4D8BE7B71C1FC3A8005A9CB2 /* Grid.storyboard */,
 			);
 			name = Storyboards;
 			path = StoryBoards;
@@ -218,6 +230,7 @@
 			children = (
 				4D0F5F211C171B8A001E4385 /* ViewController.swift */,
 				4DFF23761C1F826200298BAB /* DetailViewController.swift */,
+				4D8BE7B91C1FC3C6005A9CB2 /* GridViewController.swift */,
 			);
 			path = Viewcontrollers;
 			sourceTree = "<group>";
@@ -233,6 +246,7 @@
 		4DD5C0E71C1789410010C471 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				4D8BE7C31C1FC77D005A9CB2 /* GridCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -247,9 +261,9 @@
 		4DD5C0E91C1789800010C471 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				4D8BE7C11C1FC735005A9CB2 /* Macro.swift */,
 			);
-			name = Custom;
-			path = Custome;
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		4DD5C0EA1C1789AD0010C471 /* Header */ = {
@@ -397,6 +411,7 @@
 				4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */,
 				4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */,
 				4D0F5F271C171B8A001E4385 /* Assets.xcassets in Resources */,
+				4D8BE7B81C1FC3A8005A9CB2 /* Grid.storyboard in Resources */,
 				6B6695691C1F5CA4002395F1 /* Details.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,16 +486,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFF23771C1F826200298BAB /* DetailViewController.swift in Sources */,
+				4D8BE7C01C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
 				4D1BBA391C1B7B93007FE7DF /* ItemsParse.swift in Sources */,
 				4D1BBA3B1C1B7E88007FE7DF /* ParsePresenters.swift in Sources */,
 				4D1BBA331C1B3F96007FE7DF /* VenmoPresenter.swift in Sources */,
 				6B7F761D1C1E48AB00296332 /* ListTableViewCell.swift in Sources */,
 				4DD5C0F81C17B8D30010C471 /* User.swift in Sources */,
 				4DD5C0F41C17B3980010C471 /* Pay.swift in Sources */,
+				4D8BE7C21C1FC735005A9CB2 /* Macro.swift in Sources */,
 				4D0F5F221C171B8A001E4385 /* ViewController.swift in Sources */,
+				4D8BE7BA1C1FC3C6005A9CB2 /* GridViewController.swift in Sources */,
 				4D1BBA361C1B7A6F007FE7DF /* Items.swift in Sources */,
 				4DA39A801C18D74900B6F2DD /* Client.swift in Sources */,
 				4D0F5F201C171B8A001E4385 /* AppDelegate.swift in Sources */,
+				4D8BE7C41C1FC77D005A9CB2 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
