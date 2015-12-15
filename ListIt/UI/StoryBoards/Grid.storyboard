@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BNj-Gh-GUa" customClass="GridCell" customModule="ListIt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCell" id="BNj-Gh-GUa" customClass="GridCell" customModule="ListIt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -38,6 +38,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="iav-39-7rL" kind="show" identifier="Detail" id="6Tj-mP-x6s"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -91,6 +94,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5o-i0-NFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="960" y="-21.75"/>
+        </scene>
+        <!--DetailView-->
+        <scene sceneID="8Vm-Cm-J45">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Details" referencedIdentifier="DetailView" id="iav-39-7rL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="het-h5-Ngc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653.75" y="-123"/>
         </scene>
     </scenes>
 </document>

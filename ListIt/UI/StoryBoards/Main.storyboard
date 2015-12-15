@@ -524,6 +524,7 @@
                                             <outlet property="listShares" destination="AXf-0X-alK" id="IVy-I0-o37"/>
                                             <outlet property="listedTime" destination="NXS-n7-0ay" id="fZN-We-gHX"/>
                                             <outlet property="onlineIndicator" destination="YxC-Bj-i7s" id="csI-cH-1fB"/>
+                                            <outlet property="theView" destination="6WV-Ub-QO1" id="n72-qF-onq"/>
                                             <outlet property="userImage" destination="XtK-4b-mms" id="TXf-2a-zfW"/>
                                             <outlet property="userTypeIcon" destination="eKP-ZG-BzF" id="sB0-n6-lKs"/>
                                             <outlet property="usersName" destination="gtB-lW-GDb" id="6VI-7Z-j9R"/>
