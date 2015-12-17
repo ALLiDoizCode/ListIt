@@ -10,9 +10,17 @@ import UIKit
 
 class AddListingViewController: UIViewController {
 
+    @IBOutlet weak var MainImageView: UIScrollView!
+    @IBOutlet weak var firstImage: UIImageView!
+    
+    override func viewDidLayoutSubviews() {
+        
+       firstImage.layer.cornerRadius = 20
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
