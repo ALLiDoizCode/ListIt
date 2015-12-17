@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var theDescription: UILabel!
+    @IBOutlet weak var theDescription: UITextView!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var shares: UILabel!

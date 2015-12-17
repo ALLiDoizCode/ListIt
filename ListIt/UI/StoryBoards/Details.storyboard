@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -87,32 +86,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7U-JO-Cuf">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="z7U-JO-Cuf" secondAttribute="height" multiplier="38:13" id="Kn9-CX-7qp"/>
-                                    <constraint firstAttribute="height" constant="130" id="iNT-sg-50i"/>
-                                </constraints>
-                                <string key="text">As you wish. The Force is strong with this one. I have you now. I want to come with you to Alderaan. There's nothing for me here now. I want to learn the ways of the Force and be a Jedi, like my father before me.
-
-Remember, a Jedi can feel the Force flowing through him. </string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Kn9-CX-7qp"/>
-                                        <exclude reference="iNT-sg-50i"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <exclude reference="Kn9-CX-7qp"/>
-                                        <include reference="iNT-sg-50i"/>
-                                    </mask>
-                                </variation>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 hours ago by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzO-SJ-Cso">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
@@ -318,6 +291,32 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                     <action selector="message:" destination="D6p-oK-Tha" eventType="touchUpInside" id="kTQ-Tw-KV6"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-WW-9Da">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="nYP-Qp-brq">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="128"/>
+                                    </constraint>
+                                </constraints>
+                                <string key="text">As you wish. The Force is strong with this one. I have you now. I want to come with you to Alderaan. There's nothing for me here now. I want to learn the ways of the Force and be a Jedi, like my father before me.
+
+Remember, a Jedi can feel the Force flowing through him. </string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="nYP-Qp-brq"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="nYP-Qp-brq"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -338,6 +337,9 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <variation key="heightClass=regular-widthClass=compact" constant="2"/>
                             </constraint>
                             <constraint firstItem="Pw3-RT-AFM" firstAttribute="trailing" secondItem="eJK-QN-xnN" secondAttribute="trailing" id="Crm-yb-FbK"/>
+                            <constraint firstItem="zEq-WW-9Da" firstAttribute="top" secondItem="Oaj-xo-dn8" secondAttribute="bottom" constant="40" id="GJE-P6-bLd">
+                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                            </constraint>
                             <constraint firstItem="IdU-OV-3Jr" firstAttribute="top" secondItem="itI-Ov-Dtz" secondAttribute="bottom" constant="20" id="GJO-3N-7ND"/>
                             <constraint firstItem="z5c-zu-W0S" firstAttribute="top" secondItem="QK6-cQ-8Ps" secondAttribute="bottom" constant="16" id="GP0-hw-8Yb">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
@@ -358,14 +360,18 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                             </constraint>
                             <constraint firstItem="TNa-5h-m9N" firstAttribute="leading" secondItem="YFN-j6-1Wn" secondAttribute="leadingMargin" constant="-10" id="UM6-Rb-fgD"/>
                             <constraint firstItem="Vgj-4H-1r8" firstAttribute="bottom" secondItem="z5c-zu-W0S" secondAttribute="bottom" id="VX5-M5-C4i"/>
-                            <constraint firstItem="z7U-JO-Cuf" firstAttribute="top" secondItem="Oaj-xo-dn8" secondAttribute="bottom" constant="43" id="WuD-E9-QG4"/>
                             <constraint firstItem="IdU-OV-3Jr" firstAttribute="top" secondItem="Pw3-RT-AFM" secondAttribute="bottom" id="XLT-et-v8P"/>
                             <constraint firstItem="eJK-QN-xnN" firstAttribute="top" secondItem="YFN-j6-1Wn" secondAttribute="topMargin" id="Z7b-dR-ieK"/>
                             <constraint firstItem="itI-Ov-Dtz" firstAttribute="bottom" secondItem="jzO-SJ-Cso" secondAttribute="bottom" id="aRt-qd-Cow"/>
-                            <constraint firstItem="z7U-JO-Cuf" firstAttribute="leading" secondItem="YFN-j6-1Wn" secondAttribute="leadingMargin" constant="-10" id="aj7-kq-HG1"/>
+                            <constraint firstItem="zEq-WW-9Da" firstAttribute="leading" secondItem="Pw3-RT-AFM" secondAttribute="leading" id="c0j-80-Bf3">
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="Pw3-RT-AFM" firstAttribute="leading" secondItem="YFN-j6-1Wn" secondAttribute="leadingMargin" constant="-20" id="c9D-nL-5uo"/>
                             <constraint firstItem="IdU-OV-3Jr" firstAttribute="top" secondItem="z5c-zu-W0S" secondAttribute="bottom" constant="20" id="cIc-A7-4nV"/>
                             <constraint firstItem="IdU-OV-3Jr" firstAttribute="top" secondItem="Vgj-4H-1r8" secondAttribute="bottom" constant="20" id="cRY-Hy-swu"/>
+                            <constraint firstItem="zEq-WW-9Da" firstAttribute="trailing" secondItem="Pw3-RT-AFM" secondAttribute="trailing" id="dtU-J8-w1l">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-10"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="QK6-cQ-8Ps" secondAttribute="trailing" constant="-10" id="eRL-76-GWG">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -377,7 +383,6 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                             <constraint firstAttribute="trailingMargin" secondItem="2hi-x4-ms3" secondAttribute="trailing" constant="-20" id="jvi-qp-acG"/>
                             <constraint firstItem="D7B-47-idV" firstAttribute="leading" secondItem="itI-Ov-Dtz" secondAttribute="trailing" constant="13" id="lFu-bs-Vux"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oaj-xo-dn8" secondAttribute="trailing" constant="-10" id="lNe-T7-CrS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="z7U-JO-Cuf" secondAttribute="trailing" constant="-10" id="naD-7A-p9s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pw3-RT-AFM" secondAttribute="trailing" constant="-20" id="rUK-xk-6kw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="z5c-zu-W0S" secondAttribute="trailing" constant="-10" id="sLq-Qx-nRV"/>
                             <constraint firstItem="Vgj-4H-1r8" firstAttribute="bottom" secondItem="jzO-SJ-Cso" secondAttribute="bottom" id="sc4-Cw-scB"/>
@@ -398,7 +403,6 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="2hi-x4-ms3"/>
                                 <exclude reference="Pw3-RT-AFM"/>
                                 <exclude reference="D7B-47-idV"/>
-                                <exclude reference="z7U-JO-Cuf"/>
                                 <exclude reference="jzO-SJ-Cso"/>
                                 <exclude reference="itI-Ov-Dtz"/>
                                 <exclude reference="Vgj-4H-1r8"/>
@@ -407,6 +411,7 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="Oaj-xo-dn8"/>
                                 <exclude reference="TNa-5h-m9N"/>
                                 <exclude reference="QK6-cQ-8Ps"/>
+                                <exclude reference="zEq-WW-9Da"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Hb3-gJ-Z9b"/>
@@ -423,9 +428,9 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="rUK-xk-6kw"/>
                                 <exclude reference="9mh-KT-F7n"/>
                                 <exclude reference="UM6-Rb-fgD"/>
-                                <exclude reference="WuD-E9-QG4"/>
-                                <exclude reference="aj7-kq-HG1"/>
-                                <exclude reference="naD-7A-p9s"/>
+                                <exclude reference="GJE-P6-bLd"/>
+                                <exclude reference="c0j-80-Bf3"/>
+                                <exclude reference="dtU-J8-w1l"/>
                                 <exclude reference="lNe-T7-CrS"/>
                                 <exclude reference="JNd-gD-XFr"/>
                                 <exclude reference="QJw-rz-qJP"/>
@@ -433,10 +438,10 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="19D-YQ-N6X"/>
                                 <exclude reference="CSp-xn-O4N"/>
                                 <exclude reference="aRt-qd-Cow"/>
+                                <exclude reference="eRL-76-GWG"/>
                                 <exclude reference="0aZ-EU-5i6"/>
                                 <exclude reference="C1Y-m3-0uh"/>
                                 <exclude reference="lFu-bs-Vux"/>
-                                <exclude reference="eRL-76-GWG"/>
                                 <exclude reference="GJO-3N-7ND"/>
                                 <exclude reference="Qrg-uA-Xlu"/>
                                 <exclude reference="XLT-et-v8P"/>
@@ -460,7 +465,6 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="2hi-x4-ms3"/>
                                 <include reference="Pw3-RT-AFM"/>
                                 <include reference="D7B-47-idV"/>
-                                <include reference="z7U-JO-Cuf"/>
                                 <include reference="jzO-SJ-Cso"/>
                                 <include reference="itI-Ov-Dtz"/>
                                 <include reference="Vgj-4H-1r8"/>
@@ -469,6 +473,7 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="Oaj-xo-dn8"/>
                                 <include reference="TNa-5h-m9N"/>
                                 <include reference="QK6-cQ-8Ps"/>
+                                <include reference="zEq-WW-9Da"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Hb3-gJ-Z9b"/>
@@ -485,9 +490,9 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="rUK-xk-6kw"/>
                                 <include reference="9mh-KT-F7n"/>
                                 <include reference="UM6-Rb-fgD"/>
-                                <include reference="WuD-E9-QG4"/>
-                                <include reference="aj7-kq-HG1"/>
-                                <include reference="naD-7A-p9s"/>
+                                <include reference="GJE-P6-bLd"/>
+                                <include reference="c0j-80-Bf3"/>
+                                <include reference="dtU-J8-w1l"/>
                                 <include reference="lNe-T7-CrS"/>
                                 <include reference="JNd-gD-XFr"/>
                                 <exclude reference="QJw-rz-qJP"/>
@@ -495,10 +500,10 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="19D-YQ-N6X"/>
                                 <include reference="CSp-xn-O4N"/>
                                 <exclude reference="aRt-qd-Cow"/>
+                                <include reference="eRL-76-GWG"/>
                                 <include reference="0aZ-EU-5i6"/>
                                 <exclude reference="C1Y-m3-0uh"/>
                                 <exclude reference="lFu-bs-Vux"/>
-                                <include reference="eRL-76-GWG"/>
                                 <exclude reference="GJO-3N-7ND"/>
                                 <exclude reference="Qrg-uA-Xlu"/>
                                 <include reference="XLT-et-v8P"/>
@@ -527,7 +532,7 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                         <outlet property="name" destination="itI-Ov-Dtz" id="8KI-NG-VQI"/>
                         <outlet property="price" destination="Oaj-xo-dn8" id="JoH-sT-xWm"/>
                         <outlet property="shares" destination="Vgj-4H-1r8" id="Ck5-Ma-qy0"/>
-                        <outlet property="theDescription" destination="z7U-JO-Cuf" id="pg3-8r-eeI"/>
+                        <outlet property="theDescription" destination="zEq-WW-9Da" id="Yoz-Cl-kg2"/>
                         <outlet property="time" destination="jzO-SJ-Cso" id="drx-c9-Zei"/>
                     </connections>
                 </viewController>
