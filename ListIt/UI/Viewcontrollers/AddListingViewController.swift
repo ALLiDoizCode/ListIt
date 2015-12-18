@@ -8,19 +8,35 @@
 
 import UIKit
 
-class AddListingViewController: UIViewController {
+class AddListingViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var MainImageView: UIScrollView!
     @IBOutlet weak var firstImage: UIImageView!
     
-    override func viewDidLayoutSubviews() {
-        
-       firstImage.layer.cornerRadius = 20
-    }
+    @IBOutlet weak var secondImage: UIImageView!
+    @IBOutlet weak var thirdImage: UIImageView!
     
+    @IBOutlet weak var headline: UITextField!
+    @IBOutlet weak var shortDescription: UITextField!
+    
+    
+    override func viewDidLayoutSubviews()
+    {
+        
+        firstImage.layer.cornerRadius = 10
+        firstImage.layer.masksToBounds = true
+        
+        secondImage.layer.cornerRadius = 10
+        secondImage.layer.masksToBounds = true
+        
+        thirdImage.layer.cornerRadius = 10
+        thirdImage.layer.masksToBounds = true
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         // Do any additional setup after loading the view.
     }
 
