@@ -16,8 +16,17 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var secondImage: UIImageView!
     @IBOutlet weak var thirdImage: UIImageView!
     
+  
     @IBOutlet weak var headline: UITextField!
     @IBOutlet weak var shortDescription: UITextField!
+    @IBOutlet weak var listingType: UILabel!
+    @IBOutlet weak var selectCategory: UILabel!
+    @IBOutlet weak var listPrice: UITextField!
+    
+    @IBOutlet weak var shareFacebook: UITextField!
+    @IBOutlet weak var shareToggle: UISwitch!
+    
+    
     
     
     override func viewDidLayoutSubviews()
@@ -32,6 +41,7 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
         thirdImage.layer.cornerRadius = 10
         thirdImage.layer.masksToBounds = true
         
+         shareToggle.transform = CGAffineTransformMakeScale(0.75, 0.75)
         
     }
     override func viewDidLoad() {
@@ -39,7 +49,13 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
        
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setToolbarHidden(true, animated: animated)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,5 +71,7 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }
