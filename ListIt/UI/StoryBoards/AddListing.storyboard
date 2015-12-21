@@ -15,15 +15,12 @@
                         <viewControllerLayoutGuide type="bottom" id="oul-LF-duo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Bdc-oN-psB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="List it-UI_0004s_0000_BG-pattern" translatesAutoresizingMaskIntoConstraints="NO" id="SWF-iZ-Zk3">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="-14" width="400" height="814"/>
-                                </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLW-OF-EkV">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -721,24 +718,24 @@
                                 <exclude reference="ZeX-IG-OG1"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="iWN-Z1-5Qo"/>
+                                <exclude reference="uy2-OQ-PDh"/>
+                                <exclude reference="4J7-VL-tjC"/>
+                                <exclude reference="fES-nB-eCh"/>
+                                <exclude reference="R4K-RW-d3W"/>
+                                <exclude reference="fae-E4-09d"/>
+                                <exclude reference="ZJR-85-bFM"/>
+                                <exclude reference="nRS-01-sFY"/>
+                                <exclude reference="5zk-UO-X4q"/>
+                                <exclude reference="ZhL-UF-3gT"/>
+                                <exclude reference="BVo-qr-xEV"/>
+                                <exclude reference="KKc-QG-IPg"/>
+                                <exclude reference="Zik-Uo-tUx"/>
                                 <exclude reference="2ID-jr-FSO"/>
                                 <exclude reference="G5n-dD-R6A"/>
                                 <exclude reference="kCD-pN-jwo"/>
-                                <exclude reference="9dU-uC-zsX"/>
-                                <exclude reference="ZJR-85-bFM"/>
-                                <exclude reference="nRS-01-sFY"/>
                                 <exclude reference="Uwi-wP-xQX"/>
-                                <exclude reference="4J7-VL-tjC"/>
-                                <exclude reference="BVo-qr-xEV"/>
-                                <exclude reference="fES-nB-eCh"/>
-                                <exclude reference="KKc-QG-IPg"/>
-                                <exclude reference="R4K-RW-d3W"/>
-                                <exclude reference="Zik-Uo-tUx"/>
-                                <exclude reference="fae-E4-09d"/>
-                                <exclude reference="ZhL-UF-3gT"/>
-                                <exclude reference="iWN-Z1-5Qo"/>
-                                <exclude reference="uy2-OQ-PDh"/>
-                                <exclude reference="5zk-UO-X4q"/>
+                                <exclude reference="9dU-uC-zsX"/>
                                 <exclude reference="8VI-sp-I0N"/>
                             </mask>
                         </variation>
@@ -750,24 +747,24 @@
                                 <include reference="ZeX-IG-OG1"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="iWN-Z1-5Qo"/>
+                                <include reference="uy2-OQ-PDh"/>
+                                <include reference="4J7-VL-tjC"/>
+                                <include reference="fES-nB-eCh"/>
+                                <include reference="R4K-RW-d3W"/>
+                                <include reference="fae-E4-09d"/>
+                                <include reference="ZJR-85-bFM"/>
+                                <include reference="nRS-01-sFY"/>
+                                <include reference="5zk-UO-X4q"/>
+                                <include reference="ZhL-UF-3gT"/>
+                                <include reference="BVo-qr-xEV"/>
+                                <include reference="KKc-QG-IPg"/>
+                                <exclude reference="Zik-Uo-tUx"/>
                                 <include reference="2ID-jr-FSO"/>
                                 <include reference="G5n-dD-R6A"/>
                                 <exclude reference="kCD-pN-jwo"/>
-                                <include reference="9dU-uC-zsX"/>
-                                <include reference="ZJR-85-bFM"/>
-                                <include reference="nRS-01-sFY"/>
                                 <exclude reference="Uwi-wP-xQX"/>
-                                <include reference="4J7-VL-tjC"/>
-                                <include reference="BVo-qr-xEV"/>
-                                <include reference="fES-nB-eCh"/>
-                                <include reference="KKc-QG-IPg"/>
-                                <include reference="R4K-RW-d3W"/>
-                                <exclude reference="Zik-Uo-tUx"/>
-                                <include reference="fae-E4-09d"/>
-                                <include reference="ZhL-UF-3gT"/>
-                                <include reference="iWN-Z1-5Qo"/>
-                                <include reference="uy2-OQ-PDh"/>
-                                <include reference="5zk-UO-X4q"/>
+                                <include reference="9dU-uC-zsX"/>
                                 <include reference="8VI-sp-I0N"/>
                             </mask>
                         </variation>
@@ -795,38 +792,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJB-VS-gUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1935" y="1071"/>
-        </scene>
-        <!--Sell-->
-        <scene sceneID="6PY-e7-fKA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="KWw-aR-b9g" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <tabBarItem key="tabBarItem" title="Sell" image="List-it_0001s_0002s_0000_Camera-Icon" selectedImage="List-it_0001s_0002s_0000_Camera-Icon" id="gD9-qH-vd0"/>
-                    <toolbarItems/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gOo-bo-Z9p">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                            <color key="textColor" red="0.92156862750000001" green="0.90588235289999997" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Qnk-Sm-GTi">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="oqD-lq-dMX" kind="relationship" relationship="rootViewController" id="MyW-me-q2M"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SWZ-Oq-bR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1123" y="1071"/>
         </scene>
     </scenes>
     <resources>
