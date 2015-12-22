@@ -12,7 +12,6 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var MainImageView: UIScrollView!
     @IBOutlet weak var firstImage: UIImageView!
-    
     @IBOutlet weak var secondImage: UIImageView!
     @IBOutlet weak var thirdImage: UIImageView!
     
@@ -27,6 +26,8 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var shareToggle: UISwitch!
     
     
+    @IBAction func listItButton(sender: UIButton) {
+    }
     
     
     override func viewDidLayoutSubviews()
@@ -42,6 +43,8 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
         thirdImage.layer.masksToBounds = true
         
          shareToggle.transform = CGAffineTransformMakeScale(0.75, 0.75)
+        
+        
         
     }
     override func viewDidLoad() {
