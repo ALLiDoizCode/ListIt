@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import Bolts
 import Venmo_iOS_SDK
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appName = "List-it"
         
         Venmo.startWithAppId(appId, secret: secert, name: appName)
+        
+        //enables IQKeyboardManager
+        IQKeyboardManager.sharedManager().enable = true
         
         return true
     }

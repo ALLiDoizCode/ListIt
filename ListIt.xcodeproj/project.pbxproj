@@ -27,6 +27,7 @@
 		4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E21C1788990010C471 /* Main.storyboard */; };
 		4DD5C0F41C17B3980010C471 /* Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5C0F31C17B3980010C471 /* Pay.swift */; };
 		4DD5C0F81C17B8D30010C471 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5C0F71C17B8D30010C471 /* User.swift */; };
+		4DE01E1A1C29604900BDFBB1 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE01E191C29604900BDFBB1 /* SweetAlert.swift */; };
 		4DFF23771C1F826200298BAB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFF23761C1F826200298BAB /* DetailViewController.swift */; };
 		6B161B521C29010C00AA4346 /* IGLDropDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B161B4F1C29010C00AA4346 /* IGLDropDownItem.m */; };
 		6B161B531C29010C00AA4346 /* IGLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B161B511C29010C00AA4346 /* IGLDropDownMenu.m */; };
@@ -81,6 +82,7 @@
 		4DD5C0EB1C1789C10010C471 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		4DD5C0F31C17B3980010C471 /* Pay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pay.swift; sourceTree = "<group>"; };
 		4DD5C0F71C17B8D30010C471 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4DE01E191C29604900BDFBB1 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		4DFF23761C1F826200298BAB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6B161B4E1C29010C00AA4346 /* IGLDropDownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownItem.h; sourceTree = "<group>"; };
 		6B161B4F1C29010C00AA4346 /* IGLDropDownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownItem.m; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		4DD5C0E91C1789800010C471 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				4DE01E191C29604900BDFBB1 /* SweetAlert.swift */,
 				4D8BE7C11C1FC735005A9CB2 /* Macro.swift */,
 			);
 			path = Custom;
@@ -527,6 +530,7 @@
 				4D1BBA361C1B7A6F007FE7DF /* Items.swift in Sources */,
 				4DA39A801C18D74900B6F2DD /* Client.swift in Sources */,
 				4D0F5F201C171B8A001E4385 /* AppDelegate.swift in Sources */,
+				4DE01E1A1C29604900BDFBB1 /* SweetAlert.swift in Sources */,
 				4D8BE7C41C1FC77D005A9CB2 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

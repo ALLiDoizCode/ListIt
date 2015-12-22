@@ -137,14 +137,28 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                 let indexPaths = self.collectionView!.indexPathsForSelectedItems()
                 let indexPath = indexPaths![0] 
                 
+                let placeholder = UIImage(named: "placeholder")
+                
                 let controller:DetailViewController = segue.destinationViewController as! DetailViewController
-                    controller.itemImage.kf_setImageWithURL(NSURL(string:self.items[indexPath.item].icon)!)
-                    controller.itemTitle.text = self.items[indexPath.item].title
-                    controller.price.text = "$\(self.items[indexPath.item].price)"
-                    controller.name.text = "Jonathan"
-                    //controller.theDescription.text = theItem.description
-                    controller.shares.text = "\(self.items[indexPath.item].shares) Shares"
-                    controller.comments.text = "\(self.items[indexPath.item].comments) Comments"
+                
+                let imageView = UIImageView()
+                    imageView.kf_setImageWithURL(NSURL(string:self.items[indexPath.item].icon)!, placeholderImage: placeholder, optionsInfo: nil, completionHandler: { (image, error, cacheType, imageURL) -> () in
+                        
+                        if let theImage = image {
+                            
+                            controller.itemImage!.image = theImage
+                            controller.itemTitle.text = self.items[indexPath.item].title
+                            controller.price.text = "$\(self.items[indexPath.item].price)"
+                            controller.name.text = "Jonathan"
+                            controller.theDescription.text = self.items[indexPath.item].desc
+                            controller.shares.text = "\(self.items[indexPath.item].shares) Shares"
+                            controller.comments.text = "\(self.items[indexPath.item].comments) Comments"
+                        }
+                        
+                        
+                        
+                    })
+                
                     
                 });
                 

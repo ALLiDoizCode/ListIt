@@ -88,6 +88,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
          let ran = Int(arc4random_uniform(3))
         
+        itemData = itemData.reverse()
+        
         cell.listHeadingTitle.text = itemData[indexPath.row].title
         cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!)
         cell.userImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!)
@@ -96,6 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.usersName.text = "Jonathan"
         cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
         cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
+        
         
        
         
@@ -139,11 +142,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             dispatch_async(dispatch_get_main_queue(), {
                 
-                controller.itemImage.kf_setImageWithURL(NSURL(string:self.itemData[index!.row].icon)!)
+                controller.itemImage!.kf_setImageWithURL(NSURL(string:self.itemData[index!.row].icon)!)
                 controller.itemTitle.text = self.itemData[index!.row].title
                 controller.price.text = "$\(self.itemData[index!.row].price)"
                 controller.name.text = "Jonathan"
-                //controller.theDescription.text = theItem.description
+                controller.theDescription.text = self.itemData[index!.row].desc
                 controller.shares.text = "\(self.itemData[index!.row].shares) Shares"
                 controller.comments.text = "\(self.itemData[index!.row].comments) Comments"
                 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HCG-pb-dqi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HCG-pb-dqi">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -609,7 +609,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="s0Q-tH-EM2">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="HCG-pb-dqi" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Listing" automaticallyAdjustsScrollViewInsets="NO" id="HCG-pb-dqi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Ytu-iC-yzl">
                         <autoresizingMask key="autoresizingMask"/>
@@ -620,7 +620,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ecP-dj-H2Z" kind="relationship" relationship="viewControllers" id="Lch-Dm-E2W"/>
-                        <segue destination="qAu-f6-O9r" kind="relationship" relationship="viewControllers" id="xx9-sm-TZ4"/>
+                        <segue destination="HE3-EB-Rdz" kind="relationship" relationship="viewControllers" id="JcU-nY-9uY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4U-1f-jE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -769,38 +769,37 @@
         <scene sceneID="rGg-e6-5J3">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="addListing" storyboardName="AddListing" referencedIdentifier="addListing" id="FCg-WT-pOY" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="2Zz-X2-Rfu"/>
+                    <navigationItem key="navigationItem" id="2Zz-X2-Rfu">
+                        <barButtonItem key="backBarButtonItem" id="qan-J5-kXy"/>
+                    </navigationItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n36-gx-Kad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1885" y="1286"/>
+            <point key="canvasLocation" x="1824" y="1060.5"/>
         </scene>
-        <!--Sell-->
-        <scene sceneID="6mN-Jn-G7Q">
+        <!--Item-->
+        <scene sceneID="MnK-7T-oqv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qAu-f6-O9r" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Sell" image="List-it_0001s_0002s_0000_Camera-Icon" selectedImage="List-it_0001s_0002s_0000_Camera-Icon" id="ffc-0d-qLo"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HE3-EB-Rdz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="List-it_0001s_0002s_0000_Camera-Icon" id="UnW-Kq-bzl"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" translucent="NO" id="CVN-vz-JLP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pEh-Q2-Mzr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.92156862750000001" green="0.90588235289999997" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="FCg-WT-pOY" kind="relationship" relationship="rootViewController" id="BLU-5Q-moO"/>
+                        <segue destination="FCg-WT-pOY" kind="relationship" relationship="rootViewController" id="eom-NF-UVt"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6aj-pk-Bhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8l-VL-Dqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073" y="1286"/>
+            <point key="canvasLocation" x="1066.5" y="1285.5"/>
         </scene>
     </scenes>
     <resources>

@@ -24,6 +24,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImagePickerSheetController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -45,6 +55,11 @@
 			<false/>
 		</dict>
 		<key>SwiftEventBus.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftSpinner.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -77,11 +92,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2B5918197FE8B39BFBC2B47D8391A7D1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>401B69996D2F98D180B81D39ABA82EA3</key>
 		<dict>
 			<key>primary</key>
@@ -107,22 +117,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>877D10D6A7B05EFE42780B03EA06495B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>96B69D4D7C2927F8470D476D360CF4A7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>ABBA5A8F84FE3363C0E072D6048D6A43</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B1CA5D8986E6C0CBE55C1457CC9F8754</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,11 +128,6 @@
 			<true/>
 		</dict>
 		<key>B831DF8BFEE23B6C1C1E4E6CD43471DE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E84D294BDB39197A9A6AC65449CE32DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

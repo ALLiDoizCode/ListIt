@@ -20,7 +20,7 @@ class getItems {
     
     var items:[item] = []
     
-    func addItem(icon:UIImage,icon2:UIImage,icon3:UIImage,userIcon:String,title:String,price:Float,shares:String,comments:String,desc:String,type:String,category:String) {
+    func addItem(icon:UIImage,icon2:UIImage,icon3:UIImage,userIcon:UIImage,title:String,price:Float,shares:String,comments:String,desc:String,type:String,category:String) {
         
         
         let iconData = UIImageJPEGRepresentation(icon, 0.5)
@@ -32,10 +32,13 @@ class getItems {
         let iconData3 = UIImageJPEGRepresentation(icon3, 0.5)
         let iconFile3 = PFFile(name:"image.png", data:iconData3!)
         
+        let userIconData = UIImageJPEGRepresentation(userIcon, 0.5)
+        let userIconFile = PFFile(name:"image.png", data:userIconData!)
+        
         newItem["Icon"] = iconFile
         newItem["Icon2"] = iconFile2
         newItem["Icon3"] = iconFile3
-        newItem["UserIcon"] = userIcon
+        newItem["UserIcon"] = userIconFile
         newItem["Title"] = title
         newItem["Price"] = price
         newItem["Shares"] = shares
@@ -44,17 +47,18 @@ class getItems {
         newItem["Category"] = category
         newItem["Type"] = type
         
-        newItem.saveEventually { (result, error) -> Void in
+        newItem.saveInBackgroundWithBlock { (status, error) -> Void in
             
             if error == nil {
-                
                 print("item saved")
+                
+                SwiftEventBus.postToMainThread("ItemSaved")
+                
             }else {
                 
                 print("error: \(error?.description)")
             }
         }
-        
     }
     
     func itemsList(){
@@ -73,8 +77,9 @@ class getItems {
                         let theShares = object.objectForKey("Shares") as! String!
                         let theComments = object.objectForKey("Comments") as! String!
                         let thePrice = object.objectForKey("Price") as! Int!
+                        let theDesc = object.objectForKey("Description") as! String
                         
-                        let theItem:item = item(theIcon: theIcon.url!, theUserIcon: theUserIcon.url!, theTitle: theTitle, theShares: theShares, theComments: theComments, thePrice: thePrice)
+                        let theItem:item = item(theIcon: theIcon.url!, theUserIcon: theUserIcon.url!, theTitle: theTitle, theShares: theShares, theComments: theComments, thePrice: thePrice,theDesc:theDesc)
                         
                         self.items.append(theItem)
                     }
