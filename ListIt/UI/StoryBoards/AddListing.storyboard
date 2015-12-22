@@ -318,13 +318,6 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  $  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQc-lV-jfx">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gat-PW-Bwm">
                                         <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                         <animations/>
@@ -384,6 +377,13 @@
                                             </mask>
                                         </variation>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  $  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQc-lV-jfx">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <switch contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Hc-hr-CNC">
                                         <rect key="frame" x="-25" y="-15" width="51" height="31"/>
                                         <animations/>
@@ -544,10 +544,10 @@
                                         <exclude reference="I5q-ZM-gG8"/>
                                         <exclude reference="QwB-7D-fet"/>
                                         <exclude reference="EGg-rI-YEh"/>
-                                        <exclude reference="GQc-lV-jfx"/>
                                         <exclude reference="Gat-PW-Bwm"/>
                                         <exclude reference="Ial-rC-bPk"/>
                                         <exclude reference="lHI-yE-2MT"/>
+                                        <exclude reference="GQc-lV-jfx"/>
                                         <exclude reference="2Hc-hr-CNC"/>
                                     </mask>
                                     <mask key="constraints">
@@ -621,10 +621,10 @@
                                         <include reference="I5q-ZM-gG8"/>
                                         <include reference="QwB-7D-fet"/>
                                         <include reference="EGg-rI-YEh"/>
-                                        <include reference="GQc-lV-jfx"/>
                                         <include reference="Gat-PW-Bwm"/>
                                         <include reference="Ial-rC-bPk"/>
                                         <include reference="lHI-yE-2MT"/>
+                                        <include reference="GQc-lV-jfx"/>
                                         <include reference="2Hc-hr-CNC"/>
                                     </mask>
                                     <mask key="constraints">

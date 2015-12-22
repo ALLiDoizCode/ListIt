@@ -11,12 +11,23 @@ import UIKit
 class AddListingViewController: UIViewController, UIScrollViewDelegate, IGLDropDownMenuDelegate {
 
     var dropDownMenu = IGLDropDownMenu()
+    var dropDownMenuTwo = IGLDropDownMenu()
+    
     
     var dataImage:NSArray = [
         "Business_icon_small.png",
         "Individual_Icon.png",
         "Group_Icon.png"]
     var dataTitle:NSArray = [
+        "Business",
+        "Individual",
+        "Community"]
+    
+    var  categoryImage:NSArray = [
+        "Business_icon_small.png",
+        "Individual_Icon.png",
+        "Group_Icon.png"]
+    var categirtTitle:NSArray = [
         "Business",
         "Individual",
         "Community"]
@@ -63,7 +74,10 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate, IGLDropD
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        
        setupInit()
+       setupCategory()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -91,10 +105,10 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate, IGLDropD
         
         dropDownMenu.menuText = "Select listing type"
         dropDownMenu.dropDownItems = dropdownItems as [AnyObject]
-        dropDownMenu.paddingLeft = 15
+        dropDownMenu.paddingLeft = 2
         dropDownMenu.frame = CGRectMake((self.view.frame.size.width/2) - 150, 298, 300, 25)
         dropDownMenu.delegate = self
-        dropDownMenu.type = IGLDropDownMenuType.Stack
+        dropDownMenu.type = IGLDropDownMenuType.Normal
         dropDownMenu.gutterY = 13
         dropDownMenu.itemAnimationDelay = 0.1
         //dropDownMenu.rotate = IGLDropDownMenuRotate.Random //add rotate value for tilting the
@@ -111,6 +125,43 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate, IGLDropD
         
         
     }
+    
+    func setupCategory() {
+        
+        let dropdownItems:NSMutableArray = NSMutableArray()
+        
+        for i in 0...(dataTitle.count-1) {
+            
+            let item = IGLDropDownItem()
+            item.iconImage = UIImage(named: "\(dataImage[i])")
+            item.text = "\(dataTitle[i])"
+            dropdownItems.addObject(item)
+        }
+        
+        dropDownMenuTwo.menuText = "Select a category"
+        dropDownMenuTwo.dropDownItems = dropdownItems as [AnyObject]
+        dropDownMenuTwo.paddingLeft = 2
+        dropDownMenuTwo.frame = CGRectMake((self.view.frame.size.width/2) - 150, 336, 300, 25)
+        dropDownMenuTwo.delegate = self
+        dropDownMenu.type = IGLDropDownMenuType.Normal
+        dropDownMenuTwo.gutterY = 13
+        dropDownMenuTwo.itemAnimationDelay = 0.1
+        //dropDownMenu.rotate = IGLDropDownMenuRotate.Random //add rotate value for tilting the
+        dropDownMenuTwo.reloadView()
+        
+        
+        self.view.addSubview(self.dropDownMenuTwo)
+        
+    }
+    
+    func dropDownMenuTwo(dropDownMenuTwo: IGLDropDownMenu!, selectedItemAtIndex index: Int) {
+        
+        let item:IGLDropDownItem = dropDownMenuTwo.dropDownItems[index] as! IGLDropDownItem
+        
+        
+    }
+    
+    
     
     
 
