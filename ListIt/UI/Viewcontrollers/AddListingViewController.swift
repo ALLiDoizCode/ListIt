@@ -150,7 +150,7 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate, IGLDropD
         dropDownMenuTwo.reloadView()
         
         
-        self.view.addSubview(self.dropDownMenuTwo)
+        self.view.insertSubview(self.dropDownMenuTwo, belowSubview: self.dropDownMenu)
         
     }
     
