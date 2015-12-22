@@ -13,13 +13,12 @@ import Kingfisher
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    let venmo:PresentVenmo = PresentVenmo()
-    let user:User = User()
+    
     let parseData:getData = getData()
     
     var itemData:[item] = []
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
-    lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
+    lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 75, 20))
    
     @IBOutlet weak var tableView: UITableView!
  
@@ -81,7 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return itemData.count
     }
     
- 
+   
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
@@ -113,10 +112,45 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    
     func setupSearchBar(){
         
         searchBar.placeholder = "Type Here"
         self.navigationItem.titleView = searchBar
+       
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        /*if segue.identifier == "Grid" {
+            
+             let controller:GridViewController = segue.destinationViewController as! GridViewController
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                controller.items = self.itemData
+                
+            });
+        }*/if segue.identifier == "Detail" {
+         
+            let controller:DetailViewController = segue.destinationViewController as! DetailViewController
+            
+            let index = tableView.indexPathForSelectedRow
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                controller.itemImage.kf_setImageWithURL(NSURL(string:self.itemData[index!.row].icon)!)
+                controller.itemTitle.text = self.itemData[index!.row].title
+                controller.price.text = "$\(self.itemData[index!.row].price)"
+                controller.name.text = "Jonathan"
+                //controller.theDescription.text = theItem.description
+                controller.shares.text = "\(self.itemData[index!.row].shares) Shares"
+                controller.comments.text = "\(self.itemData[index!.row].comments) Comments"
+                
+            });
+            
+        }
+        
     }
 
 

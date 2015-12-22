@@ -14,11 +14,50 @@ import SwiftEventBus
 
 class getItems {
     
+    let newItem = PFObject(className:"Items")
+    
+    let query = PFQuery(className: "Items")
+    
     var items:[item] = []
     
-    func itemsList(){
+    func addItem(icon:UIImage,icon2:UIImage,icon3:UIImage,userIcon:String,title:String,price:Float,shares:String,comments:String,desc:String,type:String,category:String) {
         
-        let query = PFQuery(className: "Items")
+        
+        let iconData = UIImageJPEGRepresentation(icon, 0.5)
+        let iconFile = PFFile(name:"image.png", data:iconData!)
+        
+        let iconData2 = UIImageJPEGRepresentation(icon2, 0.5)
+        let iconFile2 = PFFile(name:"image.png", data:iconData2!)
+        
+        let iconData3 = UIImageJPEGRepresentation(icon3, 0.5)
+        let iconFile3 = PFFile(name:"image.png", data:iconData3!)
+        
+        newItem["Icon"] = iconFile
+        newItem["Icon2"] = iconFile2
+        newItem["Icon3"] = iconFile3
+        newItem["UserIcon"] = userIcon
+        newItem["Title"] = title
+        newItem["Price"] = price
+        newItem["Shares"] = shares
+        newItem["Comments"] = comments
+        newItem["Description"] = desc
+        newItem["Category"] = category
+        newItem["Type"] = type
+        
+        newItem.saveEventually { (result, error) -> Void in
+            
+            if error == nil {
+                
+                print("item saved")
+            }else {
+                
+                print("error: \(error?.description)")
+            }
+        }
+        
+    }
+    
+    func itemsList(){
         
         query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
             
