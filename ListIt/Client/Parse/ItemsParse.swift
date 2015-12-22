@@ -44,6 +44,16 @@ class getItems {
         newItem["Category"] = category
         newItem["Type"] = type
         
+        newItem.saveEventually { (result, error) -> Void in
+            
+            if error == nil {
+                
+                print("item saved")
+            }else {
+                
+                print("error: \(error?.description)")
+            }
+        }
         
     }
     
