@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="io2-r2-xIt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="io2-r2-xIt">
                                 <rect key="frame" x="1" y="0.0" width="600" height="551"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -544,13 +544,17 @@
                             <constraint firstItem="io2-r2-xIt" firstAttribute="bottom" secondItem="3Fb-EU-4kZ" secondAttribute="top" id="6jy-J4-iUJ">
                                 <variation key="heightClass=regular-widthClass=compact" constant="49"/>
                             </constraint>
+                            <constraint firstItem="io2-r2-xIt" firstAttribute="top" secondItem="C2S-zU-HsQ" secondAttribute="top" id="7lG-Sb-Ipa"/>
                             <constraint firstItem="io2-r2-xIt" firstAttribute="leading" secondItem="C2S-zU-HsQ" secondAttribute="leadingMargin" constant="-19" id="S9W-Xg-Z2S">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
+                            <constraint firstItem="io2-r2-xIt" firstAttribute="bottom" secondItem="3Fb-EU-4kZ" secondAttribute="top" id="Szb-HM-Nf5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="io2-r2-xIt" secondAttribute="trailing" constant="-13" id="bVJ-ep-7PS">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstItem="io2-r2-xIt" firstAttribute="top" secondItem="C2S-zU-HsQ" secondAttribute="top" id="dun-L9-yq1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="io2-r2-xIt" secondAttribute="trailing" constant="-21" id="oFr-1Q-McV"/>
+                            <constraint firstItem="io2-r2-xIt" firstAttribute="leading" secondItem="C2S-zU-HsQ" secondAttribute="leadingMargin" constant="-19" id="t5H-4y-dfX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -623,6 +627,25 @@
             </objects>
             <point key="canvasLocation" x="305" y="1286"/>
         </scene>
+        <!--UserProfile-->
+        <scene sceneID="LQD-5H-aHr">
+            <objects>
+                <viewController title="UserProfile" id="kD2-Fo-V8Z" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1bp-7a-ldf"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Mu-yM-XTx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F2U-N7-hGZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DjS-8A-8kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-439" y="2827"/>
+        </scene>
         <!--Discover-->
         <scene sceneID="LH5-yt-vQZ">
             <objects>
@@ -659,7 +682,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qAu-f6-O9r" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Sell" id="ffc-0d-qLo"/>
+                    <tabBarItem key="tabBarItem" title="Sell" image="List-it_0001s_0002s_0000_Camera-Icon" selectedImage="List-it_0001s_0002s_0000_Camera-Icon" id="ffc-0d-qLo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" translucent="NO" id="CVN-vz-JLP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -685,6 +708,7 @@
     <resources>
         <image name="List-it_0000s_0000_View-Switcher" width="42" height="21"/>
         <image name="List-it_0001s_0000s_0000_Discover-Icon" width="37" height="30"/>
+        <image name="List-it_0001s_0002s_0000_Camera-Icon" width="78" height="78"/>
         <image name="List-it_0003s_0000s_0000s_0000s_0001_online-light" width="30" height="30"/>
         <image name="List-it_0003s_0000s_0000s_0002s_0001_Share-icon" width="21" height="19"/>
         <image name="List-it_0003s_0000s_0000s_0003s_0001_Comments-Icon" width="23" height="19"/>

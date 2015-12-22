@@ -394,7 +394,9 @@
                                             <constraint firstAttribute="height" constant="27" id="0rz-ZB-KWv">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="26"/>
                                             </constraint>
-                                            <constraint firstAttribute="width" constant="49" id="UPr-ns-far"/>
+                                            <constraint firstAttribute="width" constant="49" id="UPr-ns-far">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                            </constraint>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="11" left="11" bottom="11" right="11"/>
                                         <color key="onTintColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -406,7 +408,7 @@
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="321" y="264" width="51" height="26"/>
+                                            <rect key="frame" x="322" y="260" width="47" height="26"/>
                                             <mask key="constraints">
                                                 <include reference="0rz-ZB-KWv"/>
                                                 <include reference="UPr-ns-far"/>
@@ -427,7 +429,9 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="-5"/>
                                     </constraint>
                                     <constraint firstItem="aKj-UM-gmB" firstAttribute="leading" secondItem="MLW-OF-EkV" secondAttribute="leading" constant="20" id="1uZ-UG-owL"/>
-                                    <constraint firstItem="2Hc-hr-CNC" firstAttribute="centerY" secondItem="Ial-rC-bPk" secondAttribute="centerY" id="1vv-eI-RJK"/>
+                                    <constraint firstItem="2Hc-hr-CNC" firstAttribute="centerY" secondItem="Ial-rC-bPk" secondAttribute="centerY" id="1vv-eI-RJK">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstItem="aKj-UM-gmB" firstAttribute="top" secondItem="jyA-rN-cek" secondAttribute="bottom" constant="5" id="5CY-VW-RcS">
                                         <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                     </constraint>
@@ -456,7 +460,7 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                     </constraint>
                                     <constraint firstItem="2Hc-hr-CNC" firstAttribute="trailing" secondItem="Ial-rC-bPk" secondAttribute="trailing" id="MUo-vs-Acg">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="-10"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="-13"/>
                                     </constraint>
                                     <constraint firstItem="lHI-yE-2MT" firstAttribute="trailing" secondItem="Ial-rC-bPk" secondAttribute="trailing" id="Oe5-hQ-QpU">
                                         <variation key="heightClass=regular-widthClass=compact" constant="-96"/>

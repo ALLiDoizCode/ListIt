@@ -8,8 +8,19 @@
 
 import UIKit
 
-class AddListingViewController: UIViewController, UIScrollViewDelegate {
+class AddListingViewController: UIViewController, UIScrollViewDelegate, IGLDropDownMenuDelegate {
 
+    var dropDownMenu = IGLDropDownMenu()
+    
+    var dataImage:NSArray = [
+        "Business_icon_small.png",
+        "Individual_Icon.png",
+        "Group_Icon.png"]
+    var dataTitle:NSArray = [
+        "Business",
+        "Individual",
+        "Community"]
+    
     @IBOutlet weak var MainImageView: UIScrollView!
     @IBOutlet weak var firstImage: UIImageView!
     @IBOutlet weak var secondImage: UIImageView!
@@ -30,6 +41,8 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
+    
+    
     override func viewDidLayoutSubviews()
     {
         
@@ -42,7 +55,7 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
         thirdImage.layer.cornerRadius = 10
         thirdImage.layer.masksToBounds = true
         
-         shareToggle.transform = CGAffineTransformMakeScale(0.75, 0.75)
+        shareToggle.transform = CGAffineTransformMakeScale(0.75, 0.75)
         
         
         
@@ -50,7 +63,7 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        // Do any additional setup after loading the view.
+       setupInit()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -64,16 +77,40 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupInit() {
+        
+        let dropdownItems:NSMutableArray = NSMutableArray()
+        
+        for i in 0...(dataTitle.count-1) {
+            
+            let item = IGLDropDownItem()
+            item.iconImage = UIImage(named: "\(dataImage[i])")
+            item.text = "\(dataTitle[i])"
+            dropdownItems.addObject(item)
+        }
+        
+        dropDownMenu.menuText = "Select listing type"
+        dropDownMenu.dropDownItems = dropdownItems as [AnyObject]
+        dropDownMenu.paddingLeft = 15
+        dropDownMenu.frame = CGRectMake((self.view.frame.size.width/2) - 150, 298, 300, 25)
+        dropDownMenu.delegate = self
+        dropDownMenu.type = IGLDropDownMenuType.Stack
+        dropDownMenu.gutterY = 13
+        dropDownMenu.itemAnimationDelay = 0.1
+        //dropDownMenu.rotate = IGLDropDownMenuRotate.Random //add rotate value for tilting the
+        dropDownMenu.reloadView()
+        
+        
+        self.view.addSubview(self.dropDownMenu)
+        
     }
-    */
+    
+    func dropDownMenu(dropDownMenu: IGLDropDownMenu!, selectedItemAtIndex index: Int) {
+        
+        let item:IGLDropDownItem = dropDownMenu.dropDownItems[index] as! IGLDropDownItem
+        
+        
+    }
     
     
 
