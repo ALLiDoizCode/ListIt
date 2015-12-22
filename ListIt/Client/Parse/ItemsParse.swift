@@ -20,8 +20,10 @@ class getItems {
     
     var items:[item] = []
     
-    func addItem(icon:UIImage,icon2:UIImage,icon3:UIImage,userIcon:String,title:String,price:Float,shares:String,comments:String,desc:String,type:String,category:String) {
+    func addItem(icon:UIImage,icon2:UIImage,icon3:UIImage,userIcon:UIImage,title:String,price:Float,shares:String,comments:String,desc:String,type:String,category:String) {
         
+        let userIconData = UIImageJPEGRepresentation(userIcon, 0.5)
+        let userIconFile = PFFile(name:"image.png", data:userIconData!)
         
         let iconData = UIImageJPEGRepresentation(icon, 0.5)
         let iconFile = PFFile(name:"image.png", data:iconData!)
@@ -35,7 +37,7 @@ class getItems {
         newItem["Icon"] = iconFile
         newItem["Icon2"] = iconFile2
         newItem["Icon3"] = iconFile3
-        newItem["UserIcon"] = userIcon
+        newItem["UserIcon"] = userIconFile
         newItem["Title"] = title
         newItem["Price"] = price
         newItem["Shares"] = shares
@@ -44,17 +46,18 @@ class getItems {
         newItem["Category"] = category
         newItem["Type"] = type
         
-        newItem.saveEventually { (result, error) -> Void in
+        newItem.saveInBackgroundWithBlock { (status, error) -> Void in
             
             if error == nil {
-                
                 print("item saved")
+                
+                SwiftEventBus.postToMainThread("ItemSaved")
+                
             }else {
                 
                 print("error: \(error?.description)")
             }
         }
-        
     }
     
     func itemsList(){

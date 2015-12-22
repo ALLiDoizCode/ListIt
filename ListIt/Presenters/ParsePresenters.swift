@@ -26,7 +26,7 @@ class getData {
         grabItems.itemsList()
     }
     
-    func addItem(icon:UIImage,icon2:UIImage,icon3:UIImage,userIcon:String,title:String,price:Float,shares:String,comments:String,desc:String,type:String,category:String) {
+    func addItem(icon:UIImage,icon2:UIImage,icon3:UIImage,userIcon:UIImage,title:String,price:Float,shares:String,comments:String,desc:String,type:String,category:String) {
         
         grabItems.addItem(icon, icon2: icon2, icon3: icon3, userIcon: userIcon, title: title, price: price, shares: shares, comments: comments,desc: desc,type:type,category:category)
         
