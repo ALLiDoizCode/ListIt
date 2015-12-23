@@ -584,11 +584,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="io2-r2-xIt" id="EUD-XQ-vsz"/>
+                        <segue destination="Dir-1z-MLJ" kind="show" id="tGU-H5-2js"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D08-nS-JCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304" y="2827"/>
+            <point key="canvasLocation" x="1116" y="2827"/>
         </scene>
         <!--Grid-->
         <scene sceneID="huB-CY-1dH">
@@ -604,7 +605,7 @@
                 <viewControllerPlaceholder storyboardName="Details" referencedIdentifier="DetailView" id="8xR-u4-MRb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lae-p4-5Zf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1115.25" y="2553.75"/>
+            <point key="canvasLocation" x="1926.5" y="2553"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s0Q-tH-EM2">
@@ -871,10 +872,13 @@
                             <constraint firstItem="7Mu-yM-XTx" firstAttribute="top" secondItem="ywW-tx-jKD" secondAttribute="bottom" id="uzY-jL-1Z2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Josef" id="eo5-uB-rtU">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="lAd-EP-z6D"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DjS-8A-8kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="2827"/>
+            <point key="canvasLocation" x="373" y="2827"/>
         </scene>
         <!--Discover-->
         <scene sceneID="LH5-yt-vQZ">
@@ -933,6 +937,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aj-pk-Bhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1073" y="1286"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qed-6l-Pkl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dir-1z-MLJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="39G-Np-hjT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="tintColor" red="0.92156862750000001" green="0.90588235289999997" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.92156862750000001" green="0.90588235289999997" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kD2-Fo-V8Z" kind="relationship" relationship="rootViewController" id="CFY-SE-cTb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h7s-NK-jhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-439" y="2827"/>
         </scene>
     </scenes>
     <resources>
