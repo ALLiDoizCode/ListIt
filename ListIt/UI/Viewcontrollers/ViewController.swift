@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var itemData:[item] = []
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
     lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 75, 20))
+    let tapRect = UITapGestureRecognizer()
    
     @IBOutlet weak var tableView: UITableView!
  
@@ -26,6 +27,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //creates tap gesture and adds it to the scene
+        tapRect.addTarget(self, action: "tappedView:")
+        tapRect.numberOfTapsRequired = 1
+        tapRect.numberOfTouchesRequired = 1
 
        setupSearchBar()
 
@@ -97,7 +103,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
         cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
         
-       
+        cell.userImage.addGestureRecognizer(tapRect)
         
         dispatch_async(dispatch_get_main_queue(), {
             
