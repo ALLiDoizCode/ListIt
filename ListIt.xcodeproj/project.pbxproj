@@ -23,6 +23,7 @@
 		4D8BE7C41C1FC77D005A9CB2 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7C31C1FC77D005A9CB2 /* GridCell.swift */; };
 		4D8BE7C61C1FFA2B005A9CB2 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BE7C51C1FFA2B005A9CB2 /* Details.storyboard */; };
 		4DA39A801C18D74900B6F2DD /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA39A7F1C18D74900B6F2DD /* Client.swift */; };
+		4DC128281C35E15100904A13 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC128271C35E15100904A13 /* SweetAlert.swift */; };
 		4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */; };
 		4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E21C1788990010C471 /* Main.storyboard */; };
 		4DD5C0F41C17B3980010C471 /* Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD5C0F31C17B3980010C471 /* Pay.swift */; };
@@ -76,6 +77,7 @@
 		4D8BE7C31C1FC77D005A9CB2 /* GridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridCell.swift; path = ListIt/UI/Custom/GridCell.swift; sourceTree = SOURCE_ROOT; };
 		4D8BE7C51C1FFA2B005A9CB2 /* Details.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		4DA39A7F1C18D74900B6F2DD /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		4DC128271C35E15100904A13 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DD5C0E21C1788990010C471 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4DD5C0EB1C1789C10010C471 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		4DD5C0E91C1789800010C471 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				4DC128271C35E15100904A13 /* SweetAlert.swift */,
 				4D8BE7C11C1FC735005A9CB2 /* Macro.swift */,
 			);
 			path = Custom;
@@ -527,6 +530,7 @@
 				4D1BBA361C1B7A6F007FE7DF /* Items.swift in Sources */,
 				4DA39A801C18D74900B6F2DD /* Client.swift in Sources */,
 				4D0F5F201C171B8A001E4385 /* AppDelegate.swift in Sources */,
+				4DC128281C35E15100904A13 /* SweetAlert.swift in Sources */,
 				4D8BE7C41C1FC77D005A9CB2 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

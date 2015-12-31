@@ -811,11 +811,20 @@
                         <outlet property="shareToggle" destination="2Hc-hr-CNC" id="Fua-Gf-Ans"/>
                         <outlet property="shortDescription" destination="jyA-rN-cek" id="3gZ-IZ-E7M"/>
                         <outlet property="thirdImage" destination="zVg-e5-4Vs" id="Aw9-Z6-1ge"/>
+                        <segue destination="S2O-9n-let" kind="show" identifier="Success" id="rCW-LZ-Yrp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJB-VS-gUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1935" y="1071"/>
+        </scene>
+        <!--mainTab-->
+        <scene sceneID="tBK-DA-757">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="mainTab" id="S2O-9n-let" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZt-oW-oM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2678.25" y="1020.75"/>
         </scene>
     </scenes>
     <resources>

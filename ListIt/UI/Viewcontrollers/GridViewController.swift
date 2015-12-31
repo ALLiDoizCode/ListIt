@@ -12,11 +12,11 @@ import SwiftEventBus
 
 class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLayout {
     
+    var grabItems:getItems = getItems()
+    
     let identifier = "GridCell"
     var items:[item] = []
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
-    
-    let parseData:getData = getData()
     
     let imageView:UIImageView = UIImageView()
     lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 75, 20))
