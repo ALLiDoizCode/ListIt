@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
 
@@ -21,6 +22,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var comments: UILabel!
     @IBOutlet weak var messageBtn: UIButton!
     
+    var thePrice:String!
+    var theTitle:String!
+    var theImage:String!
+    var itemDescription:String!
+    var theTime:String!
+    var theName:String!
+    var theShares:String!
+    var theComments:String!
+    
+    
     let venmo:PresentVenmo = PresentVenmo()
     let user:User = User()
     
@@ -32,6 +43,15 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        itemImage.kf_setImageWithURL(NSURL(string:theImage)!, placeholderImage: UIImage(named: "placeholder"))
+        price.text = thePrice
+        itemTitle.text = theTitle
+        theDescription.text = itemDescription
+        itemTitle.text = theTime
+        name.text = theName
+        shares.text = theShares
+        comments.text = theComments
 
         // Do any additional setup after loading the view.
     }

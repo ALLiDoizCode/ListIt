@@ -8,13 +8,13 @@
 
 import UIKit
 import Kingfisher
+import SwiftEventBus
 
 
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    
-    let parseData:getData = getData()
+    var grabItems:getItems = getItems()
     
     var itemData:[item] = []
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
@@ -50,11 +50,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         
         //parseData fill the aray for the listview items with this
-        self.parseData.getItem { (items) -> Void in
+        SwiftEventBus.onMainThread(self, name: "Items") { (result) -> Void in
+            
+            let items = result.object as! [item]
             
             self.itemData = items
-            
-            
             
             //the images are stored as url so as not to take up memory
             print("ItemIcon: \(items[0].icon)")
@@ -64,21 +64,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("Shares: \(items[0].shares)")
             print("Comments: \(items[0].comments)")
             
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                self.tableView.reloadData()
-                
-                });
+            self.tableView.reloadData()
             
-           
         }
         
-  
+        grabItems.itemsList()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+     func tappedView(sender:UITapGestureRecognizer) {
+     
+        self.performSegueWithIdentifier("Profile", sender: self)
+        
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,10 +95,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell:ListTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ListTableViewCell
         
          let ran = Int(arc4random_uniform(3))
-        
         cell.listHeadingTitle.text = itemData[indexPath.row].title
-        cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!)
-        cell.userImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!)
+        cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
+        cell.userImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"))
         cell.userTypeIcon.image = UIImage(named: itemType[ran])
         cell.listPrice.text = "$\(itemData[indexPath.row].price)"
         cell.usersName.text = "Jonathan"
@@ -128,32 +129,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        /*if segue.identifier == "Grid" {
+        if segue.identifier == "Grid" {
             
              let controller:GridViewController = segue.destinationViewController as! GridViewController
             
-            dispatch_async(dispatch_get_main_queue(), {
-                
                 controller.items = self.itemData
+            
+        }
+        
+        if segue.identifier == "Detail" {
+            
+                let indexPaths = self.tableView.indexPathForSelectedRow
                 
-            });
-        }*/if segue.identifier == "Detail" {
+                let controller:DetailViewController = segue.destinationViewController as! DetailViewController
+                controller.theImage = self.itemData[(indexPaths?.row)!].icon
+                controller.theTitle = self.itemData[(indexPaths?.row)!].title
+                controller.thePrice = "$\(self.itemData[(indexPaths?.row)!].price)"
+                controller.theName = "Jonathan"
+                //controller.itemDescription.text = theItem.description
+                controller.theShares = "\(self.itemData[(indexPaths?.row)!].shares) Shares"
+                controller.theComments = "\(self.itemData[(indexPaths?.row)!].comments) Comments"
          
-            let controller:DetailViewController = segue.destinationViewController as! DetailViewController
-            
-            let index = tableView.indexPathForSelectedRow
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                controller.itemImage.kf_setImageWithURL(NSURL(string:self.itemData[index!.row].icon)!)
-                controller.itemTitle.text = self.itemData[index!.row].title
-                controller.price.text = "$\(self.itemData[index!.row].price)"
-                controller.name.text = "Jonathan"
-                //controller.theDescription.text = theItem.description
-                controller.shares.text = "\(self.itemData[index!.row].shares) Shares"
-                controller.comments.text = "\(self.itemData[index!.row].comments) Comments"
-                
-            });
             
         }
         

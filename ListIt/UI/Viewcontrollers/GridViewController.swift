@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SwiftEventBus
 
 class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLayout {
     
@@ -26,8 +27,6 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     override func viewWillAppear(animated: Bool) {
         
         
-        
-       
         
     }
     
@@ -50,36 +49,41 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     func setupCollectionView(){
         
         
+        let collection :UICollectionView = self.collectionView!;
+        collection.frame = screenBounds
+        collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
+        
         //parseData fill the aray for the listview items with this
-        parseData.getItem { (items) -> Void in
-            
+        SwiftEventBus.onMainThread(self, name: "Items") { (result) -> Void in
             
             let collection :UICollectionView = self.collectionView!;
             collection.frame = screenBounds
             collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
-            //collection.backgroundColor = UIColor.clearColor()
-            //collection.registerClass(GridCell.self, forCellWithReuseIdentifier: self.identifier)
             
-                
-            self.items = items
+            let ListItems = result.object as! [item]
             
-            dispatch_async(dispatch_get_main_queue(), {
+            self.items = ListItems
+            
+            //the images are stored as url so as not to take up memory
+            print("ItemIcon: \(ListItems[0].icon)")
+            print("UserIcon: \(ListItems[0].userIcon)")
+            print("Title: \(ListItems[0].title)")
+            print("Price: \(ListItems[0].price)")
+            print("Shares: \(ListItems[0].shares)")
+            print("Comments: \(ListItems[0].comments)")
+            
+             dispatch_async(dispatch_get_main_queue(), {
                 
                  collection.reloadData()
                 
-            })
-                
-        
-            //the images are stored as url so as not to take up memory
-            print("ItemIcon: \(items[0].icon)")
-            print("UserIcon: \(items[0].userIcon)")
-            print("Title: \(items[0].title)")
-            print("Price: \(items[0].price)")
-            print("Shares: \(items[0].shares)")
-            print("Comments: \(items[0].comments)")
+                })
             
+          
             
         }
+        
+        grabItems.itemsList()
+        
         
     }
     
@@ -116,7 +120,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        //self.performSegueWithIdentifier("gotoDetail", sender: self)
+        self.performSegueWithIdentifier("gotoDetail", sender: indexPath.item)
     }
     
     func setupSearchBar(){
@@ -133,20 +137,19 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
        
             if segue.identifier == "gotoDetail" {
                 
-            dispatch_async(dispatch_get_main_queue(), {
-                let indexPaths = self.collectionView!.indexPathsForSelectedItems()
-                let indexPath = indexPaths![0] 
+                //let indexPaths = self.collectionView!.i
+                let indexPath = sender as! Int
                 
                 let controller:DetailViewController = segue.destinationViewController as! DetailViewController
-                    controller.itemImage.kf_setImageWithURL(NSURL(string:self.items[indexPath.item].icon)!)
-                    controller.itemTitle.text = self.items[indexPath.item].title
-                    controller.price.text = "$\(self.items[indexPath.item].price)"
-                    controller.name.text = "Jonathan"
-                    //controller.theDescription.text = theItem.description
-                    controller.shares.text = "\(self.items[indexPath.item].shares) Shares"
-                    controller.comments.text = "\(self.items[indexPath.item].comments) Comments"
-                    
-                });
+
+                    controller.theImage = self.items[indexPath].icon
+                    controller.theTitle = self.items[indexPath].title
+                    controller.thePrice = "$\(self.items[indexPath].price)"
+                    controller.theName = "Jonathan"
+                    //controller.itemDescription.text = theItem.description
+                    controller.theShares = "\(self.items[indexPath].shares) Shares"
+                    controller.theComments = "\(self.items[indexPath].comments) Comments"
+                
                 
             }
         
