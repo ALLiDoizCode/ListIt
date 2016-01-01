@@ -279,7 +279,7 @@
                                     <action selector="message:" destination="D6p-oK-Tha" eventType="touchUpInside" id="kTQ-Tw-KV6"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-WW-9Da">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-WW-9Da">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -313,7 +313,7 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 </constraints>
                                 <state key="normal" backgroundImage="me"/>
                                 <connections>
-                                    <segue destination="0ws-Fo-hUM" kind="show" identifier="Profile" id="aq6-PL-mGm"/>
+                                    <segue destination="GmX-mM-yLk" kind="show" identifier="Profile" id="aq6-PL-mGm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -414,6 +414,12 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="zEq-WW-9Da"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="GJO-3N-7ND"/>
+                                <exclude reference="Qrg-uA-Xlu"/>
+                                <exclude reference="XLT-et-v8P"/>
+                                <exclude reference="cIc-A7-4nV"/>
+                                <exclude reference="cRY-Hy-swu"/>
+                                <exclude reference="h3d-iM-Dor"/>
                                 <exclude reference="eRL-76-GWG"/>
                                 <exclude reference="lNe-T7-CrS"/>
                                 <exclude reference="9mh-KT-F7n"/>
@@ -431,12 +437,6 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="GP0-hw-8Yb"/>
                                 <exclude reference="sLq-Qx-nRV"/>
                                 <exclude reference="t0F-Sc-cOA"/>
-                                <exclude reference="GJO-3N-7ND"/>
-                                <exclude reference="Qrg-uA-Xlu"/>
-                                <exclude reference="XLT-et-v8P"/>
-                                <exclude reference="cIc-A7-4nV"/>
-                                <exclude reference="cRY-Hy-swu"/>
-                                <exclude reference="h3d-iM-Dor"/>
                                 <exclude reference="JDO-X7-NUA"/>
                                 <exclude reference="jvi-qp-acG"/>
                                 <exclude reference="ykJ-nk-dKX"/>
@@ -476,6 +476,12 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="zEq-WW-9Da"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="GJO-3N-7ND"/>
+                                <exclude reference="Qrg-uA-Xlu"/>
+                                <include reference="XLT-et-v8P"/>
+                                <include reference="cIc-A7-4nV"/>
+                                <exclude reference="cRY-Hy-swu"/>
+                                <include reference="h3d-iM-Dor"/>
                                 <include reference="eRL-76-GWG"/>
                                 <include reference="lNe-T7-CrS"/>
                                 <include reference="9mh-KT-F7n"/>
@@ -493,12 +499,6 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="GP0-hw-8Yb"/>
                                 <include reference="sLq-Qx-nRV"/>
                                 <include reference="t0F-Sc-cOA"/>
-                                <exclude reference="GJO-3N-7ND"/>
-                                <exclude reference="Qrg-uA-Xlu"/>
-                                <include reference="XLT-et-v8P"/>
-                                <include reference="cIc-A7-4nV"/>
-                                <exclude reference="cRY-Hy-swu"/>
-                                <include reference="h3d-iM-Dor"/>
                                 <include reference="JDO-X7-NUA"/>
                                 <include reference="jvi-qp-acG"/>
                                 <include reference="ykJ-nk-dKX"/>
@@ -541,13 +541,33 @@ Remember, a Jedi can feel the Force flowing through him. </string>
             </objects>
             <point key="canvasLocation" x="1081" y="252"/>
         </scene>
-        <!--PublicProfile-->
+        <!--publicProfile-->
         <scene sceneID="xKy-G5-Ck5">
             <objects>
-                <viewControllerPlaceholder storyboardName="PublicProfile" id="0ws-Fo-hUM" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="PublicProfile" referencedIdentifier="publicProfile" id="0ws-Fo-hUM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RxE-D4-DNc"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugx-MA-KmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652.5" y="26"/>
+            <point key="canvasLocation" x="2464" y="26"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZSR-6J-7mi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GmX-mM-yLk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7fr-Tt-OhN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0ws-Fo-hUM" kind="relationship" relationship="rootViewController" id="IUY-aG-5or"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBs-rl-aCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872" y="168"/>
         </scene>
     </scenes>
     <resources>
