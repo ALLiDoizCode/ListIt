@@ -13,7 +13,17 @@ class PublicProfileViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.title = "Josef"
+        
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.tintColor = UIColor.blueColor()
+        
+        let leftButton =  UIBarButtonItem(title: "< Back", style: UIBarButtonItemStyle.Plain, target: self, action: "popToRoot")
+        
+        
+        navigationItem.leftBarButtonItem = leftButton
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +31,9 @@ class PublicProfileViewController: UIViewController, UITableViewDataSource, UITa
         // Dispose of any resources that can be recreated.
     }
     
+    func popToRoot(sender:UIBarButtonItem){
+        self.navigationController!.popToRootViewControllerAnimated(true)
+    }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
