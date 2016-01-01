@@ -16,8 +16,9 @@ class item {
     var price:Int!
     var shares:String!
     var comments:String!
+    var description:String!
     
-init(theIcon:String,theUserIcon:String,theTitle:String,theShares:String,theComments:String,thePrice:Int){
+    init(theIcon:String,theUserIcon:String,theTitle:String,theShares:String,theComments:String,thePrice:Int,theDescription:String!){
     
         icon = theIcon
         userIcon = theUserIcon
@@ -25,5 +26,6 @@ init(theIcon:String,theUserIcon:String,theTitle:String,theShares:String,theComme
         shares = theShares
         comments = theComments
         price = thePrice
+        description = theDescription
     }
 }

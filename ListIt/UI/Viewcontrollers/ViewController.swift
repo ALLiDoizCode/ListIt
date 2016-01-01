@@ -225,6 +225,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 controller.theImage = self.filtered[(indexPaths?.row)!].icon
                 controller.theTitle = self.filtered[(indexPaths?.row)!].title
                 controller.thePrice = "$\(self.filtered[(indexPaths?.row)!].price)"
+                controller.itemDescription = self.filtered[(indexPaths?.row)!].description
                 controller.theName = "Jonathan"
                 //controller.itemDescription.text = theItem.description
                 controller.theShares = "\(self.filtered[(indexPaths?.row)!].shares) Shares"
@@ -236,6 +237,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 controller.theImage = self.itemData[(indexPaths?.row)!].icon
                 controller.theTitle = self.itemData[(indexPaths?.row)!].title
                 controller.thePrice = "$\(self.itemData[(indexPaths?.row)!].price)"
+                controller.itemDescription = self.itemData[(indexPaths?.row)!].description
                 controller.theName = "Jonathan"
                 //controller.itemDescription.text = theItem.description
                 controller.theShares = "\(self.itemData[(indexPaths?.row)!].shares) Shares"
