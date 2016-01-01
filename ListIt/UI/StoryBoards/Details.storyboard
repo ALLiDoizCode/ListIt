@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -304,6 +304,18 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                     </mask>
                                 </variation>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-En-VyU">
+                                <rect key="frame" x="555" y="60" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.90588235289999997" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Hqf-wS-yZy"/>
+                                    <constraint firstAttribute="height" constant="30" id="gIT-GB-ph1"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="me"/>
+                                <connections>
+                                    <segue destination="0ws-Fo-hUM" kind="show" identifier="Profile" id="aq6-PL-mGm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -336,9 +348,11 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="eJK-QN-xnN" secondAttribute="trailing" constant="-20" id="LwP-XW-Cg4"/>
+                            <constraint firstItem="cBH-En-VyU" firstAttribute="top" secondItem="u2i-Ls-7wF" secondAttribute="bottom" constant="40" id="N2y-5f-e9M"/>
                             <constraint firstItem="apN-R4-8aD" firstAttribute="bottom" secondItem="z5c-zu-W0S" secondAttribute="bottom" id="ODa-Sj-LsB">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="cBH-En-VyU" secondAttribute="trailing" constant="-5" id="Pzc-E2-s71"/>
                             <constraint firstItem="jzO-SJ-Cso" firstAttribute="bottom" secondItem="z5c-zu-W0S" secondAttribute="bottom" id="QJw-rz-qJP"/>
                             <constraint firstItem="IdU-OV-3Jr" firstAttribute="top" secondItem="jzO-SJ-Cso" secondAttribute="bottom" constant="20" id="Qrg-uA-Xlu"/>
                             <constraint firstItem="Pw3-RT-AFM" firstAttribute="top" secondItem="2hi-x4-ms3" secondAttribute="bottom" id="U6Y-QG-SSE">
@@ -400,12 +414,6 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="zEq-WW-9Da"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GJO-3N-7ND"/>
-                                <exclude reference="Qrg-uA-Xlu"/>
-                                <exclude reference="XLT-et-v8P"/>
-                                <exclude reference="cIc-A7-4nV"/>
-                                <exclude reference="cRY-Hy-swu"/>
-                                <exclude reference="h3d-iM-Dor"/>
                                 <exclude reference="eRL-76-GWG"/>
                                 <exclude reference="lNe-T7-CrS"/>
                                 <exclude reference="9mh-KT-F7n"/>
@@ -423,6 +431,12 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="GP0-hw-8Yb"/>
                                 <exclude reference="sLq-Qx-nRV"/>
                                 <exclude reference="t0F-Sc-cOA"/>
+                                <exclude reference="GJO-3N-7ND"/>
+                                <exclude reference="Qrg-uA-Xlu"/>
+                                <exclude reference="XLT-et-v8P"/>
+                                <exclude reference="cIc-A7-4nV"/>
+                                <exclude reference="cRY-Hy-swu"/>
+                                <exclude reference="h3d-iM-Dor"/>
                                 <exclude reference="JDO-X7-NUA"/>
                                 <exclude reference="jvi-qp-acG"/>
                                 <exclude reference="ykJ-nk-dKX"/>
@@ -462,12 +476,6 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="zEq-WW-9Da"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GJO-3N-7ND"/>
-                                <exclude reference="Qrg-uA-Xlu"/>
-                                <include reference="XLT-et-v8P"/>
-                                <include reference="cIc-A7-4nV"/>
-                                <exclude reference="cRY-Hy-swu"/>
-                                <include reference="h3d-iM-Dor"/>
                                 <include reference="eRL-76-GWG"/>
                                 <include reference="lNe-T7-CrS"/>
                                 <include reference="9mh-KT-F7n"/>
@@ -485,6 +493,12 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="GP0-hw-8Yb"/>
                                 <include reference="sLq-Qx-nRV"/>
                                 <include reference="t0F-Sc-cOA"/>
+                                <exclude reference="GJO-3N-7ND"/>
+                                <exclude reference="Qrg-uA-Xlu"/>
+                                <include reference="XLT-et-v8P"/>
+                                <include reference="cIc-A7-4nV"/>
+                                <exclude reference="cRY-Hy-swu"/>
+                                <include reference="h3d-iM-Dor"/>
                                 <include reference="JDO-X7-NUA"/>
                                 <include reference="jvi-qp-acG"/>
                                 <include reference="ykJ-nk-dKX"/>
@@ -520,11 +534,20 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                         <outlet property="shares" destination="Vgj-4H-1r8" id="Ck5-Ma-qy0"/>
                         <outlet property="theDescription" destination="zEq-WW-9Da" id="Yoz-Cl-kg2"/>
                         <outlet property="time" destination="jzO-SJ-Cso" id="drx-c9-Zei"/>
+                        <outlet property="userImgBtn" destination="cBH-En-VyU" id="SgC-f6-MdQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p40-ay-N1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081.5" y="252.75"/>
+            <point key="canvasLocation" x="1081" y="252"/>
+        </scene>
+        <!--PublicProfile-->
+        <scene sceneID="xKy-G5-Ck5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PublicProfile" id="0ws-Fo-hUM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugx-MA-KmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1652.5" y="26"/>
         </scene>
     </scenes>
     <resources>
@@ -532,5 +555,6 @@ Remember, a Jedi can feel the Force flowing through him. </string>
         <image name="List-it_0003s_0000s_0000s_0001_Share-Icon" width="21" height="19"/>
         <image name="List-it_0003s_0000s_0001s_0001_Comments-Icon" width="23" height="19"/>
         <image name="List-it_0003s_0000s_0004_Details-BG" width="500" height="347"/>
+        <image name="me" width="921" height="918"/>
     </resources>
 </document>

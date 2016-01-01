@@ -21,6 +21,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var shares: UILabel!
     @IBOutlet weak var comments: UILabel!
     @IBOutlet weak var messageBtn: UIButton!
+    @IBOutlet weak var userImgBtn: UIButton!
+    
     
     var thePrice:String!
     var theTitle:String!
@@ -39,6 +41,9 @@ class DetailViewController: UIViewController {
         
         messageBtn.layer.cornerRadius = 3
         messageBtn.layer.masksToBounds = true
+        
+        userImgBtn.layer.cornerRadius = 15
+        userImgBtn.layer.masksToBounds = true
     }
     
     override func viewDidLoad() {
