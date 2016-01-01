@@ -50,7 +50,6 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         theDescription.textColor = UIColor.whiteColor()
-        itemTitle.textColor = UIColor.whiteColor()
         
         itemImage.kf_setImageWithURL(NSURL(string:theImage)!, placeholderImage: UIImage(named: "placeholder"))
         price.text = thePrice
