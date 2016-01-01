@@ -76,8 +76,9 @@ class getItems {
                         let theShares = object.objectForKey("Shares") as! String!
                         let theComments = object.objectForKey("Comments") as! String!
                         let thePrice = object.objectForKey("Price") as! Int!
+                        let theDescription = object.objectForKey("Description") as! String
                         
-                        let theItem:item = item(theIcon: theIcon.url!, theUserIcon: theUserIcon.url!, theTitle: theTitle, theShares: theShares, theComments: theComments, thePrice: thePrice)
+                        let theItem:item = item(theIcon: theIcon.url!, theUserIcon: theUserIcon.url!, theTitle: theTitle, theShares: theShares, theComments: theComments, thePrice: thePrice, theDescription:theDescription)
                         
                         self.items.append(theItem)
                     }

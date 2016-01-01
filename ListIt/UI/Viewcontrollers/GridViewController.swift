@@ -242,6 +242,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                     controller.theImage = self.filtered[indexPath].icon
                     controller.theTitle = self.filtered[indexPath].title
                     controller.thePrice = "$\(self.filtered[indexPath].price)"
+                    controller.itemDescription = self.filtered[indexPath].description
                     controller.theName = "Jonathan"
                     //controller.itemDescription.text = theItem.description
                     controller.theShares = "\(self.filtered[indexPath].shares) Shares"
@@ -252,6 +253,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                     controller.theImage = self.items[indexPath].icon
                     controller.theTitle = self.items[indexPath].title
                     controller.thePrice = "$\(self.items[indexPath].price)"
+                    controller.itemDescription = self.items[indexPath].description
                     controller.theName = "Jonathan"
                     //controller.itemDescription.text = theItem.description
                     controller.theShares = "\(self.items[indexPath].shares) Shares"
