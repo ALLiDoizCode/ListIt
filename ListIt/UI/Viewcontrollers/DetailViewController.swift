@@ -53,9 +53,8 @@ class DetailViewController: UIViewController {
         
         itemImage.kf_setImageWithURL(NSURL(string:theImage)!, placeholderImage: UIImage(named: "placeholder"))
         price.text = thePrice
-        //itemTitle.text = theTitle
+        itemTitle.text = theTitle
         theDescription.text = itemDescription
-        itemTitle.text = theTime
         name.text = theName
         shares.text = theShares
         comments.text = theComments
