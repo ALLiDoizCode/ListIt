@@ -78,18 +78,11 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
             print("Shares: \(ListItems[0].shares)")
             print("Comments: \(ListItems[0].comments)")
             
-             dispatch_async(dispatch_get_main_queue(), {
-                
-                 collection.reloadData()
-                
-                })
-            
-          
-            
+            collection.reloadData()
+    
         }
         
         grabItems.itemsList()
-        
         
     }
     
@@ -153,8 +146,18 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     // Mark delegates
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
         
+        if searchActive {
+            
+            imageView.kf_setImageWithURL(NSURL(string: self.filtered[indexPath.item].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
+            }
+            
+        }else {
+            
             imageView.kf_setImageWithURL(NSURL(string: self.items[indexPath.item].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
             }
+        }
+        
+        
         
         if  let imageHeight:CGFloat! = imageView.image!.size.height*gridWidth/imageView.image!.size.width {
             
@@ -192,7 +195,17 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     }
     
    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+    
+    if searchActive {
+        
+        return filtered.count;
+        
+    }else{
+        
         return items.count;
+    }
+    
+    
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
