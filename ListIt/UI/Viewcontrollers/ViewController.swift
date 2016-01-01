@@ -21,21 +21,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
     var searchActive : Bool = false
     lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 75, 20))
-    let tapRect = UITapGestureRecognizer()
    
     @IBOutlet weak var tableView: UITableView!
  
     
-    
+    override func viewWillAppear(animated: Bool) {
+        
+        searchActive = false
+        tableView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //creates tap gesture and adds it to the scene
-        tapRect.addTarget(self, action: "tappedView:")
-        tapRect.numberOfTapsRequired = 1
-        tapRect.numberOfTouchesRequired = 1
-
-       setupSearchBar()
+        setupSearchBar()
 
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -78,12 +76,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    
-     func tappedView(sender:UITapGestureRecognizer) {
-     
-        self.performSegueWithIdentifier("Profile", sender: self)
-        
-    }
     
     //Mark searcbar Protocols
     
@@ -163,17 +155,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if searchActive {
             
-            cell.listHeadingTitle.text = filtered[indexPath.row].title
-            cell.listImage.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
-            cell.userImage.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"))
-            cell.userTypeIcon.image = UIImage(named: itemType[ran])
-            cell.listPrice.text = "$\(filtered[indexPath.row].price)"
-            cell.usersName.text = "Jonathan"
-            cell.listShares.text = "\(filtered[indexPath.row].shares) Shares"
-            cell.listComments.text = "\(filtered[indexPath.row].comments) Comments"
-            
-            cell.userImage.addGestureRecognizer(tapRect)
-            
+            if filtered.count != 0 {
+                
+                cell.listHeadingTitle.text = filtered[indexPath.row].title
+                cell.listImage.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
+                cell.userImage.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"))
+                cell.userTypeIcon.image = UIImage(named: itemType[ran])
+                cell.listPrice.text = "$\(filtered[indexPath.row].price)"
+                cell.usersName.text = "Jonathan"
+                cell.listShares.text = "\(filtered[indexPath.row].shares) Shares"
+                cell.listComments.text = "\(filtered[indexPath.row].comments) Comments"
+                
+            }
             
         }else {
             
@@ -185,10 +178,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.usersName.text = "Jonathan"
             cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
             cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
-            
-            cell.userImage.addGestureRecognizer(tapRect)
-            
-            
             
         }
         
@@ -229,6 +218,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "Detail" {
             
                 let indexPaths = self.tableView.indexPathForSelectedRow
+            
+            if searchActive {
+                
+                let controller:DetailViewController = segue.destinationViewController as! DetailViewController
+                controller.theImage = self.filtered[(indexPaths?.row)!].icon
+                controller.theTitle = self.filtered[(indexPaths?.row)!].title
+                controller.thePrice = "$\(self.filtered[(indexPaths?.row)!].price)"
+                controller.theName = "Jonathan"
+                //controller.itemDescription.text = theItem.description
+                controller.theShares = "\(self.filtered[(indexPaths?.row)!].shares) Shares"
+                controller.theComments = "\(self.filtered[(indexPaths?.row)!].comments) Comments"
+                
+            }else {
                 
                 let controller:DetailViewController = segue.destinationViewController as! DetailViewController
                 controller.theImage = self.itemData[(indexPaths?.row)!].icon
@@ -238,7 +240,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 //controller.itemDescription.text = theItem.description
                 controller.theShares = "\(self.itemData[(indexPaths?.row)!].shares) Shares"
                 controller.theComments = "\(self.itemData[(indexPaths?.row)!].comments) Comments"
-         
+            }
+                
             
         }
         

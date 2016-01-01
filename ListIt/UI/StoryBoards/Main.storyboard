@@ -217,25 +217,6 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XtK-4b-mms">
-                                                            <rect key="frame" x="530" y="8" width="45" height="45"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="8na-i9-4dg"/>
-                                                                <constraint firstAttribute="width" constant="30" id="xg1-Oc-ejS"/>
-                                                            </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="8na-i9-4dg"/>
-                                                                    <exclude reference="xg1-Oc-ejS"/>
-                                                                </mask>
-                                                            </variation>
-                                                            <variation key="heightClass=regular-widthClass=compact">
-                                                                <mask key="constraints">
-                                                                    <include reference="8na-i9-4dg"/>
-                                                                    <include reference="xg1-Oc-ejS"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6u-Rn-3gf">
                                                             <rect key="frame" x="150" y="8" width="344" height="21"/>
                                                             <constraints>
@@ -255,6 +236,25 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XtK-4b-mms">
+                                                            <rect key="frame" x="530" y="8" width="45" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="8na-i9-4dg"/>
+                                                                <constraint firstAttribute="width" constant="30" id="xg1-Oc-ejS"/>
+                                                            </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="8na-i9-4dg"/>
+                                                                    <exclude reference="xg1-Oc-ejS"/>
+                                                                </mask>
+                                                            </variation>
+                                                            <variation key="heightClass=regular-widthClass=compact">
+                                                                <mask key="constraints">
+                                                                    <include reference="8na-i9-4dg"/>
+                                                                    <include reference="xg1-Oc-ejS"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -359,8 +359,8 @@
                                                             <exclude reference="ugT-L1-VFc"/>
                                                             <exclude reference="eKP-ZG-BzF"/>
                                                             <exclude reference="ryu-ir-07j"/>
-                                                            <exclude reference="XtK-4b-mms"/>
                                                             <exclude reference="q6u-Rn-3gf"/>
+                                                            <exclude reference="XtK-4b-mms"/>
                                                         </mask>
                                                         <mask key="constraints">
                                                             <exclude reference="f8h-RW-Fvi"/>
@@ -415,8 +415,8 @@
                                                             <include reference="ugT-L1-VFc"/>
                                                             <include reference="eKP-ZG-BzF"/>
                                                             <include reference="ryu-ir-07j"/>
-                                                            <include reference="XtK-4b-mms"/>
                                                             <include reference="q6u-Rn-3gf"/>
+                                                            <include reference="XtK-4b-mms"/>
                                                         </mask>
                                                         <mask key="constraints">
                                                             <include reference="f8h-RW-Fvi"/>

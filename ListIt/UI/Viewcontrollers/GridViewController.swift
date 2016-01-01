@@ -10,12 +10,17 @@ import UIKit
 import Kingfisher
 import SwiftEventBus
 
-class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLayout {
+class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLayout,UISearchBarDelegate {
+    
+    var items:[item] = []
+    var filtered:[item] = []
+    
+    var searchActive : Bool = false
     
     var grabItems:getItems = getItems()
     
     let identifier = "GridCell"
-    var items:[item] = []
+    
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
     
     let imageView:UIImageView = UIImageView()
@@ -26,7 +31,8 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
     override func viewWillAppear(animated: Bool) {
         
-        
+        searchActive = false
+        collectionView.reloadData()
         
     }
     
@@ -87,6 +93,63 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
         
     }
     
+    //Mark searcbar Protocols
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        var tempArray:[String] = []
+        var tempFilter:[String] = []
+        
+        for var i = 0; i < items.count; i++ {
+            
+            tempArray.append(items[i].title)
+            
+        }
+        
+        tempFilter = tempArray.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        if(tempFilter.count == 0){
+            searchActive = false;
+        } else {
+            
+            searchActive = true;
+            
+            filtered = []
+            
+            for var i = 0; i < tempFilter.count; i++ {
+                
+                for var j = 0; j < items.count; j++ {
+                    
+                    if tempFilter[i] == items[j].title {
+                        
+                        filtered.append(items[j])
+                    }
+                    
+                }
+            }
+        }
+        self.collectionView.reloadData()
+    }
+    
     // Mark delegates
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
         
@@ -106,11 +169,25 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
         let ran = Int(arc4random_uniform(3))
     
+    if searchActive {
+        
+        if filtered.count != 0 {
+            
+            print(filtered.count)
+            cell.imageViewContent.kf_setImageWithURL(NSURL(string: filtered[indexPath.item].icon)!)
+            cell.type.image = UIImage(named: itemType[ran])
+        }
+        
+    }else {
+        
         cell.imageViewContent.kf_setImageWithURL(NSURL(string: items[indexPath.item].icon)!)
-        cell.imageViewContent.contentMode = .ScaleAspectFill
         cell.type.image = UIImage(named: itemType[ran])
+
+    }
     
+        cell.imageViewContent.contentMode = .ScaleAspectFill
         cell.setNeedsLayout()
+    
         return cell;
     }
     
@@ -125,6 +202,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
     func setupSearchBar(){
         
+        searchBar.delegate = self
         searchBar.placeholder = "Type Here"
         self.navigationItem.titleView = searchBar
     }
@@ -145,7 +223,19 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                 let indexPath = sender as! Int
                 
                 let controller:DetailViewController = segue.destinationViewController as! DetailViewController
-
+                
+                if searchActive {
+                    
+                    controller.theImage = self.filtered[indexPath].icon
+                    controller.theTitle = self.filtered[indexPath].title
+                    controller.thePrice = "$\(self.filtered[indexPath].price)"
+                    controller.theName = "Jonathan"
+                    //controller.itemDescription.text = theItem.description
+                    controller.theShares = "\(self.filtered[indexPath].shares) Shares"
+                    controller.theComments = "\(self.filtered[indexPath].comments) Comments"
+                    
+                }else {
+                    
                     controller.theImage = self.items[indexPath].icon
                     controller.theTitle = self.items[indexPath].title
                     controller.thePrice = "$\(self.items[indexPath].price)"
@@ -153,7 +243,8 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                     //controller.itemDescription.text = theItem.description
                     controller.theShares = "\(self.items[indexPath].shares) Shares"
                     controller.theComments = "\(self.items[indexPath].comments) Comments"
-                
+                }
+
                 
             }
         

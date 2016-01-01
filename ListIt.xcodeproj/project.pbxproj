@@ -23,6 +23,7 @@
 		4D8BE7C41C1FC77D005A9CB2 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7C31C1FC77D005A9CB2 /* GridCell.swift */; };
 		4D8BE7C61C1FFA2B005A9CB2 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BE7C51C1FFA2B005A9CB2 /* Details.storyboard */; };
 		4DA39A801C18D74900B6F2DD /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA39A7F1C18D74900B6F2DD /* Client.swift */; };
+		4DB332191C36164E0083DB0B /* PublicProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DB332181C36164E0083DB0B /* PublicProfile.storyboard */; };
 		4DC128281C35E15100904A13 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC128271C35E15100904A13 /* SweetAlert.swift */; };
 		4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */; };
 		4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E21C1788990010C471 /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		4D8BE7C31C1FC77D005A9CB2 /* GridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridCell.swift; path = ListIt/UI/Custom/GridCell.swift; sourceTree = SOURCE_ROOT; };
 		4D8BE7C51C1FFA2B005A9CB2 /* Details.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		4DA39A7F1C18D74900B6F2DD /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		4DB332181C36164E0083DB0B /* PublicProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PublicProfile.storyboard; sourceTree = "<group>"; };
 		4DC128271C35E15100904A13 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DD5C0E21C1788990010C471 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		4D7EDE871C178800000FC0E1 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				4DB332181C36164E0083DB0B /* PublicProfile.storyboard */,
 				4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */,
 				4D8BE7C51C1FFA2B005A9CB2 /* Details.storyboard */,
 				4DD5C0E21C1788990010C471 /* Main.storyboard */,
@@ -440,6 +443,7 @@
 				4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */,
 				6BC3B33D1C2376D700A23D7B /* AddListing.storyboard in Resources */,
 				4D0F5F271C171B8A001E4385 /* Assets.xcassets in Resources */,
+				4DB332191C36164E0083DB0B /* PublicProfile.storyboard in Resources */,
 				4D8BE7B81C1FC3A8005A9CB2 /* Grid.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
