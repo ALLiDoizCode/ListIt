@@ -129,6 +129,10 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
         self.navigationItem.titleView = searchBar
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     
     // MARK: - Navigation
 

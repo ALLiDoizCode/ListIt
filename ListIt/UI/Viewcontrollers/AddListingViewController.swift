@@ -308,4 +308,8 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate, IGLDropD
         
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
 }

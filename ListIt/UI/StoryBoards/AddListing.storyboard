@@ -798,7 +798,7 @@
                     <navigationItem key="navigationItem" title="List Your Item" id="7dv-14-qDl" propertyAccessControl="all">
                         <barButtonItem key="backBarButtonItem" title="Back" id="bXu-l9-tqt"/>
                     </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="MainImageView" destination="Tec-x4-jVI" id="PTu-nD-r59"/>
                         <outlet property="firstImage" destination="n76-ah-IUb" id="EaF-WQ-NhF"/>

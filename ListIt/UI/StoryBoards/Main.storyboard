@@ -602,7 +602,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ecP-dj-H2Z" kind="relationship" relationship="viewControllers" id="Lch-Dm-E2W"/>
-                        <segue destination="qAu-f6-O9r" kind="relationship" relationship="viewControllers" id="xx9-sm-TZ4"/>
+                        <segue destination="FCg-WT-pOY" kind="relationship" relationship="viewControllers" id="Vce-Kt-6fq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4U-1f-jE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -739,44 +739,18 @@
         <scene sceneID="rGg-e6-5J3">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="addListing" storyboardName="AddListing" referencedIdentifier="addListing" id="FCg-WT-pOY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Bxp-fd-76p"/>
                     <navigationItem key="navigationItem" id="2Zz-X2-Rfu"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n36-gx-Kad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1885" y="1286"/>
         </scene>
-        <!--Sell-->
-        <scene sceneID="6mN-Jn-G7Q">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qAu-f6-O9r" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Sell" image="List-it_0001s_0002s_0000_Camera-Icon" selectedImage="List-it_0001s_0002s_0000_Camera-Icon" id="ffc-0d-qLo"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" translucent="NO" id="CVN-vz-JLP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.92156862750000001" green="0.90588235289999997" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FCg-WT-pOY" kind="relationship" relationship="rootViewController" id="BLU-5Q-moO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6aj-pk-Bhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1073" y="1286"/>
-        </scene>
     </scenes>
     <resources>
         <image name="List it-UI_0004s_0000_BG-pattern" width="1500" height="2662"/>
         <image name="List-it_0000s_0000_View-Switcher" width="42" height="21"/>
         <image name="List-it_0001s_0000s_0000_Discover-Icon" width="37" height="30"/>
-        <image name="List-it_0001s_0002s_0000_Camera-Icon" width="78" height="78"/>
         <image name="List-it_0003s_0000s_0000s_0000s_0001_online-light" width="30" height="30"/>
         <image name="List-it_0003s_0000s_0000s_0002s_0001_Share-icon" width="21" height="19"/>
         <image name="List-it_0003s_0000s_0000s_0003s_0001_Comments-Icon" width="23" height="19"/>

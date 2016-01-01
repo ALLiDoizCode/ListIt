@@ -12,12 +12,14 @@ import SwiftEventBus
 
 
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate{
     
     var grabItems:getItems = getItems()
     
     var itemData:[item] = []
+    var filtered:[item] = []
     var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
+    var searchActive : Bool = false
     lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 75, 20))
     let tapRect = UITapGestureRecognizer()
    
@@ -82,10 +84,74 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.performSegueWithIdentifier("Profile", sender: self)
         
     }
+    
+    //Mark searcbar Protocols
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        var tempArray:[String] = []
+        var tempFilter:[String] = []
+        
+        for var i = 0; i < itemData.count; i++ {
+            
+            tempArray.append(itemData[i].title)
+            
+        }
+        
+        tempFilter = tempArray.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        if(tempFilter.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+            
+            filtered = []
+            
+            for var i = 0; i < tempFilter.count; i++ {
+                
+                for var j = 0; j < itemData.count; j++ {
+                    
+                    if tempFilter[i] == itemData[j].title {
+                        
+                        filtered.append(itemData[j])
+                    }
+                    
+                }
+            }
+        }
+        self.tableView.reloadData()
+    }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-        return itemData.count
+        
+        if searchActive {
+            
+            return filtered.count
+            
+        }else {
+            
+            return itemData.count
+        }
+        
     }
     
    
@@ -93,18 +159,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell:ListTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ListTableViewCell
+        let ran = Int(arc4random_uniform(3))
         
-         let ran = Int(arc4random_uniform(3))
-        cell.listHeadingTitle.text = itemData[indexPath.row].title
-        cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
-        cell.userImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"))
-        cell.userTypeIcon.image = UIImage(named: itemType[ran])
-        cell.listPrice.text = "$\(itemData[indexPath.row].price)"
-        cell.usersName.text = "Jonathan"
-        cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
-        cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
-        
-        cell.userImage.addGestureRecognizer(tapRect)
+        if searchActive {
+            
+            cell.listHeadingTitle.text = filtered[indexPath.row].title
+            cell.listImage.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
+            cell.userImage.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"))
+            cell.userTypeIcon.image = UIImage(named: itemType[ran])
+            cell.listPrice.text = "$\(filtered[indexPath.row].price)"
+            cell.usersName.text = "Jonathan"
+            cell.listShares.text = "\(filtered[indexPath.row].shares) Shares"
+            cell.listComments.text = "\(filtered[indexPath.row].comments) Comments"
+            
+            cell.userImage.addGestureRecognizer(tapRect)
+            
+            
+        }else {
+            
+            cell.listHeadingTitle.text = itemData[indexPath.row].title
+            cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
+            cell.userImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"))
+            cell.userTypeIcon.image = UIImage(named: itemType[ran])
+            cell.listPrice.text = "$\(itemData[indexPath.row].price)"
+            cell.usersName.text = "Jonathan"
+            cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
+            cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
+            
+            cell.userImage.addGestureRecognizer(tapRect)
+            
+            
+            
+        }
         
         dispatch_async(dispatch_get_main_queue(), {
             
@@ -112,7 +198,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.userImage.layer.masksToBounds = true
             
         });
-
         
         return cell
     
@@ -121,10 +206,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func setupSearchBar(){
-        
+        searchBar.delegate = self
         searchBar.placeholder = "Type Here"
         self.navigationItem.titleView = searchBar
        
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
