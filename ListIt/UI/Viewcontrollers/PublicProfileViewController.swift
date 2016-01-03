@@ -15,13 +15,15 @@ class PublicProfileViewController: UIViewController, UITableViewDataSource, UITa
 
         self.title = "Josef"
         
-        let navigationBar = navigationController!.navigationBar
-        navigationBar.tintColor = UIColor.blueColor()
+        //  let navigationBar = navigationController!.navigationBar
+        //navigationBar.tintColor = UIColor.blueColor()
         
-        let leftButton =  UIBarButtonItem(title: "< Back", style: UIBarButtonItemStyle.Plain, target: self, action: "popToRoot")
+        let leftButton =  UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "popToRoot:")
         
         
-        navigationItem.leftBarButtonItem = leftButton
+         navigationItem.leftBarButtonItem = leftButton
+        
+        
         
         
     }
@@ -31,8 +33,13 @@ class PublicProfileViewController: UIViewController, UITableViewDataSource, UITa
         // Dispose of any resources that can be recreated.
     }
     
-    func popToRoot(sender:UIBarButtonItem){
-        self.navigationController!.popToRootViewControllerAnimated(true)
+    
+   
+    
+    
+   func popToRoot(sender:UIBarButtonItem){
+        self.performSegueWithIdentifier("backToMain", sender: self)
+        
     }
     
     

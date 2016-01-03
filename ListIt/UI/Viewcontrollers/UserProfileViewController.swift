@@ -8,26 +8,26 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, IGLDropDownMenuDelegate {
-
+class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+/*
     var dropDownMenu = IGLDropDownMenu()
     var dropDownMenuTwo = IGLDropDownMenu()
     
     
     var dataImage:NSArray = [
         ]
-    var dataTitle:NSArray = [
+    var dataTitle:[String] = [
         "Watching",
         "Selling",
         "Bought",
         "Sold",
         "My Network"]
-    
+    */
     
     override func viewDidLayoutSubviews()
     {
         
-        setupInit()
+        //setupInit()
         
     }
     
@@ -36,7 +36,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         super.viewWillDisappear(animated)
         
     }
@@ -48,8 +48,8 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("userCell")
-        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("userCell") as! ListTableViewCell
+        return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,7 +58,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
    
     
     // func thata fires with tappig on profile image
-        func setupInit() {
+     /*   func setupInit() {
         
         let dropdownItems:NSMutableArray = NSMutableArray()
         
@@ -92,7 +92,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         
         
     }
-    
+    */
 
     
 }

@@ -603,7 +603,7 @@
                     <connections>
                         <segue destination="ecP-dj-H2Z" kind="relationship" relationship="viewControllers" id="Lch-Dm-E2W"/>
                         <segue destination="FCg-WT-pOY" kind="relationship" relationship="viewControllers" id="Vce-Kt-6fq"/>
-                        <segue destination="2RF-fp-r4Q" kind="show" identifier="userProfile" id="tup-yZ-wBf"/>
+                        <segue destination="2RF-fp-r4Q" kind="relationship" relationship="viewControllers" id="rJu-Y2-Uve"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4U-1f-jE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -661,6 +661,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w80-cq-9hm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
