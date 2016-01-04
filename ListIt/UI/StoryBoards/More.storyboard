@@ -5,28 +5,28 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Message-->
-        <scene sceneID="3t7-Kt-4yx">
+        <!--More-->
+        <scene sceneID="7WT-rK-Oq5">
             <objects>
-                <viewController restorationIdentifier=" " storyboardIdentifier="messages" title="Message" id="fGj-yK-fjW" customClass="MessagesViewController" customModule="ListIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="more" title="More" id="rjW-dj-baE" customClass="MoreViewController" customModule="ListIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CQx-Xh-Z0p"/>
-                        <viewControllerLayoutGuide type="bottom" id="dL5-CI-CV5"/>
+                        <viewControllerLayoutGuide type="top" id="TYe-tS-KVt"/>
+                        <viewControllerLayoutGuide type="bottom" id="HtX-q2-SOU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="AUl-lW-Ref">
+                    <view key="view" contentMode="scaleToFill" id="EDC-0v-az2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="List-it_0001s_0003s_0000_Message-Icon" id="mEA-hu-4LN"/>
+                    <tabBarItem key="tabBarItem" title="More" image="List-it_0001s_0004s_0000_More-Icon" id="w8u-Ut-WbS"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4nZ-Xr-xFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o2z-m0-aRQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289" y="252"/>
+            <point key="canvasLocation" x="548" y="53"/>
         </scene>
     </scenes>
     <resources>
-        <image name="List-it_0001s_0003s_0000_Message-Icon" width="35" height="30"/>
+        <image name="List-it_0001s_0004s_0000_More-Icon" width="30" height="30"/>
     </resources>
 </document>
