@@ -93,6 +93,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchActive = false;
+        searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -212,6 +213,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
         
         searchBar.delegate = self
         searchBar.placeholder = "Type Here"
+        searchBar.showsCancelButton = true
         self.navigationItem.titleView = searchBar
     }
     

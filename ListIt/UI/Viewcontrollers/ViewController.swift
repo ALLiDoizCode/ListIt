@@ -33,6 +33,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
         setupSearchBar()
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -90,6 +92,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchActive = false;
+        searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -198,6 +201,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func setupSearchBar(){
         searchBar.delegate = self
         searchBar.placeholder = "Type Here"
+        searchBar.showsCancelButton = true
+        searchBar.sizeToFit()
         self.navigationItem.titleView = searchBar
        
     }

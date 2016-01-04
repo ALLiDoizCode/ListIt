@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListIt/UI/Viewcontrollers/ViewController.swift"
-            timestampString = "473568218.853357"
+            timestampString = "473577257.395219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314">
+            startingLineNumber = "319"
+            endingLineNumber = "319">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

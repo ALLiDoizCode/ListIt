@@ -114,7 +114,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         dropDownMenu.tintColor = UIColor.clearColor()
         dropDownMenu.dropDownItems = dropdownItems as [AnyObject]
         dropDownMenu.paddingLeft = 2
-        dropDownMenu.frame = CGRectMake(0, 255, self.view.frame.width, 25)
+        dropDownMenu.frame = CGRectMake(0, 247, self.view.frame.width, 45)
         dropDownMenu.delegate = self
         dropDownMenu.type = IGLDropDownMenuType.Normal
         dropDownMenu.gutterY = 13
