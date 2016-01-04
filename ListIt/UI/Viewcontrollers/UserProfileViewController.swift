@@ -8,8 +8,8 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-/*
+class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,IGLDropDownMenuDelegate {
+
     var dropDownMenu = IGLDropDownMenu()
     var dropDownMenuTwo = IGLDropDownMenu()
     
@@ -22,12 +22,12 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         "Bought",
         "Sold",
         "My Network"]
-    */
+    
     
     override func viewDidLayoutSubviews()
     {
         
-        //setupInit()
+        setupInit()
         
     }
     
@@ -58,22 +58,25 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
    
     
     // func thata fires with tappig on profile image
-     /*   func setupInit() {
+        func setupInit() {
         
         let dropdownItems:NSMutableArray = NSMutableArray()
         
         for i in 0...(dataTitle.count-1) {
             
             let item = IGLDropDownItem()
-            item.iconImage = UIImage(named: "\(dataImage[i])")
+            //item.iconImage = UIImage(named: "\(dataImage[i])")
+            item.iconImage = nil
             item.text = "\(dataTitle[i])"
             dropdownItems.addObject(item)
         }
         
-        dropDownMenu.menuText = "Select listing type"
+        dropDownMenu.menuText = "Menu"
+        dropDownMenu.backgroundColor = UIColor.clearColor()
+        dropDownMenu.tintColor = UIColor.clearColor()
         dropDownMenu.dropDownItems = dropdownItems as [AnyObject]
         dropDownMenu.paddingLeft = 2
-        dropDownMenu.frame = CGRectMake((self.view.frame.size.width/2) - 150, 298, 300, 25)
+        dropDownMenu.frame = CGRectMake(0, 255, self.view.frame.width, 25)
         dropDownMenu.delegate = self
         dropDownMenu.type = IGLDropDownMenuType.Normal
         dropDownMenu.gutterY = 13
@@ -92,7 +95,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         
         
     }
-    */
+    
 
     
 }
