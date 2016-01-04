@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Message-->
@@ -16,17 +17,150 @@
                     <view key="view" contentMode="scaleToFill" id="AUl-lW-Ref">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yc3-iz-TwR">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="65" id="cZH-oI-gEF">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cZH-oI-gEF" id="LHE-43-A1M">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="jnF-6O-yXq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="7Tg-Dq-8HY"/>
+                                                        <constraint firstAttribute="height" constant="40" id="avo-Ct-6U3"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="7Tg-Dq-8HY"/>
+                                                            <exclude reference="avo-Ct-6U3"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="7Tg-Dq-8HY"/>
+                                                            <include reference="avo-Ct-6U3"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1E-DG-8aE">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="MQh-et-XxZ"/>
+                                                        <constraint firstAttribute="width" constant="203" id="ZBM-wQ-SjY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="MQh-et-XxZ"/>
+                                                            <exclude reference="ZBM-wQ-SjY"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="MQh-et-XxZ"/>
+                                                            <include reference="ZBM-wQ-SjY"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="k1E-DG-8aE" firstAttribute="top" secondItem="LHE-43-A1M" secondAttribute="topMargin" constant="5" id="VVc-gz-25V"/>
+                                                <constraint firstItem="k1E-DG-8aE" firstAttribute="leading" secondItem="jnF-6O-yXq" secondAttribute="trailing" constant="15" id="Y7w-Ah-KgT"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="jnF-6O-yXq"/>
+                                                    <exclude reference="k1E-DG-8aE"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="VVc-gz-25V"/>
+                                                    <exclude reference="Y7w-Ah-KgT"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="jnF-6O-yXq"/>
+                                                    <include reference="k1E-DG-8aE"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="VVc-gz-25V"/>
+                                                    <include reference="Y7w-Ah-KgT"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="jnF-6O-yXq" firstAttribute="centerY" secondItem="cZH-oI-gEF" secondAttribute="centerY" id="5Cb-Mw-RBl">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                            </constraint>
+                                            <constraint firstItem="jnF-6O-yXq" firstAttribute="leading" secondItem="cZH-oI-gEF" secondAttribute="leading" constant="23" id="eVw-Re-vck"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="5Cb-Mw-RBl"/>
+                                                <exclude reference="eVw-Re-vck"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="5Cb-Mw-RBl"/>
+                                                <include reference="eVw-Re-vck"/>
+                                            </mask>
+                                        </variation>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yc3-iz-TwR" firstAttribute="top" secondItem="AUl-lW-Ref" secondAttribute="topMargin" id="DkL-XX-GPO"/>
+                            <constraint firstItem="yc3-iz-TwR" firstAttribute="bottom" secondItem="AUl-lW-Ref" secondAttribute="bottomMargin" id="Qyi-95-MZs"/>
+                            <constraint firstItem="yc3-iz-TwR" firstAttribute="leading" secondItem="AUl-lW-Ref" secondAttribute="leadingMargin" constant="-20" id="UJv-G9-AW7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yc3-iz-TwR" secondAttribute="trailing" constant="-20" id="W8Y-xl-LcI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="yc3-iz-TwR"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="DkL-XX-GPO"/>
+                                <exclude reference="Qyi-95-MZs"/>
+                                <exclude reference="UJv-G9-AW7"/>
+                                <exclude reference="W8Y-xl-LcI"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="yc3-iz-TwR"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="DkL-XX-GPO"/>
+                                <include reference="Qyi-95-MZs"/>
+                                <include reference="UJv-G9-AW7"/>
+                                <include reference="W8Y-xl-LcI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Messages" image="List-it_0001s_0003s_0000_Message-Icon" id="mEA-hu-4LN"/>
+                    <navigationItem key="navigationItem" title="My Messages" id="Cm7-P1-K5d">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Ysv-hc-pek"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QmK-X3-dRC"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nZ-Xr-xFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289" y="252"/>
+            <point key="canvasLocation" x="291" y="261"/>
         </scene>
     </scenes>
     <resources>
         <image name="List-it_0001s_0003s_0000_Message-Icon" width="35" height="30"/>
+        <image name="placeholder" width="1200" height="900"/>
     </resources>
 </document>
