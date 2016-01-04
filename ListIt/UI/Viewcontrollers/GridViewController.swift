@@ -17,7 +17,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
     var searchActive : Bool = false
     
-    var grabItems:getItems = getItems()
+    var presentItems = getData()
     
     let identifier = "GridCell"
     
@@ -60,29 +60,24 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
         collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
         
         //parseData fill the aray for the listview items with this
-        SwiftEventBus.onMainThread(self, name: "Items") { (result) -> Void in
+        presentItems.getItem { (list) -> Void in
             
-            let collection :UICollectionView = self.collectionView!;
-            collection.frame = screenBounds
-            collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
-            
-            let ListItems = result.object as! [item]
-            
-            self.items = ListItems
+            self.items = list
             
             //the images are stored as url so as not to take up memory
-            print("ItemIcon: \(ListItems[0].icon)")
-            print("UserIcon: \(ListItems[0].userIcon)")
-            print("Title: \(ListItems[0].title)")
-            print("Price: \(ListItems[0].price)")
-            print("Shares: \(ListItems[0].shares)")
-            print("Comments: \(ListItems[0].comments)")
+            print("ItemIcon: \(list[0].icon)")
+            print("UserIcon: \(list[0].userIcon)")
+            print("Title: \(list[0].title)")
+            print("Price: \(list[0].price)")
+            print("Shares: \(list[0].shares)")
+            print("Comments: \(list[0].comments)")
             
-            collection.reloadData()
-    
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                self.collectionView.reloadData()
+                
+            });
         }
-        
-        grabItems.itemsList()
         
     }
     
