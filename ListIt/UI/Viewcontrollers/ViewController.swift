@@ -13,8 +13,8 @@ import SwiftEventBus
 
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate{
-    
-    var grabItems:getItems = getItems()
+
+    var presentItems = getData()
     
     var itemData:[item] = []
     var filtered:[item] = []
@@ -50,25 +50,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         
         //parseData fill the aray for the listview items with this
-        SwiftEventBus.onMainThread(self, name: "Items") { (result) -> Void in
+        
+        presentItems.getItem { (list) -> Void in
             
-            let items = result.object as! [item]
-            
-            self.itemData = items
+            self.itemData = list
             
             //the images are stored as url so as not to take up memory
-            print("ItemIcon: \(items[0].icon)")
-            print("UserIcon: \(items[0].userIcon)")
-            print("Title: \(items[0].title)")
-            print("Price: \(items[0].price)")
-            print("Shares: \(items[0].shares)")
-            print("Comments: \(items[0].comments)")
+            print("ItemIcon: \(list[0].icon)")
+            print("UserIcon: \(list[0].userIcon)")
+            print("Title: \(list[0].title)")
+            print("Price: \(list[0].price)")
+            print("Shares: \(list[0].shares)")
+            print("Comments: \(list[0].comments)")
             
-            self.tableView.reloadData()
-            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                self.tableView.reloadData()
+                
+            });
         }
-        
-        grabItems.itemsList()
+    
     }
 
     override func didReceiveMemoryWarning() {
