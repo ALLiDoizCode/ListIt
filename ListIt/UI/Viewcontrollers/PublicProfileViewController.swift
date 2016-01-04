@@ -7,24 +7,46 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PublicProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var presentItems = getData()
+    
+    var itemData:[item] = []
+    var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Josef"
         
-        //  let navigationBar = navigationController!.navigationBar
-        //navigationBar.tintColor = UIColor.blueColor()
-        
         let leftButton =  UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "popToRoot:")
-        
-        
+    
          navigationItem.leftBarButtonItem = leftButton
         
+        //parseData fill the aray for the listview items with this
         
-        
+        presentItems.getItem { (list) -> Void in
+            
+            self.itemData = list
+            
+            //the images are stored as url so as not to take up memory
+            print("ItemIcon: \(list[0].icon)")
+            print("UserIcon: \(list[0].userIcon)")
+            print("Title: \(list[0].title)")
+            print("Price: \(list[0].price)")
+            print("Shares: \(list[0].shares)")
+            print("Comments: \(list[0].comments)")
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                self.tableView.reloadData()
+                
+            });
+        }
         
     }
 
@@ -44,12 +66,24 @@ class PublicProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("public")
-        return cell!
+      let cell = tableView.dequeueReusableCellWithIdentifier("public") as! ListTableViewCell
+        
+        let ran = Int(arc4random_uniform(3))
+        
+        cell.listHeadingTitle.text = itemData[indexPath.row].title
+        cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
+        cell.userTypeIcon.image = UIImage(named: itemType[ran])
+        cell.listPrice.text = "$\(itemData[indexPath.row].price)"
+        cell.usersName.text = "Jonathan"
+        cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
+        cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
+        
+        return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        return itemData.count
     }
     
     /*
