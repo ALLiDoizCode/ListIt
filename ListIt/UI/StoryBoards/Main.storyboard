@@ -654,7 +654,6 @@
         <!--Profile-->
         <scene sceneID="TPp-1t-1vl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Bs-Uc-etk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2RF-fp-r4Q" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="List-it_0001s_0001s_0000_Profile-Icon" selectedImage="List-it_0001s_0001s_0000_Profile-Icon" id="JK9-Yf-iQ3"/>
                     <toolbarItems/>
@@ -668,6 +667,7 @@
                         <segue destination="h4P-J6-nkr" kind="relationship" relationship="rootViewController" id="0MS-DC-GXf"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Bs-Uc-etk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1524" y="1285.5"/>
         </scene>
