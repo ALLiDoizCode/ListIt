@@ -236,14 +236,27 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                 
                 if searchActive {
                     
-                    controller.theImage = self.filtered[indexPath].icon
-                    controller.theTitle = self.filtered[indexPath].title
-                    controller.thePrice = "$\(self.filtered[indexPath].price)"
-                    controller.itemDescription = self.filtered[indexPath].description
-                    controller.theName = "Jonathan"
-                    //controller.itemDescription.text = theItem.description
-                    controller.theShares = "\(self.filtered[indexPath].shares) Shares"
-                    controller.theComments = "\(self.filtered[indexPath].comments) Comments"
+                    if filtered.count != 0 {
+                        
+                        controller.theImage = self.filtered[indexPath].icon
+                        controller.theTitle = self.filtered[indexPath].title
+                        controller.thePrice = "$\(self.filtered[indexPath].price)"
+                        controller.itemDescription = self.filtered[indexPath].description
+                        controller.theName = "Jonathan"
+                        //controller.itemDescription.text = theItem.description
+                        controller.theShares = "\(self.filtered[indexPath].shares) Shares"
+                        controller.theComments = "\(self.filtered[indexPath].comments) Comments"
+                    }else {
+                        
+                        controller.theImage = self.items[indexPath].icon
+                        controller.theTitle = self.items[indexPath].title
+                        controller.thePrice = "$\(self.items[indexPath].price)"
+                        controller.itemDescription = self.items[indexPath].description
+                        controller.theName = "Jonathan"
+                        //controller.itemDescription.text = theItem.description
+                        controller.theShares = "\(self.items[indexPath].shares) Shares"
+                        controller.theComments = "\(self.items[indexPath].comments) Comments"
+                    }
                     
                 }else {
                     

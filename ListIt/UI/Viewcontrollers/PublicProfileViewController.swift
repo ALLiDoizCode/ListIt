@@ -66,7 +66,7 @@ class PublicProfileViewController: UIViewController, UITableViewDataSource, UITa
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("public") as! ListTableViewCell
+      let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! ListTableViewCell
         
         let ran = Int(arc4random_uniform(3))
         
@@ -75,8 +75,8 @@ class PublicProfileViewController: UIViewController, UITableViewDataSource, UITa
         cell.userTypeIcon.image = UIImage(named: itemType[ran])
         cell.listPrice.text = "$\(itemData[indexPath.row].price)"
         cell.usersName.text = "Jonathan"
-        cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
-        cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
+        cell.share.setTitle("\(itemData[indexPath.row].shares) Shares", forState: .Normal)
+        cell.comment.setTitle("\(itemData[indexPath.row].comments) Comments", forState: .Normal)
         
         return cell
     }

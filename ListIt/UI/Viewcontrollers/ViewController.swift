@@ -84,6 +84,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchActive = true;
+        
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
@@ -103,6 +104,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         var tempArray:[String] = []
         var tempFilter:[String] = []
+        
         
         for var i = 0; i < itemData.count; i++ {
             
@@ -156,32 +158,60 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let cell:ListTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ListTableViewCell
         let ran = Int(arc4random_uniform(3))
+        let tempImageView:UIImageView = UIImageView()
         
         if searchActive {
+            
             
             if filtered.count != 0 {
                 
                 cell.listHeadingTitle.text = filtered[indexPath.row].title
                 cell.listImage.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
-                cell.userImage.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"))
+                tempImageView.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: nil, completionHandler: { (image, error, cacheType, imageURL) -> () in
+                    
+                    cell.userImage.setBackgroundImage(image, forState: UIControlState.Normal)
+                    cell.userImage.imageView!.contentMode = .ScaleAspectFill
+                })
                 cell.userTypeIcon.image = UIImage(named: itemType[ran])
                 cell.listPrice.text = "$\(filtered[indexPath.row].price)"
                 cell.usersName.text = "Jonathan"
-                cell.listShares.text = "\(filtered[indexPath.row].shares) Shares"
-                cell.listComments.text = "\(filtered[indexPath.row].comments) Comments"
+                cell.share.setTitle("\(filtered[indexPath.row].shares) Shares", forState: .Normal)
+                cell.comment.setTitle("\(filtered[indexPath.row].comments) Comments", forState: .Normal)
                 
+            }else {
+                
+                cell.listHeadingTitle.text = itemData[indexPath.row].title
+                cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
+                
+                tempImageView.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: nil, completionHandler: { (image, error, cacheType, imageURL) -> () in
+                    
+                    cell.userImage.setBackgroundImage(image, forState: UIControlState.Normal)
+                    cell.userImage.imageView!.contentMode = .ScaleAspectFill
+                })
+                
+                cell.userTypeIcon.image = UIImage(named: itemType[ran])
+                cell.listPrice.text = "$\(itemData[indexPath.row].price)"
+                cell.usersName.text = "Jonathan"
+                cell.share.setTitle("\(itemData[indexPath.row].shares) Shares", forState: .Normal)
+                cell.comment.setTitle("\(itemData[indexPath.row].comments) Comments", forState: .Normal)
             }
             
         }else {
             
             cell.listHeadingTitle.text = itemData[indexPath.row].title
             cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
-            cell.userImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"))
+            
+            tempImageView.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: nil, completionHandler: { (image, error, cacheType, imageURL) -> () in
+                
+                cell.userImage.setBackgroundImage(image, forState: UIControlState.Normal)
+                cell.userImage.imageView!.contentMode = .ScaleAspectFill
+            })
+           
             cell.userTypeIcon.image = UIImage(named: itemType[ran])
             cell.listPrice.text = "$\(itemData[indexPath.row].price)"
             cell.usersName.text = "Jonathan"
-            cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
-            cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
+            cell.share.setTitle("\(itemData[indexPath.row].shares) Shares", forState: .Normal)
+            cell.comment.setTitle("\(itemData[indexPath.row].comments) Comments", forState: .Normal)
             
         }
         
@@ -227,15 +257,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             if searchActive {
                 
-                let controller:DetailViewController = segue.destinationViewController as! DetailViewController
-                controller.theImage = self.filtered[(indexPaths?.row)!].icon
-                controller.theTitle = self.filtered[(indexPaths?.row)!].title
-                controller.thePrice = "$\(self.filtered[(indexPaths?.row)!].price)"
-                controller.itemDescription = self.filtered[(indexPaths?.row)!].description
-                controller.theName = "Jonathan"
-                //controller.itemDescription.text = theItem.description
-                controller.theShares = "\(self.filtered[(indexPaths?.row)!].shares) Shares"
-                controller.theComments = "\(self.filtered[(indexPaths?.row)!].comments) Comments"
+                if filtered.count != 0 {
+                    
+                    let controller:DetailViewController = segue.destinationViewController as! DetailViewController
+                    controller.theImage = self.filtered[(indexPaths?.row)!].icon
+                    controller.theTitle = self.filtered[(indexPaths?.row)!].title
+                    controller.thePrice = "$\(self.filtered[(indexPaths?.row)!].price)"
+                    controller.itemDescription = self.filtered[(indexPaths?.row)!].description
+                    controller.theName = "Jonathan"
+                    //controller.itemDescription.text = theItem.description
+                    controller.theShares = "\(self.filtered[(indexPaths?.row)!].shares) Shares"
+                    controller.theComments = "\(self.filtered[(indexPaths?.row)!].comments) Comments"
+                }else {
+                    
+                    let controller:DetailViewController = segue.destinationViewController as! DetailViewController
+                    controller.theImage = self.itemData[(indexPaths?.row)!].icon
+                    controller.theTitle = self.itemData[(indexPaths?.row)!].title
+                    controller.thePrice = "$\(self.itemData[(indexPaths?.row)!].price)"
+                    controller.itemDescription = self.itemData[(indexPaths?.row)!].description
+                    controller.theName = "Jonathan"
+                    //controller.itemDescription.text = theItem.description
+                    controller.theShares = "\(self.itemData[(indexPaths?.row)!].shares) Shares"
+                    controller.theComments = "\(self.itemData[(indexPaths?.row)!].comments) Comments"
+                }
                 
             }else {
                 

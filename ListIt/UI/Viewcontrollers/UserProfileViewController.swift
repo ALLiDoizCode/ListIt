@@ -75,7 +75,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("userCell") as! ListTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! ListTableViewCell
         
         let ran = Int(arc4random_uniform(3))
         
@@ -83,10 +83,9 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         cell.listImage.kf_setImageWithURL(NSURL(string: itemData[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"))
         cell.userTypeIcon.image = UIImage(named: itemType[ran])
         cell.listPrice.text = "$\(itemData[indexPath.row].price)"
-        cell.usersName.text = "Jonathan"
-        cell.listShares.text = "\(itemData[indexPath.row].shares) Shares"
-        cell.listComments.text = "\(itemData[indexPath.row].comments) Comments"
-        
+        //cell.usersName.text = "Jonathan"
+        cell.share.setTitle("\(itemData[indexPath.row].shares) Shares", forState: .Normal)
+        cell.comment.setTitle("\(itemData[indexPath.row].comments) Comments", forState: .Normal)
         return cell
     }
     
@@ -114,10 +113,10 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         dropDownMenu.tintColor = UIColor.clearColor()
         dropDownMenu.dropDownItems = dropdownItems as [AnyObject]
         dropDownMenu.paddingLeft = 2
-        dropDownMenu.frame = CGRectMake(0, 247, self.view.frame.width, 45)
+        dropDownMenu.frame = CGRectMake(0, 247, self.view.frame.width, 35)
         dropDownMenu.delegate = self
         dropDownMenu.type = IGLDropDownMenuType.Normal
-        dropDownMenu.gutterY = 13
+        dropDownMenu.gutterY = -1
         dropDownMenu.itemAnimationDelay = 0.1
         //dropDownMenu.rotate = IGLDropDownMenuRotate.Random //add rotate value for tilting the
         dropDownMenu.reloadView()
