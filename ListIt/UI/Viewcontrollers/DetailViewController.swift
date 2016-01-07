@@ -72,7 +72,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func message(sender: AnyObject) {
         
-        //populate variables with data and UI binding here
+        /*//populate variables with data and UI binding here
            self.venmo.getUser { (token) -> Void in
         let username = self.user.currentUser().user.username
         let userImage = self.user.currentUser().user.profileImageUrl
@@ -80,7 +80,7 @@ class DetailViewController: UIViewController {
         print("UserName: \(username)")
         print("User Image: \(userImage)")
         
-        }
+        }*/
     }
     
     override func prefersStatusBarHidden() -> Bool {

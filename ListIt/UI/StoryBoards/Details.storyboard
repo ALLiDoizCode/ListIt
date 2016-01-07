@@ -219,42 +219,6 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QK6-cQ-8Ps">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.36470588240000001" green="0.68235294120000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="1Qx-Pl-CE1">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="33"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="70" id="4DS-B0-5Zw">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
-                                    </constraint>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <state key="normal" title="Message">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="messageBtn.cornerradius">
-                                        <integer key="value" value="50"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1Qx-Pl-CE1"/>
-                                        <exclude reference="4DS-B0-5Zw"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="1Qx-Pl-CE1"/>
-                                        <include reference="4DS-B0-5Zw"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="message:" destination="D6p-oK-Tha" eventType="touchUpInside" id="kTQ-Tw-KV6"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-WW-9Da">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -297,6 +261,43 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QK6-cQ-8Ps">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.36470588240000001" green="0.68235294120000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1Qx-Pl-CE1">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="33"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="70" id="4DS-B0-5Zw">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" title="Message">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="messageBtn.cornerradius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1Qx-Pl-CE1"/>
+                                        <exclude reference="4DS-B0-5Zw"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="1Qx-Pl-CE1"/>
+                                        <include reference="4DS-B0-5Zw"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="message:" destination="D6p-oK-Tha" eventType="touchUpInside" id="kTQ-Tw-KV6"/>
+                                    <segue destination="giF-6v-O2K" kind="show" id="3Io-JQ-vGd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -393,9 +394,9 @@
                                 <exclude reference="z5c-zu-W0S"/>
                                 <exclude reference="apN-R4-8aD"/>
                                 <exclude reference="Oaj-xo-dn8"/>
-                                <exclude reference="QK6-cQ-8Ps"/>
                                 <exclude reference="zEq-WW-9Da"/>
                                 <exclude reference="TNa-5h-m9N"/>
+                                <exclude reference="QK6-cQ-8Ps"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="GJO-3N-7ND"/>
@@ -458,9 +459,9 @@
                                 <include reference="z5c-zu-W0S"/>
                                 <include reference="apN-R4-8aD"/>
                                 <include reference="Oaj-xo-dn8"/>
-                                <include reference="QK6-cQ-8Ps"/>
                                 <include reference="zEq-WW-9Da"/>
                                 <include reference="TNa-5h-m9N"/>
+                                <include reference="QK6-cQ-8Ps"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="GJO-3N-7ND"/>
@@ -563,6 +564,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBs-rl-aCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1872" y="168"/>
+        </scene>
+        <!--Message-->
+        <scene sceneID="Tni-TY-n0x">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Message" id="giF-6v-O2K" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i8F-cF-Gdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1384.5" y="868.5"/>
         </scene>
     </scenes>
     <resources>

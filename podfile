@@ -9,3 +9,4 @@ pod 'BTNavigationDropdownMenu'
 pod "ImagePickerSheetController", "~> 0.9.1"
 pod 'IQKeyboardManagerSwift'
 pod "SwiftSpinner"
+pod 'JSQMessagesViewController'

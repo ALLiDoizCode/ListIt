@@ -8,8 +8,10 @@
 
 import Foundation
 import SwiftEventBus
+import JSQMessagesViewController
 
 class getData {
+
     
     var grabItems:getItems = getItems()
     
@@ -31,6 +33,31 @@ class getData {
         grabItems.addItem(icon, icon2: icon2, icon3: icon3, userIcon: userIcon, title: title, price: price, shares: shares, comments: comments,desc: desc,type:type,category:category)
         
     }
+    
+    /*func getMessage(message: Message)  -> JSQMessage {
+        
+        //let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.created_at, text: message.text)
+        return jsqMessage
+    }
+    
+    func getMessages(messages: [Message]) -> [JSQMessage] {
+        
+        var jsqMessages : [JSQMessage] = []
+        for message in messages {
+            jsqMessages.append(self.getMessage(message))
+        }
+        return jsqMessages
+    }*/
+   
+    func sendMessage(message: JSQMessage) {
+        
+        let messageToSend = MessageModal()
+        messageToSend.text = message.text
+        messageToSend.senderId = message.senderId
+        
+    }
+    
+    
 }
 
 
