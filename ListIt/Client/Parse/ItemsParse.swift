@@ -25,13 +25,24 @@ class getItems {
     
     
     
-    func sendMessage(messsage:MessageModal,sellerId:String){
+    func sendMessage(message:MessageModal,sellerId:String){
         
         let converstation = PFObject(className:"Convo")
         //let converstation = PFObject(className:"Convo\(user?.objectId)\(sellerId)")
         
-        converstation["UserId"] = messsage.senderId
-        converstation["Message"] = messsage.text
+        if message.isImage == true {
+            
+            let photoData = UIImageJPEGRepresentation(message.image, 0.2)
+            let photoFile = PFFile(name:"photo", data:photoData!)
+            
+            converstation["UserId"] = message.senderId
+            converstation["Image"] = photoFile
+            
+        }else {
+            
+            converstation["UserId"] = message.senderId
+            converstation["Message"] = message.text
+        }
         
         converstation.saveInBackgroundWithBlock { (success, error) -> Void in
             
@@ -63,16 +74,28 @@ class getItems {
                     
                     for object in objects {
                         
-                        let message = object.objectForKey("Message") as! String!
-                        let messageId = object.objectForKey("UserId") as! String!
-                        let time = object.createdAt
-                        
-                        print(time)
+                        if  let image = object.objectForKey("Image") as! PFFile! {
+                            
+                            let messageId = object.objectForKey("UserId") as! String!
+                            let time = object.createdAt
+                            
+                            print("the image url \(image.url)")
+                            
+                            let theMesssage = MessageModal(theText: "", theSender: messageId, theAttachment: image.url!,theDate:time!,theImage:UIImage(named: "placeholder")!,hasImage:true)
+                            
+                            self.messageItem.append(theMesssage)
+                        }else if let message = object.objectForKey("Message") as! String! {
+            
+                            let messageId = object.objectForKey("UserId") as! String!
+                            let time = object.createdAt
+                            
+                            print(time)
+                            
+                            let theMesssage = MessageModal(theText: message, theSender: messageId, theAttachment: "",theDate:time!,theImage:UIImage(named: "placeholder")!,hasImage:false)
+                            
+                            self.messageItem.append(theMesssage)
+                        }
 
-                        let theMesssage = MessageModal(theText: message, theSender: messageId, theAttachment: "",theDate:time!)
-                        
-                        self.messageItem.append(theMesssage)
-                        
                     }
                     
                     SwiftEventBus.postToMainThread("message", sender: self.messageItem)

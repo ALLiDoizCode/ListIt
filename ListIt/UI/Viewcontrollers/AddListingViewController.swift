@@ -172,7 +172,7 @@ class AddListingViewController: UIViewController, UIScrollViewDelegate, IGLDropD
         getImage(thirdImage)
     }
     
-    // func thata fires with tappig on profile image
+    // func that fires with tappig on profile image
     func getImage(imageView: UIImageView) {
         
         let manager = PHImageManager.defaultManager()

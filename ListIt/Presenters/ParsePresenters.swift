@@ -9,6 +9,8 @@
 import Foundation
 import SwiftEventBus
 import JSQMessagesViewController
+import Kingfisher
+
 
 class getData {
 
@@ -52,10 +54,39 @@ class getData {
             
             for message in items {
                 
-                let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.date, text: message.text)
+                    let tempImageView = UIImageView()
+                    
+                    tempImageView.kf_setImageWithURL(NSURL(string: message.attachment)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
+                        
+                        if message.isImage == true && error == nil {
+                        
+                        print("attachment \(image)")
+                        
+                        let photo = JSQPhotoMediaItem(image:image)
+
+                        
+                        let jsqMessage = JSQMessage(senderId: message.senderId, displayName:  message.senderId, media: photo)
+                        
+                        jsqMessages.append(jsqMessage)
+                        
+                        print(jsqMessage.media)
+                        
+                        
+                            
+                        }else {
+                            
+                            let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.date, text: message.text)
+                            
+                            jsqMessages.append(jsqMessage)
+                            
+                        }
+                        
+                        completionHandler!(jsqMessages)
+                })
                 
-                jsqMessages.append(jsqMessage)
+               
             }
+            
             
             completionHandler!(jsqMessages)
             
@@ -65,15 +96,28 @@ class getData {
         
     }
    
-    func sendMessage(message:JSQMessage,sellerId:String,completionHandler: (() -> Void)?) {
+    func sendMessage(message:JSQMessage,sellerId:String,hasImage:Bool,image:UIImage,completionHandler: (() -> Void)?) {
         
-        let messageToSend = MessageModal(theText: message.text, theSender: message.senderId, theAttachment: "",theDate:NSDate())
+        if hasImage == true {
+            
+            let messageToSend = MessageModal(theText: "", theSender: message.senderId, theAttachment: "",theDate:NSDate(),theImage:image,hasImage:hasImage)
+            
+            grabItems.sendMessage(messageToSend,sellerId: sellerId)
+            
+            completionHandler!()
+            
+            print("presenter fired")
+        }else {
+            
+            let messageToSend = MessageModal(theText: message.text, theSender: message.senderId, theAttachment: "",theDate:NSDate(),theImage:UIImage(named: "placeholder")!,hasImage:hasImage)
+            
+            grabItems.sendMessage(messageToSend,sellerId: sellerId)
+            
+            completionHandler!()
+            
+            print("presenter fired")
+        }
         
-        grabItems.sendMessage(messageToSend,sellerId: sellerId)
-        
-        completionHandler!()
-        
-        print("presenter fired")
     }
     
     func addChannel(sellerId: String) {

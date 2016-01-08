@@ -15,13 +15,17 @@ class MessageModal {
     var senderId = ""
     var attachment = ""
     var date:NSDate!
+    var image:UIImage!
+    var isImage:Bool!
     
-    init(theText:String,theSender:String,theAttachment:String,theDate:NSDate){
+    init(theText:String,theSender:String,theAttachment:String,theDate:NSDate,theImage:UIImage,hasImage:Bool){
         
         text = theText
         senderId = theSender
         attachment = theAttachment
         date = theDate
+        image = theImage
+        isImage = hasImage
     }
 }
 
