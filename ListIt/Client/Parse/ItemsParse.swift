@@ -50,6 +50,8 @@ class getItems {
     
     func getMessages(sellerId:String){
         
+        self.messageItem = []
+        
         let queryMessage = PFQuery(className:"Convo")
         //let queryMessage = PFQuery(className: "Convo\(user?.objectId)\(sellerId)")
         

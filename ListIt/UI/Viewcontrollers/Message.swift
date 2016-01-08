@@ -29,13 +29,17 @@ class MessageViewController: JSQMessagesViewController {
         
         
        
+    
+       
         
         /*var avatar:JSQMessagesAvatarImage = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials("JG", backgroundColor: blueColor, textColor: UIColor.lightTextColor(), font: UIFont.systemFontOfSize(14.0), diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))*/
     
         
         
+        
         setup()
         addMessages()
+        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "newMessages", userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
     }
@@ -73,13 +77,36 @@ class MessageViewController: JSQMessagesViewController {
 //MARK - Setup
 extension MessageViewController {
     func addMessages() {
-      presenter.getMessages("test") { (item) -> Void in
         
-        self.messages = item
-        self.reloadMessagesView()
+            presenter.getMessages("test") { (item) -> Void in
+                
+                self.messages = item
+                self.reloadMessagesView()
+                
+            }
+    }
+    
+    func newMessages(){
         
+        presenter.getMessages("test") { (item) -> Void in
+            
+            
+            self.messages = []
+            
+            for var i = 0; i < item.count; i++ {
+                
+                if i > self.messages.count {
+                    
+                    print("new item", i)
+                    print("old item", self.messages.count)
+                    
+                    self.messages.append(item[i])
+                }
+            }
+            
+            self.reloadMessagesView()
+            
         }
-       
     }
     
     func setup() {
