@@ -14,5 +14,14 @@ class MessageModal {
     var text = ""
     var senderId = ""
     var attachment = ""
+    var date:NSDate!
+    
+    init(theText:String,theSender:String,theAttachment:String,theDate:NSDate){
+        
+        text = theText
+        senderId = theSender
+        attachment = theAttachment
+        date = theDate
+    }
 }
 

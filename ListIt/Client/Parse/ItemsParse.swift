@@ -18,7 +18,66 @@ class getItems {
     
     let query = PFQuery(className: "Items")
     
+    let user = PFUser.currentUser()
+    
     var items:[item] = []
+    var messageItem:[MessageModal] = []
+    
+    
+    
+    func sendMessage(messsage:MessageModal,sellerId:String){
+        
+        let converstation = PFObject(className:"Convo")
+        //let converstation = PFObject(className:"Convo\(user?.objectId)\(sellerId)")
+        
+        converstation["UserId"] = messsage.senderId
+        converstation["Message"] = messsage.text
+        
+        converstation.saveInBackgroundWithBlock { (success, error) -> Void in
+            
+            if success {
+                
+                print("client fired")
+            }else{
+                
+                print(error)
+            }
+        }
+        
+        
+    }
+    
+    
+    func getMessages(sellerId:String){
+        
+        let queryMessage = PFQuery(className:"Convo")
+        //let queryMessage = PFQuery(className: "Convo\(user?.objectId)\(sellerId)")
+        
+        queryMessage.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
+            
+            if error == nil {
+                
+                if let objects = objects {
+                    
+                    for object in objects {
+                        
+                        let message = object.objectForKey("Message") as! String!
+                        let messageId = object.objectForKey("UserId") as! String!
+                        let time = object.createdAt
+                        
+                        print(time)
+
+                        let theMesssage = MessageModal(theText: message, theSender: messageId, theAttachment: "",theDate:time!)
+                        
+                        self.messageItem.append(theMesssage)
+                        
+                    }
+                    
+                    SwiftEventBus.postToMainThread("message", sender: self.messageItem)
+                }
+            }
+        }
+    }
     
     func addItem(icon:UIImage,icon2:UIImage,icon3:UIImage,userIcon:UIImage,title:String,price:Float,shares:String,comments:String,desc:String,type:String,category:String) {
         

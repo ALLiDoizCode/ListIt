@@ -34,27 +34,44 @@ class getData {
         
     }
     
-    /*func getMessage(message: Message)  -> JSQMessage {
+    /*func getMessage(completionHandler: (([MessageModal]!) -> Void)?)  -> JSQMessage {
         
-        //let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.created_at, text: message.text)
+        let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.created_at, text: message.text)
         return jsqMessage
-    }
-    
-    func getMessages(messages: [Message]) -> [JSQMessage] {
-        
-        var jsqMessages : [JSQMessage] = []
-        for message in messages {
-            jsqMessages.append(self.getMessage(message))
-        }
-        return jsqMessages
     }*/
+    
+    func getMessages(sellerId:String,completionHandler: (([JSQMessage]!) -> Void)?){
+        
+        SwiftEventBus.onBackgroundThread(self, name: "message") { (result) -> Void in
+            
+            let items = result.object as! [MessageModal]
+            
+            var jsqMessages : [JSQMessage] = []
+            
+            for message in items {
+                
+                let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.date, text: message.text)
+                
+                jsqMessages.append(jsqMessage)
+            }
+            
+            completionHandler!(jsqMessages)
+            
+        }
+        
+        grabItems.getMessages(sellerId)
+        
+    }
    
-    func sendMessage(message: JSQMessage) {
+    func sendMessage(message:JSQMessage,sellerId:String,completionHandler: (() -> Void)?) {
         
-        let messageToSend = MessageModal()
-        messageToSend.text = message.text
-        messageToSend.senderId = message.senderId
+        let messageToSend = MessageModal(theText: message.text, theSender: message.senderId, theAttachment: "",theDate:NSDate())
         
+        grabItems.sendMessage(messageToSend,sellerId: sellerId)
+        
+        completionHandler!()
+        
+        print("presenter fired")
     }
     
     

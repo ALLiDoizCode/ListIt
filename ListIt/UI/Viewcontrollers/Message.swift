@@ -13,19 +13,25 @@ var blueColor = UIColor(red: 0.596, green: 0.749, blue: 0.804, alpha: 1)
 
 class MessageViewController: JSQMessagesViewController {
     
-    var persenter = getData()
+    var presenter = getData()
     
     var avatar:JSQMessagesAvatarImage!
     var outgoingBubbleImageData = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.grayColor())
     var incomingBubbleImageData = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(blueColor)
     
     var messages:[JSQMessage] = [JSQMessage]()
+    
+    var userIcon:UIImage!
+    var sellerId:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*var avatar:JSQMessagesAvatarImage = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(<#T##userInitials: String!##String!#>, backgroundColor: blueColor, textColor: UIColor.lightTextColor(), font: UIFont.systemFontOfSize(14.0), diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))*/
         
+       
+        
+        /*var avatar:JSQMessagesAvatarImage = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials("JG", backgroundColor: blueColor, textColor: UIColor.lightTextColor(), font: UIFont.systemFontOfSize(14.0), diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))*/
+    
         
         
         setup()
@@ -40,7 +46,14 @@ class MessageViewController: JSQMessagesViewController {
     }
     
     func reloadMessagesView() {
-        self.collectionView?.reloadData()
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            self.collectionView?.reloadData()
+
+        });
+
+        
     }
     
 
@@ -60,18 +73,19 @@ class MessageViewController: JSQMessagesViewController {
 //MARK - Setup
 extension MessageViewController {
     func addMessages() {
-        for i in 1...10 {
-            let sender = (i%2 == 0) ? "Server" : self.senderId
-            let messageContent = "Messaasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdasdasdasdsadasdge nr. \(i)"
-            let message = JSQMessage(senderId: sender, displayName: sender, text: messageContent)
-            self.messages += [message]
-        }
+      presenter.getMessages("test") { (item) -> Void in
+        
+        self.messages = item
         self.reloadMessagesView()
+        
+        }
+       
     }
     
     func setup() {
         self.senderId = UIDevice.currentDevice().identifierForVendor?.UUIDString
         self.senderDisplayName = UIDevice.currentDevice().identifierForVendor?.UUIDString
+
     }
 }
 
@@ -102,17 +116,40 @@ extension MessageViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
+        
+        let diameter = UInt(kJSQMessagesCollectionViewAvatarSizeDefault)
+        let avatarImage = JSQMessagesAvatarImageFactory.avatarImageWithImage(userIcon, diameter: diameter)
+        
+        let avatarImage2 = JSQMessagesAvatarImageFactory.avatarImageWithImage(UIImage(named: "placeholder"), diameter: diameter)
+        
+        let data = messages[indexPath.row]
+        switch(data.senderId) {
+        case self.senderId:
+            return avatarImage
+        default:
+            return avatarImage2
+        }
+        
     }
 }
 
 //MARK - Toolbar
 extension MessageViewController {
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+        
         let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
-        persenter.sendMessage(message)
-        self.messages += [message]
-        self.finishSendingMessage()
+        
+        presenter.sendMessage(message, sellerId: "test") { () -> Void in
+            
+            self.messages += [message]
+            self.finishSendingMessage()
+            print("pressed send")
+        }
+        
+        
+        
+        
+       
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {
