@@ -8,12 +8,15 @@
 
 import UIKit
 import JSQMessagesViewController
+import SwiftEventBus
 
 var blueColor = UIColor(red: 0.596, green: 0.749, blue: 0.804, alpha: 1)
 
 class MessageViewController: JSQMessagesViewController {
     
     var presenter = getData()
+    
+    var cloudFunctions = TheCloud()
     
     var avatar:JSQMessagesAvatarImage!
     var outgoingBubbleImageData = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.grayColor())
@@ -27,9 +30,12 @@ class MessageViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        SwiftEventBus.onMainThread(self, name: "NewMessage") { (result) -> Void in
+            
+            self.newMessages()
+        }
        
-    
+        presenter.addChannel("test")
        
         
         /*var avatar:JSQMessagesAvatarImage = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials("JG", backgroundColor: blueColor, textColor: UIColor.lightTextColor(), font: UIFont.systemFontOfSize(14.0), diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))*/
@@ -39,8 +45,6 @@ class MessageViewController: JSQMessagesViewController {
         
         setup()
         addMessages()
-        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "newMessages", userInfo: nil, repeats: true)
-
         // Do any additional setup after loading the view.
     }
 
@@ -81,8 +85,7 @@ extension MessageViewController {
             presenter.getMessages("test") { (item) -> Void in
                 
                 self.messages = item
-                self.reloadMessagesView()
-                
+                self.reloadMessagesView()                
             }
     }
     
@@ -104,7 +107,7 @@ extension MessageViewController {
                 }
             }
             
-            self.reloadMessagesView()
+            self.finishSendingMessage()
             
         }
     }
@@ -171,6 +174,7 @@ extension MessageViewController {
             self.messages += [message]
             self.finishSendingMessage()
             print("pressed send")
+            self.cloudFunctions.pushMessage("test")
         }
         
         

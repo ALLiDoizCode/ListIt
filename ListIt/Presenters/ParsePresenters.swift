@@ -15,6 +15,8 @@ class getData {
     
     var grabItems:getItems = getItems()
     
+    var channel:channels = channels()
+    
     func getItem(completionHandler: (([item]!) -> Void)?){
         
         SwiftEventBus.onBackgroundThread(self, name: "Items") { (result) -> Void in
@@ -74,7 +76,10 @@ class getData {
         print("presenter fired")
     }
     
-    
+    func addChannel(sellerId: String) {
+        
+        channel.messageChannel(sellerId)
+    }
 }
 
 

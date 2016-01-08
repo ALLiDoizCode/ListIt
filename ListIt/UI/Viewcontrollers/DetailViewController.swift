@@ -36,6 +36,7 @@ class DetailViewController: UIViewController {
     
     let venmo:PresentVenmo = PresentVenmo()
     let user:User = User()
+    let presenter = getData()
     
     override func viewDidLayoutSubviews() {
         

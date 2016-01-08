@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0B72291C3F987F0028F81B /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0B72281C3F987F0028F81B /* Channels.swift */; };
 		4D0F5F201C171B8A001E4385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F5F1F1C171B8A001E4385 /* AppDelegate.swift */; };
 		4D0F5F221C171B8A001E4385 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F5F211C171B8A001E4385 /* ViewController.swift */; };
 		4D0F5F271C171B8A001E4385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F5F261C171B8A001E4385 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 		4D1BBA361C1B7A6F007FE7DF /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BBA351C1B7A6F007FE7DF /* Items.swift */; };
 		4D1BBA391C1B7B93007FE7DF /* ItemsParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BBA381C1B7B93007FE7DF /* ItemsParse.swift */; };
 		4D1BBA3B1C1B7E88007FE7DF /* ParsePresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BBA3A1C1B7E88007FE7DF /* ParsePresenters.swift */; };
+		4D2182E41C3F900100C02116 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2182E31C3F900100C02116 /* Cloud.swift */; };
 		4D8BE7B81C1FC3A8005A9CB2 /* Grid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BE7B71C1FC3A8005A9CB2 /* Grid.storyboard */; };
 		4D8BE7BA1C1FC3C6005A9CB2 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7B91C1FC3C6005A9CB2 /* GridViewController.swift */; };
 		4D8BE7C01C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7BF1C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift */; };
@@ -69,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D0B72281C3F987F0028F81B /* Channels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
 		4D0F5F1C1C171B8A001E4385 /* ListIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0F5F1F1C171B8A001E4385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D0F5F211C171B8A001E4385 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		4D1BBA351C1B7A6F007FE7DF /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Items.swift; path = ../Items.swift; sourceTree = "<group>"; };
 		4D1BBA381C1B7B93007FE7DF /* ItemsParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsParse.swift; sourceTree = "<group>"; };
 		4D1BBA3A1C1B7E88007FE7DF /* ParsePresenters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsePresenters.swift; sourceTree = "<group>"; };
+		4D2182E31C3F900100C02116 /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		4D8BE7B71C1FC3A8005A9CB2 /* Grid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Grid.storyboard; sourceTree = "<group>"; };
 		4D8BE7B91C1FC3C6005A9CB2 /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		4D8BE7BF1C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 			children = (
 				4D1BBA381C1B7B93007FE7DF /* ItemsParse.swift */,
 				4D1BBA371C1B7A98007FE7DF /* Modals */,
+				4D2182E31C3F900100C02116 /* Cloud.swift */,
+				4D0B72281C3F987F0028F81B /* Channels.swift */,
 			);
 			path = Parse;
 			sourceTree = "<group>";
@@ -457,6 +463,15 @@
 				TargetAttributes = {
 					4D0F5F1B1C171B8A001E4385 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 8YZN9U9V9B;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					4D0F5F2F1C171B8A001E4385 = {
 						CreatedOnToolsVersion = 7.1;
@@ -583,6 +598,7 @@
 				4D1BBA391C1B7B93007FE7DF /* ItemsParse.swift in Sources */,
 				6B5C725F1C364D3E002D8261 /* PublicProfileViewController.swift in Sources */,
 				6B5C727F1C3A1E58002D8261 /* MoreViewController.swift in Sources */,
+				4D0B72291C3F987F0028F81B /* Channels.swift in Sources */,
 				4D1BBA3B1C1B7E88007FE7DF /* ParsePresenters.swift in Sources */,
 				4D1BBA331C1B3F96007FE7DF /* VenmoPresenter.swift in Sources */,
 				6B161B531C29010C00AA4346 /* IGLDropDownMenu.m in Sources */,
@@ -602,6 +618,7 @@
 				4DA39A801C18D74900B6F2DD /* Client.swift in Sources */,
 				4D0F5F201C171B8A001E4385 /* AppDelegate.swift in Sources */,
 				4DC128281C35E15100904A13 /* SweetAlert.swift in Sources */,
+				4D2182E41C3F900100C02116 /* Cloud.swift in Sources */,
 				4D8BE7C41C1FC77D005A9CB2 /* GridCell.swift in Sources */,
 				6B5C72751C3A1272002D8261 /* MessagesViewController.swift in Sources */,
 			);
@@ -728,10 +745,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ListIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ListIt.ListIt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thatlevel.listit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -742,10 +762,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ListIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ListIt.ListIt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thatlevel.listit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
