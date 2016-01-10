@@ -3,11 +3,17 @@ PODS:
   - Bolts/Tasks (1.5.0)
   - BTNavigationDropdownMenu (0.2)
   - CMDQueryStringSerialization (0.2.0)
+  - ImagePickerSheetController (0.9.1)
+  - IQKeyboardManagerSwift (3.3.5)
+  - JSQMessagesViewController (7.2.0):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - Kingfisher (1.8.4)
   - Parse (1.10.0):
     - Bolts/Tasks (~> 1.5)
   - SSKeychain (1.2.3)
   - SwiftEventBus (1.1.0)
+  - SwiftSpinner (0.8.0)
   - VENCore (3.0.1):
     - CMDQueryStringSerialization (~> 0.2.0)
   - Venmo-iOS-SDK (1.3.0):
@@ -18,9 +24,13 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - BTNavigationDropdownMenu
+  - ImagePickerSheetController (~> 0.9.1)
+  - IQKeyboardManagerSwift
+  - JSQMessagesViewController
   - Kingfisher (~> 1.8)
   - Parse
   - SwiftEventBus (from `https://github.com/cesarferreira/SwiftEventBus.git`)
+  - SwiftSpinner
   - Venmo-iOS-SDK (~> 1.3)
 
 EXTERNAL SOURCES:
@@ -37,10 +47,15 @@ SPEC CHECKSUMS:
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   BTNavigationDropdownMenu: 731e0e7068eefeea4a53b0695f37454aad944255
   CMDQueryStringSerialization: 15f9004212bbc72533bb533f63df79d90a00a7d8
+  ImagePickerSheetController: 3c58c9fee6dcf36485222358a021f6b734f997ba
+  IQKeyboardManagerSwift: 17f1ebf3fe07f7905369c6dca2da1051b6fea805
+  JSQMessagesViewController: 73cab48aa92fc2d512f3b6724f3425cc47a19eb5
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Kingfisher: e5a5e1660822b16580fd7ac79d69d6328190daf0
   Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   SwiftEventBus: d334f7aecbddbd995c3de5c262cf35c72db550f3
+  SwiftSpinner: 11c2c5ec7443d92f3026d3067ca8a91d4adef13f
   VENCore: 7adedc7c0e65e3ba922cc21c35f3d0e133d43df7
   Venmo-iOS-SDK: 456097c6df57544362719ea8db01541953aec44d
 

@@ -58,11 +58,121 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListIt/UI/Viewcontrollers/ViewController.swift"
-            timestampString = "471860385.148091"
+            timestampString = "473828949.939263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165">
+            startingLineNumber = "363"
+            endingLineNumber = "363">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListIt/UI/Viewcontrollers/Message.swift"
+            timestampString = "473983973.520177"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
+            landmarkName = "didPressSendButton(_:withMessageText:senderId:senderDisplayName:date:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListIt/Modal/Messages/DataModal.swift"
+            timestampString = "473902934.276374"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "MessageModal"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ListIt.MessageModal.init (ListIt.MessageModal.Type)(theText : Swift.String, theSender : Swift.String, theAttachment : Swift.String, theDate : __ObjC.NSDate) -&gt; ListIt.MessageModal"
+                  moduleName = "ListIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
+                  timestampString = "473971553.173601"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "278">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ListIt.MessageModal.attachment.getter : Swift.String"
+                  moduleName = "ListIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
+                  timestampString = "473971553.173696"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ListIt.MessageModal.attachment.setter : Swift.String"
+                  moduleName = "ListIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
+                  timestampString = "473971553.173782"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ListIt.MessageModal.attachment.materializeForSet : Swift.String"
+                  moduleName = "ListIt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
+                  timestampString = "473971553.173863"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListIt/UI/Viewcontrollers/Message.swift"
+            timestampString = "473982162.212807"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A9FEF60B46A799610BDDD66A'
+               BlueprintIdentifier = '1DFAB37CC4A74073F5148505'
                BlueprintName = 'Venmo-iOS-SDK'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Venmo_iOS_SDK.framework'>

@@ -55,7 +55,7 @@
 {
     self.bgView = [[UIView alloc] init];
     self.bgView.userInteractionEnabled = NO;
-    self.bgView.backgroundColor = [UIColor whiteColor];
+    self.bgView.backgroundColor = [UIColor colorWithRed:0.596 green:0.749 blue:0.804 alpha:1];
     self.bgView.layer.shadowColor = [UIColor grayColor].CGColor;
     self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
     self.bgView.layer.shadowOpacity = 0.2;
@@ -69,7 +69,7 @@
     
     self.textLabel = [[UILabel alloc] init];
     self.textLabel.numberOfLines = 1;
-    self.textLabel.textColor = [UIColor grayColor];
+    self.textLabel.textColor = [UIColor whiteColor];
     [self addSubview:self.textLabel];
     
     [self updateLayout];

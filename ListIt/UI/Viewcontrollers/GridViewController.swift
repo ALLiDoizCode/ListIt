@@ -8,14 +8,20 @@
 
 import UIKit
 import Kingfisher
+import SwiftEventBus
 
-class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLayout {
+class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLayout,UISearchBarDelegate {
+    
+    var items:[item] = []
+    var filtered:[item] = []
+    
+    var searchActive : Bool = false
+    
+    var presentItems = getData()
     
     let identifier = "GridCell"
-    var items:[item] = []
-    var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
     
-    let parseData:getData = getData()
+    var itemType:[String] = ["Individual-Icon","Crowdsourced-Icon","Business-Icon-1"]
     
     let imageView:UIImageView = UIImageView()
     lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 75, 20))
@@ -25,9 +31,8 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
     override func viewWillAppear(animated: Bool) {
         
-        
-        
-       
+        searchActive = false
+        collectionView.reloadData()
         
     }
     
@@ -50,44 +55,105 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     func setupCollectionView(){
         
         
+        let collection :UICollectionView = self.collectionView!;
+        collection.frame = screenBounds
+        collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
+        
         //parseData fill the aray for the listview items with this
-        parseData.getItem { (items) -> Void in
+        presentItems.getItem { (list) -> Void in
             
+            self.items = list
             
-            let collection :UICollectionView = self.collectionView!;
-            collection.frame = screenBounds
-            collection.setCollectionViewLayout(CHTCollectionViewWaterfallLayout(), animated: false)
-            //collection.backgroundColor = UIColor.clearColor()
-            //collection.registerClass(GridCell.self, forCellWithReuseIdentifier: self.identifier)
-            
-                
-            self.items = items
+            //the images are stored as url so as not to take up memory
+            print("ItemIcon: \(list[0].icon)")
+            print("UserIcon: \(list[0].userIcon)")
+            print("Title: \(list[0].title)")
+            print("Price: \(list[0].price)")
+            print("Shares: \(list[0].shares)")
+            print("Comments: \(list[0].comments)")
             
             dispatch_async(dispatch_get_main_queue(), {
                 
-                 collection.reloadData()
+                self.collectionView.reloadData()
                 
-            })
-                
+            });
+        }
         
-            //the images are stored as url so as not to take up memory
-            print("ItemIcon: \(items[0].icon)")
-            print("UserIcon: \(items[0].userIcon)")
-            print("Title: \(items[0].title)")
-            print("Price: \(items[0].price)")
-            print("Shares: \(items[0].shares)")
-            print("Comments: \(items[0].comments)")
+    }
+    
+    //Mark searcbar Protocols
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        var tempArray:[String] = []
+        var tempFilter:[String] = []
+        
+        for var i = 0; i < items.count; i++ {
             
+            tempArray.append(items[i].title)
             
         }
         
+        tempFilter = tempArray.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        if(tempFilter.count == 0){
+            searchActive = false;
+        } else {
+            
+            searchActive = true;
+            
+            filtered = []
+            
+            for var i = 0; i < tempFilter.count; i++ {
+                
+                for var j = 0; j < items.count; j++ {
+                    
+                    if tempFilter[i] == items[j].title {
+                        
+                        filtered.append(items[j])
+                    }
+                    
+                }
+            }
+        }
+        self.collectionView.reloadData()
     }
     
     // Mark delegates
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
         
+        if searchActive {
+            
+            imageView.kf_setImageWithURL(NSURL(string: self.filtered[indexPath.item].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
+            }
+            
+        }else {
+            
             imageView.kf_setImageWithURL(NSURL(string: self.items[indexPath.item].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
             }
+        }
+        
+        
         
         if  let imageHeight:CGFloat! = imageView.image!.size.height*gridWidth/imageView.image!.size.width {
             
@@ -102,27 +168,57 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
     
         let ran = Int(arc4random_uniform(3))
     
+    if searchActive {
+        
+        if filtered.count != 0 {
+            
+            print(filtered.count)
+            cell.imageViewContent.kf_setImageWithURL(NSURL(string: filtered[indexPath.item].icon)!)
+            cell.type.image = UIImage(named: itemType[ran])
+        }
+        
+    }else {
+        
         cell.imageViewContent.kf_setImageWithURL(NSURL(string: items[indexPath.item].icon)!)
-        cell.imageViewContent.contentMode = .ScaleAspectFill
         cell.type.image = UIImage(named: itemType[ran])
+
+    }
     
+        cell.imageViewContent.contentMode = .ScaleAspectFill
         cell.setNeedsLayout()
+    
         return cell;
     }
     
    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+    
+    if searchActive {
+        
+        return filtered.count;
+        
+    }else{
+        
         return items.count;
+    }
+    
+    
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        //self.performSegueWithIdentifier("gotoDetail", sender: self)
+        self.performSegueWithIdentifier("gotoDetail", sender: indexPath.item)
     }
     
     func setupSearchBar(){
         
+        searchBar.delegate = self
         searchBar.placeholder = "Type Here"
+        searchBar.showsCancelButton = true
         self.navigationItem.titleView = searchBar
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     
@@ -133,20 +229,47 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
        
             if segue.identifier == "gotoDetail" {
                 
-            dispatch_async(dispatch_get_main_queue(), {
-                let indexPaths = self.collectionView!.indexPathsForSelectedItems()
-                let indexPath = indexPaths![0] 
+                //let indexPaths = self.collectionView!.i
+                let indexPath = sender as! Int
                 
                 let controller:DetailViewController = segue.destinationViewController as! DetailViewController
-                    controller.itemImage.kf_setImageWithURL(NSURL(string:self.items[indexPath.item].icon)!)
-                    controller.itemTitle.text = self.items[indexPath.item].title
-                    controller.price.text = "$\(self.items[indexPath.item].price)"
-                    controller.name.text = "Jonathan"
-                    //controller.theDescription.text = theItem.description
-                    controller.shares.text = "\(self.items[indexPath.item].shares) Shares"
-                    controller.comments.text = "\(self.items[indexPath.item].comments) Comments"
+                
+                if searchActive {
                     
-                });
+                    if filtered.count != 0 {
+                        
+                        controller.theImage = self.filtered[indexPath].icon
+                        controller.theTitle = self.filtered[indexPath].title
+                        controller.thePrice = "$\(self.filtered[indexPath].price)"
+                        controller.itemDescription = self.filtered[indexPath].description
+                        controller.theName = "Jonathan"
+                        //controller.itemDescription.text = theItem.description
+                        controller.theShares = "\(self.filtered[indexPath].shares) Shares"
+                        controller.theComments = "\(self.filtered[indexPath].comments) Comments"
+                    }else {
+                        
+                        controller.theImage = self.items[indexPath].icon
+                        controller.theTitle = self.items[indexPath].title
+                        controller.thePrice = "$\(self.items[indexPath].price)"
+                        controller.itemDescription = self.items[indexPath].description
+                        controller.theName = "Jonathan"
+                        //controller.itemDescription.text = theItem.description
+                        controller.theShares = "\(self.items[indexPath].shares) Shares"
+                        controller.theComments = "\(self.items[indexPath].comments) Comments"
+                    }
+                    
+                }else {
+                    
+                    controller.theImage = self.items[indexPath].icon
+                    controller.theTitle = self.items[indexPath].title
+                    controller.thePrice = "$\(self.items[indexPath].price)"
+                    controller.itemDescription = self.items[indexPath].description
+                    controller.theName = "Jonathan"
+                    //controller.itemDescription.text = theItem.description
+                    controller.theShares = "\(self.items[indexPath].shares) Shares"
+                    controller.theComments = "\(self.items[indexPath].comments) Comments"
+                }
+
                 
             }
         

@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
+        <!--mainTab-->
+        <scene sceneID="Qsx-ZB-dhW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="mainTab" id="YrO-v6-Yxs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bP2-xO-Xhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1425.75" y="-245.25"/>
+        </scene>
         <!--Grid View Controller-->
         <scene sceneID="fGN-MS-pGi">
             <objects>
@@ -19,7 +27,6 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ecW-FF-6J5">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s7Y-nT-n6U">
                                     <size key="itemSize" width="50" height="50"/>
@@ -34,13 +41,8 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <animations/>
-                                        <connections>
-                                            <segue destination="iav-39-7rL" kind="show" identifier="gotoDetail" id="e8T-jj-NbV"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -49,7 +51,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.92156862745098034" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ecW-FF-6J5" firstAttribute="leading" secondItem="FPI-zf-3a4" secondAttribute="leading" id="SKR-9D-rA2">
@@ -86,14 +87,26 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="bjA-KH-yV6"/>
+                    <navigationItem key="navigationItem" id="bjA-KH-yV6">
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="8Ir-DS-J5g">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SKx-VG-e1n">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="List-it_0000s_0000_View-Switcher"/>
+                                <connections>
+                                    <segue destination="YrO-v6-Yxs" kind="presentation" id="EKp-bW-Kak"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ecW-FF-6J5" id="nP0-En-c1I"/>
+                        <segue destination="iav-39-7rL" kind="show" identifier="gotoDetail" id="FHh-Ik-lJH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5o-i0-NFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960" y="-21.75"/>
+            <point key="canvasLocation" x="2062.5" y="-48"/>
         </scene>
         <!--DetailView-->
         <scene sceneID="8Vm-Cm-J45">
@@ -101,7 +114,28 @@
                 <viewControllerPlaceholder storyboardName="Details" referencedIdentifier="DetailView" id="iav-39-7rL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="het-h5-Ngc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1653.75" y="-123"/>
+            <point key="canvasLocation" x="2571.75" y="-123"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lmo-8E-jtq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gJB-Cf-o6R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wG3-uw-6rB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dQH-uy-r7v" kind="relationship" relationship="rootViewController" id="Fh4-r5-ofP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v56-NJ-Ieh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="960" y="-21.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="List-it_0000s_0000_View-Switcher" width="42" height="21"/>
+    </resources>
 </document>

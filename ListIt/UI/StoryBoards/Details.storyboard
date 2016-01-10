@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -21,11 +22,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="List it-UI_0004s_0000_BG-pattern" translatesAutoresizingMaskIntoConstraints="NO" id="eJK-QN-xnN">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hi-x4-ms3">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="264" id="gN7-eN-N9U"/>
                                     <constraint firstAttribute="width" constant="400" id="unV-h0-xob"/>
@@ -45,7 +44,6 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="List-it_0003s_0000s_0004_Details-BG" translatesAutoresizingMaskIntoConstraints="NO" id="Pw3-RT-AFM">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="358" id="uVa-3K-GKL">
                                         <variation key="heightClass=regular-widthClass=compact" constant="287"/>
@@ -64,7 +62,6 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="List-it_0003s_0000s_0000s_0001_Share-Icon" translatesAutoresizingMaskIntoConstraints="NO" id="D7B-47-idV">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="9Be-Zt-ufi">
                                         <variation key="heightClass=regular-widthClass=compact" constant="15"/>
@@ -88,7 +85,6 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 hours ago by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzO-SJ-Cso">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="QkO-fY-cK6"/>
@@ -112,8 +108,10 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Christopher Wei" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itI-Ov-Dtz">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="PJ3-uy-vrH">
                                         <variation key="heightClass=regular-widthClass=compact" constant="87"/>
@@ -138,7 +136,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55 shares" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgj-4H-1r8">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="58" id="nK1-sq-8BX"/>
@@ -159,7 +156,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55 comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5c-zu-W0S">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="33Q-7l-nnu"/>
@@ -180,7 +176,6 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="List-it_0003s_0000s_0001s_0001_Comments-Icon" translatesAutoresizingMaskIntoConstraints="NO" id="apN-R4-8aD">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="tqN-Zq-dRg">
                                         <variation key="heightClass=regular-widthClass=compact" constant="15"/>
@@ -204,7 +199,6 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oaj-xo-dn8">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="F2B-M3-RfA"/>
                                     <constraint firstAttribute="height" constant="21" id="ZsF-yI-bxd"/>
@@ -225,38 +219,50 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title goes here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNa-5h-m9N">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-WW-9Da">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="275" id="4pq-UI-dn3">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="289"/>
+                                    <constraint firstAttribute="height" constant="128" id="nYP-Qp-brq">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="128"/>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="21" id="BsA-Ja-Bz2"/>
-                                    <constraint firstAttribute="width" constant="289" id="dxf-4B-WXa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="4pq-UI-dn3"/>
-                                        <exclude reference="BsA-Ja-Bz2"/>
-                                        <exclude reference="dxf-4B-WXa"/>
+                                        <exclude reference="nYP-Qp-brq"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <mask key="constraints">
-                                        <include reference="4pq-UI-dn3"/>
-                                        <include reference="BsA-Ja-Bz2"/>
-                                        <exclude reference="dxf-4B-WXa"/>
+                                        <include reference="nYP-Qp-brq"/>
                                     </mask>
                                 </variation>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-En-VyU">
+                                <rect key="frame" x="555" y="60" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.90588235289999997" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Hqf-wS-yZy"/>
+                                    <constraint firstAttribute="height" constant="30" id="gIT-GB-ph1"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="me"/>
+                                <connections>
+                                    <segue destination="GmX-mM-yLk" kind="show" identifier="Profile" id="aq6-PL-mGm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNa-5h-m9N">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QK6-cQ-8Ps">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.36470588240000001" green="0.68235294120000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1Qx-Pl-CE1">
@@ -289,36 +295,10 @@
                                 </variation>
                                 <connections>
                                     <action selector="message:" destination="D6p-oK-Tha" eventType="touchUpInside" id="kTQ-Tw-KV6"/>
+                                    <segue destination="giF-6v-O2K" kind="show" id="3Io-JQ-vGd"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-WW-9Da">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="nYP-Qp-brq">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="128"/>
-                                    </constraint>
-                                </constraints>
-                                <string key="text">As you wish. The Force is strong with this one. I have you now. I want to come with you to Alderaan. There's nothing for me here now. I want to learn the ways of the Force and be a Jedi, like my father before me.
-
-Remember, a Jedi can feel the Force flowing through him. </string>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="nYP-Qp-brq"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="nYP-Qp-brq"/>
-                                    </mask>
-                                </variation>
-                            </textView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="D7B-47-idV" firstAttribute="bottom" secondItem="z5c-zu-W0S" secondAttribute="bottom" id="0aZ-EU-5i6">
@@ -329,9 +309,6 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <variation key="heightClass=regular-widthClass=compact" constant="2"/>
                             </constraint>
                             <constraint firstItem="z5c-zu-W0S" firstAttribute="bottom" secondItem="jzO-SJ-Cso" secondAttribute="bottom" id="57N-Rw-GTu"/>
-                            <constraint firstItem="TNa-5h-m9N" firstAttribute="bottom" secondItem="Oaj-xo-dn8" secondAttribute="bottom" id="9mh-KT-F7n">
-                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
-                            </constraint>
                             <constraint firstItem="D7B-47-idV" firstAttribute="leading" secondItem="itI-Ov-Dtz" secondAttribute="trailing" constant="15" id="C1Y-m3-0uh"/>
                             <constraint firstItem="itI-Ov-Dtz" firstAttribute="leading" secondItem="jzO-SJ-Cso" secondAttribute="trailing" id="CSp-xn-O4N">
                                 <variation key="heightClass=regular-widthClass=compact" constant="2"/>
@@ -345,22 +322,28 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="eJK-QN-xnN" firstAttribute="leading" secondItem="YFN-j6-1Wn" secondAttribute="leadingMargin" constant="-20" id="Hb3-gJ-Z9b"/>
+                            <constraint firstItem="zEq-WW-9Da" firstAttribute="top" secondItem="TNa-5h-m9N" secondAttribute="bottom" constant="39" id="Inm-jj-XWq"/>
                             <constraint firstItem="2hi-x4-ms3" firstAttribute="leading" secondItem="YFN-j6-1Wn" secondAttribute="leadingMargin" constant="-20" id="JDO-X7-NUA"/>
                             <constraint firstItem="jzO-SJ-Cso" firstAttribute="bottom" secondItem="z5c-zu-W0S" secondAttribute="bottom" id="JNd-gD-XFr">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="eJK-QN-xnN" secondAttribute="trailing" constant="-20" id="LwP-XW-Cg4"/>
+                            <constraint firstItem="cBH-En-VyU" firstAttribute="top" secondItem="u2i-Ls-7wF" secondAttribute="bottom" constant="40" id="N2y-5f-e9M"/>
                             <constraint firstItem="apN-R4-8aD" firstAttribute="bottom" secondItem="z5c-zu-W0S" secondAttribute="bottom" id="ODa-Sj-LsB">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="cBH-En-VyU" secondAttribute="trailing" constant="-5" id="Pzc-E2-s71"/>
                             <constraint firstItem="jzO-SJ-Cso" firstAttribute="bottom" secondItem="z5c-zu-W0S" secondAttribute="bottom" id="QJw-rz-qJP"/>
                             <constraint firstItem="IdU-OV-3Jr" firstAttribute="top" secondItem="jzO-SJ-Cso" secondAttribute="bottom" constant="20" id="Qrg-uA-Xlu"/>
                             <constraint firstItem="Pw3-RT-AFM" firstAttribute="top" secondItem="2hi-x4-ms3" secondAttribute="bottom" id="U6Y-QG-SSE">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-37"/>
                             </constraint>
-                            <constraint firstItem="TNa-5h-m9N" firstAttribute="leading" secondItem="YFN-j6-1Wn" secondAttribute="leadingMargin" constant="-10" id="UM6-Rb-fgD"/>
+                            <constraint firstItem="TNa-5h-m9N" firstAttribute="leading" secondItem="YFN-j6-1Wn" secondAttribute="leadingMargin" constant="20" id="Ulm-N5-6gO">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-10"/>
+                            </constraint>
                             <constraint firstItem="Vgj-4H-1r8" firstAttribute="bottom" secondItem="z5c-zu-W0S" secondAttribute="bottom" id="VX5-M5-C4i"/>
                             <constraint firstItem="IdU-OV-3Jr" firstAttribute="top" secondItem="Pw3-RT-AFM" secondAttribute="bottom" id="XLT-et-v8P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TNa-5h-m9N" secondAttribute="trailing" constant="81" id="YXr-rK-lUk"/>
                             <constraint firstItem="eJK-QN-xnN" firstAttribute="top" secondItem="YFN-j6-1Wn" secondAttribute="topMargin" id="Z7b-dR-ieK"/>
                             <constraint firstItem="itI-Ov-Dtz" firstAttribute="bottom" secondItem="jzO-SJ-Cso" secondAttribute="bottom" id="aRt-qd-Cow"/>
                             <constraint firstItem="zEq-WW-9Da" firstAttribute="leading" secondItem="Pw3-RT-AFM" secondAttribute="leading" id="c0j-80-Bf3">
@@ -379,6 +362,7 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                             <constraint firstItem="Pw3-RT-AFM" firstAttribute="top" secondItem="Oaj-xo-dn8" secondAttribute="bottom" constant="-45" id="h6B-6u-Szc">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-27"/>
                             </constraint>
+                            <constraint firstItem="TNa-5h-m9N" firstAttribute="trailing" secondItem="Vgj-4H-1r8" secondAttribute="trailing" id="ixg-6Q-mOk"/>
                             <constraint firstItem="Pw3-RT-AFM" firstAttribute="top" secondItem="u2i-Ls-7wF" secondAttribute="bottom" constant="413" id="jog-Ji-o7b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2hi-x4-ms3" secondAttribute="trailing" constant="-20" id="jvi-qp-acG"/>
                             <constraint firstItem="D7B-47-idV" firstAttribute="leading" secondItem="itI-Ov-Dtz" secondAttribute="trailing" constant="13" id="lFu-bs-Vux"/>
@@ -389,6 +373,7 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                             <constraint firstItem="z5c-zu-W0S" firstAttribute="leading" secondItem="apN-R4-8aD" secondAttribute="trailing" constant="5" id="t0F-Sc-cOA">
                                 <variation key="heightClass=regular-widthClass=compact" constant="3"/>
                             </constraint>
+                            <constraint firstItem="TNa-5h-m9N" firstAttribute="firstBaseline" secondItem="Oaj-xo-dn8" secondAttribute="baseline" id="uGH-Xb-sZJ"/>
                             <constraint firstItem="Vgj-4H-1r8" firstAttribute="leading" secondItem="D7B-47-idV" secondAttribute="trailing" constant="2" id="wsj-cv-NXG">
                                 <variation key="heightClass=regular-widthClass=compact" constant="3"/>
                             </constraint>
@@ -409,9 +394,9 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="z5c-zu-W0S"/>
                                 <exclude reference="apN-R4-8aD"/>
                                 <exclude reference="Oaj-xo-dn8"/>
+                                <exclude reference="zEq-WW-9Da"/>
                                 <exclude reference="TNa-5h-m9N"/>
                                 <exclude reference="QK6-cQ-8Ps"/>
-                                <exclude reference="zEq-WW-9Da"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="GJO-3N-7ND"/>
@@ -422,8 +407,10 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="h3d-iM-Dor"/>
                                 <exclude reference="eRL-76-GWG"/>
                                 <exclude reference="lNe-T7-CrS"/>
-                                <exclude reference="9mh-KT-F7n"/>
-                                <exclude reference="UM6-Rb-fgD"/>
+                                <exclude reference="Ulm-N5-6gO"/>
+                                <exclude reference="YXr-rK-lUk"/>
+                                <exclude reference="ixg-6Q-mOk"/>
+                                <exclude reference="uGH-Xb-sZJ"/>
                                 <exclude reference="VX5-M5-C4i"/>
                                 <exclude reference="sc4-Cw-scB"/>
                                 <exclude reference="wsj-cv-NXG"/>
@@ -455,6 +442,7 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <exclude reference="LwP-XW-Cg4"/>
                                 <exclude reference="Z7b-dR-ieK"/>
                                 <exclude reference="GJE-P6-bLd"/>
+                                <exclude reference="Inm-jj-XWq"/>
                                 <exclude reference="c0j-80-Bf3"/>
                                 <exclude reference="dtU-J8-w1l"/>
                             </mask>
@@ -471,9 +459,9 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="z5c-zu-W0S"/>
                                 <include reference="apN-R4-8aD"/>
                                 <include reference="Oaj-xo-dn8"/>
+                                <include reference="zEq-WW-9Da"/>
                                 <include reference="TNa-5h-m9N"/>
                                 <include reference="QK6-cQ-8Ps"/>
-                                <include reference="zEq-WW-9Da"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="GJO-3N-7ND"/>
@@ -484,8 +472,10 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="h3d-iM-Dor"/>
                                 <include reference="eRL-76-GWG"/>
                                 <include reference="lNe-T7-CrS"/>
-                                <include reference="9mh-KT-F7n"/>
-                                <include reference="UM6-Rb-fgD"/>
+                                <include reference="Ulm-N5-6gO"/>
+                                <include reference="YXr-rK-lUk"/>
+                                <include reference="ixg-6Q-mOk"/>
+                                <include reference="uGH-Xb-sZJ"/>
                                 <include reference="VX5-M5-C4i"/>
                                 <exclude reference="sc4-Cw-scB"/>
                                 <include reference="wsj-cv-NXG"/>
@@ -517,6 +507,7 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                                 <include reference="LwP-XW-Cg4"/>
                                 <include reference="Z7b-dR-ieK"/>
                                 <include reference="GJE-P6-bLd"/>
+                                <include reference="Inm-jj-XWq"/>
                                 <include reference="c0j-80-Bf3"/>
                                 <include reference="dtU-J8-w1l"/>
                             </mask>
@@ -534,17 +525,61 @@ Remember, a Jedi can feel the Force flowing through him. </string>
                         <outlet property="shares" destination="Vgj-4H-1r8" id="Ck5-Ma-qy0"/>
                         <outlet property="theDescription" destination="zEq-WW-9Da" id="Yoz-Cl-kg2"/>
                         <outlet property="time" destination="jzO-SJ-Cso" id="drx-c9-Zei"/>
+                        <outlet property="userImgBtn" destination="cBH-En-VyU" id="SgC-f6-MdQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p40-ay-N1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081.5" y="252.75"/>
+            <point key="canvasLocation" x="1074" y="168"/>
+        </scene>
+        <!--publicProfile-->
+        <scene sceneID="xKy-G5-Ck5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PublicProfile" referencedIdentifier="publicProfile" id="0ws-Fo-hUM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RxE-D4-DNc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugx-MA-KmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454.75" y="168"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZSR-6J-7mi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GmX-mM-yLk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="IQButtonBarArrowLeft.png" id="7fr-Tt-OhN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.59607843140000005" green="0.74901960779999999" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.92156862750000001" green="0.90588235289999997" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0ws-Fo-hUM" kind="relationship" relationship="rootViewController" id="IUY-aG-5or"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBs-rl-aCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872" y="168"/>
+        </scene>
+        <!--Message-->
+        <scene sceneID="Tni-TY-n0x">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Message" id="giF-6v-O2K" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i8F-cF-Gdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1384.5" y="868.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="IQButtonBarArrowLeft.png" width="12" height="21"/>
         <image name="List it-UI_0004s_0000_BG-pattern" width="1500" height="2662"/>
         <image name="List-it_0003s_0000s_0000s_0001_Share-Icon" width="21" height="19"/>
         <image name="List-it_0003s_0000s_0001s_0001_Comments-Icon" width="23" height="19"/>
         <image name="List-it_0003s_0000s_0004_Details-BG" width="500" height="347"/>
+        <image name="me" width="921" height="918"/>
     </resources>
 </document>

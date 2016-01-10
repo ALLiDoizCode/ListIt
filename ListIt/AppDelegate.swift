@@ -10,6 +10,8 @@ import UIKit
 import Parse
 import Bolts
 import Venmo_iOS_SDK
+import IQKeyboardManagerSwift
+import SwiftEventBus
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Parse.enableLocalDatastore()
+        
+        
+        //push notification
+        
+        let alert = UIRemoteNotificationType.Alert
+        let sound = UIRemoteNotificationType.Sound
+        let badge = UIRemoteNotificationType.Badge
+        application.registerForRemoteNotificationTypes([alert,sound,badge])
+        application.registerForRemoteNotifications()
         
         // Initialize Parse.
         Parse.setApplicationId("TNSeu9vfrUdDkyMEk5px6WKVUWNDsxmHJTTe5ukU",
@@ -39,8 +50,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Venmo.startWithAppId(appId, secret: secert, name: appName)
         
+        //enables IQKeyboardManager
+        IQKeyboardManager.sharedManager().enable = true
+        
         return true
     }
+    
+    
+    //push notificaitons
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let installation = PFInstallation.currentInstallation()
+        installation.setDeviceTokenFromData(deviceToken)
+        installation.channels = ["global"]
+        installation.saveInBackground()
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        PFPush.handlePush(userInfo)
+        
+        SwiftEventBus.post("NewMessage")
+    }
+     //push notificaitons end
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
