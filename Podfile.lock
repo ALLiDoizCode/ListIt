@@ -3,6 +3,7 @@ PODS:
   - Bolts/Tasks (1.5.0)
   - BTNavigationDropdownMenu (0.2)
   - CMDQueryStringSerialization (0.2.0)
+  - ImageLoader (0.8.7)
   - ImagePickerSheetController (0.9.1)
   - IQKeyboardManagerSwift (3.3.5)
   - JSQMessagesViewController (7.2.0):
@@ -24,6 +25,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - BTNavigationDropdownMenu
+  - ImageLoader
   - ImagePickerSheetController (~> 0.9.1)
   - IQKeyboardManagerSwift
   - JSQMessagesViewController
@@ -47,6 +49,7 @@ SPEC CHECKSUMS:
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   BTNavigationDropdownMenu: 731e0e7068eefeea4a53b0695f37454aad944255
   CMDQueryStringSerialization: 15f9004212bbc72533bb533f63df79d90a00a7d8
+  ImageLoader: ceeafe0b760b4acbb919e384033fc94a716f4e26
   ImagePickerSheetController: 3c58c9fee6dcf36485222358a021f6b734f997ba
   IQKeyboardManagerSwift: 17f1ebf3fe07f7905369c6dca2da1051b6fea805
   JSQMessagesViewController: 73cab48aa92fc2d512f3b6724f3425cc47a19eb5

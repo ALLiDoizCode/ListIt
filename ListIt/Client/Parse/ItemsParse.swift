@@ -47,7 +47,7 @@ class getItems {
         converstation.saveInBackgroundWithBlock { (success, error) -> Void in
             
             if success {
-                
+                SwiftEventBus.postToMainThread("MessageSent")
                 print("client fired")
             }else{
                 

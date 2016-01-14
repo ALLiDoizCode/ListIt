@@ -26,7 +26,7 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
     var incomingBubbleImageData = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(blueColor)
     
     
-    var messages:[JSQMessage] = [JSQMessage]()
+    var messages:[JSQMessage] = []
     
     var userIcon:UIImage!
     var sellerId:String!
@@ -38,7 +38,13 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
         
         SwiftEventBus.onMainThread(self, name: "NewMessage") { (result) -> Void in
             
-            self.newMessages()
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                self.newMessages()
+                
+            });
+            
+           
         }
        
         presenter.addChannel("test")
@@ -50,9 +56,14 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
         
         
         setup()
-        addMessages()
+        
+        //dispatch_async(dispatch_get_main_queue(), {
             
-    
+           self.addMessages()
+            
+        //});
+        
+       
         // Do any additional setup after loading the view.
     }
 
@@ -119,7 +130,12 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
                             
                             self.messages += [messageMedia]
                             self.finishSendingMessage()
-                            self.cloudFunctions.pushMessage("test")
+                            
+                            SwiftEventBus.onMainThread(self, name: "MessageSent", handler: { (result) -> Void in
+                                
+                                self.cloudFunctions.pushMessage("test")
+                                SwiftEventBus.unregister(self, name: "MessageSent")
+                            })
                             
                         }
                         
@@ -172,39 +188,46 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
 extension MessageViewController {
     func addMessages() {
         
-            presenter.getMessages("test") { (item) -> Void in
+        
+        presenter.getMessages("test") { (image, text, modal) -> Void in
+            
+            for var i = 0; i < modal.count; i++ {
                 
-                
-                for message in item {
+                if modal[i].isImage == true {
                     
-                    print("messages from parse \(message.media)")
+                     self.messages.append(image[i])
                     
+                }else {
+                    
+                    self.messages.append(text[i])
                 }
-                
-                self.messages = item
-                self.reloadMessagesView()                
             }
+            
+            self.finishSendingMessage()
+            self.reloadMessagesView()
+
+        }
+    
     }
     
     func newMessages(){
         
-        presenter.getMessages("test") { (item) -> Void in
+        
+        presenter.getMessages("test") { (image, text, modal) -> Void in
             
-            for var i = 0; i < item.count; i++ {
+            if modal.last!.isImage == true {
                 
-                if i > self.messages.count {
-                    
-                    print("new item", i)
-                    print("old item", self.messages.count)
-                    
-                    self.messages.append(item[i])
-                }
+                 self.messages.append(image.last!)
+                
+            }else {
+                
+                self.messages.append(text.last!)
             }
             
-            //self.finishSendingMessage()
+            self.finishSendingMessage()
             self.reloadMessagesView()
-            
         }
+        
     }
     
     func setup() {
@@ -273,7 +296,14 @@ extension MessageViewController {
             self.messages += [message]
             self.finishSendingMessage()
             print("pressed send")
-            self.cloudFunctions.pushMessage("test")
+                
+            SwiftEventBus.onMainThread(self, name: "MessageSent", handler: { (result) -> Void in
+                
+                self.cloudFunctions.pushMessage("test")
+                SwiftEventBus.unregister(self, name: "MessageSent")
+            })
+                
+            
             
         }
        

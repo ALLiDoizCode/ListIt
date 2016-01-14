@@ -72,13 +72,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListIt/UI/Viewcontrollers/Message.swift"
-            timestampString = "473983973.520177"
+            timestampString = "474435293.81268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
-            landmarkName = "didPressSendButton(_:withMessageText:senderId:senderDisplayName:date:)"
-            landmarkType = "5">
+            startingLineNumber = "378"
+            endingLineNumber = "378"
+            landmarkName = "MessageViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -100,16 +100,16 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ListIt.MessageModal.init (ListIt.MessageModal.Type)(theText : Swift.String, theSender : Swift.String, theAttachment : Swift.String, theDate : __ObjC.NSDate) -&gt; ListIt.MessageModal"
+                  symbolName = "ListIt.MessageModal.init (ListIt.MessageModal.Type)(theText : Swift.String, theSender : Swift.String, theAttachment : Swift.String, theDate : __ObjC.NSDate, theImage : __ObjC.UIImage, hasImage : Swift.Bool) -&gt; ListIt.MessageModal"
                   moduleName = "ListIt"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
-                  timestampString = "473971553.173601"
+                  timestampString = "474439627.224594"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
                   endingLineNumber = "16"
-                  offsetFromSymbolStart = "278">
+                  offsetFromSymbolStart = "354">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -119,7 +119,7 @@
                   moduleName = "ListIt"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
-                  timestampString = "473971553.173696"
+                  timestampString = "474439627.224736"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -134,27 +134,12 @@
                   moduleName = "ListIt"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
-                  timestampString = "473971553.173782"
+                  timestampString = "474439627.224823"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
                   offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ListIt.MessageModal.attachment.materializeForSet : Swift.String"
-                  moduleName = "ListIt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
-                  timestampString = "473971553.173863"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -162,16 +147,46 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ListIt/UI/Viewcontrollers/Message.swift"
-            timestampString = "473982162.212807"
+            filePath = "ListIt/Presenters/ParsePresenters.swift"
+            timestampString = "474440116.569944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "180"
+            endingLineNumber = "180">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListIt/Presenters/ParsePresenters.swift"
+            timestampString = "474439626.205409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "getMessages(_:completionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListIt/Presenters/ParsePresenters.swift"
+            timestampString = "474439626.205409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "getMessages(_:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

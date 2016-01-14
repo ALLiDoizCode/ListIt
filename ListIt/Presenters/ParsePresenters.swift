@@ -10,6 +10,7 @@ import Foundation
 import SwiftEventBus
 import JSQMessagesViewController
 import Kingfisher
+import ImageLoader
 
 
 class getData {
@@ -44,52 +45,91 @@ class getData {
         return jsqMessage
     }*/
     
-    func getMessages(sellerId:String,completionHandler: (([JSQMessage]!) -> Void)?){
+    func getMessages(sellerId:String,completionHandler: (([JSQMessage]!,[JSQMessage]!,[MessageModal]!) -> Void)?){
         
         SwiftEventBus.onBackgroundThread(self, name: "message") { (result) -> Void in
+            
+            let group = dispatch_group_create()
             
             let items = result.object as! [MessageModal]
             
             var jsqMessages : [JSQMessage] = []
+            var jsqMessageImage : [JSQMessage] = []
+            
+            var imageMessage:JSQMessage!
+            
+            var theImage = UIImage(named: "placeholder")
             
             for message in items {
                 
-                    let tempImageView = UIImageView()
+                dispatch_group_enter(group)
+                
+                let imageView = UIImageView()
+                
+                imageView.kf_setImageWithURL(NSURL(string: message.attachment)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
                     
-                    tempImageView.kf_setImageWithURL(NSURL(string: message.attachment)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
-                        
-                        if message.isImage == true && error == nil {
+                    if message.isImage == true && error == nil {
                         
                         print("attachment \(image)")
                         
-                        let photo = JSQPhotoMediaItem(image:image)
-
+                        theImage = image
                         
-                        let jsqMessage = JSQMessage(senderId: message.senderId, displayName:  message.senderId, media: photo)
-                        
-                        jsqMessages.append(jsqMessage)
-                        
-                        print(jsqMessage.media)
-                        
-                        
-                            
-                        }else {
-                            
-                            let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.date, text: message.text)
-                            
-                            jsqMessages.append(jsqMessage)
-                            
-                        }
-                        
-                        completionHandler!(jsqMessages)
+                    }
+                    
+                    let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.date, text: message.text)
+                    
+                    jsqMessages.append(jsqMessage)
+                    
+                    
+                    let photo = JSQPhotoMediaItem(image:theImage)
+                    
+                    
+                    imageMessage = JSQMessage(senderId: message.senderId, displayName:  message.senderId, media: photo)
+                    
+                    jsqMessageImage.append(imageMessage)
+                    
+                    print(imageMessage.media)
+                    
+                    dispatch_group_leave(group)
                 })
                 
+               /*ImageLoader.load(message.attachment).completionHandler({ (url, image, error, cash) -> Void in
+                    
+                if message.isImage == true && error == nil {
+                    
+                    print("attachment \(image)")
+                    
+                    theImage = image
+                    
+                }
+                
+                let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.date, text: message.text)
+                    
+                jsqMessages.append(jsqMessage)
+                    
+              
+                let photo = JSQPhotoMediaItem(image:theImage)
+                
+                
+                imageMessage = JSQMessage(senderId: message.senderId, displayName:  message.senderId, media: photo)
+                
+                jsqMessageImage.append(imageMessage)
+                
+                print(imageMessage.media)
+                
+                dispatch_group_leave(group)
+                
+               })*/
+
                
             }
             
             
-            completionHandler!(jsqMessages)
             
+            dispatch_group_notify(group, dispatch_get_main_queue(), { () -> Void in
+                
+                 completionHandler!(jsqMessageImage,jsqMessages,items)
+            })
         }
         
         grabItems.getMessages(sellerId)
