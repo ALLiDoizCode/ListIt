@@ -20,6 +20,11 @@ class getData {
     
     var channel:channels = channels()
     
+    var jsqMessages : [JSQMessage] = []
+    var jsqMessageImage : [JSQMessage] = []
+    var theImage:UIImage = UIImage()
+    let imageView = UIImageView()
+    
     func getItem(completionHandler: (([item]!) -> Void)?){
         
         SwiftEventBus.onBackgroundThread(self, name: "Items") { (result) -> Void in
@@ -53,82 +58,55 @@ class getData {
             
             let items = result.object as! [MessageModal]
             
-            var jsqMessages : [JSQMessage] = []
-            var jsqMessageImage : [JSQMessage] = []
-            
             var imageMessage:JSQMessage!
             
-            var theImage = UIImage(named: "placeholder")
+             self.jsqMessages = []
+            self.jsqMessageImage = []
             
             for message in items {
                 
                 dispatch_group_enter(group)
                 
-                let imageView = UIImageView()
                 
-                imageView.kf_setImageWithURL(NSURL(string: message.attachment)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
+                
+                self.imageView.kf_setImageWithURL(NSURL(string: message.attachment)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
                     
                     if message.isImage == true && error == nil {
                         
                         print("attachment \(image)")
                         
-                        theImage = image
+                        self.theImage = image!
                         
                     }
                     
+                    dispatch_group_leave(group)
+                    
                     let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.date, text: message.text)
                     
-                    jsqMessages.append(jsqMessage)
+                    self.jsqMessages.append(jsqMessage)
                     
                     
-                    let photo = JSQPhotoMediaItem(image:theImage)
+                    let photo = JSQPhotoMediaItem(image:self.theImage)
                     
                     
                     imageMessage = JSQMessage(senderId: message.senderId, displayName:  message.senderId, media: photo)
                     
-                    jsqMessageImage.append(imageMessage)
+                    self.jsqMessageImage.append(imageMessage)
                     
                     print(imageMessage.media)
                     
-                    dispatch_group_leave(group)
+                    
                 })
                 
-               /*ImageLoader.load(message.attachment).completionHandler({ (url, image, error, cash) -> Void in
-                    
-                if message.isImage == true && error == nil {
-                    
-                    print("attachment \(image)")
-                    
-                    theImage = image
-                    
-                }
-                
-                let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.date, text: message.text)
-                    
-                jsqMessages.append(jsqMessage)
-                    
-              
-                let photo = JSQPhotoMediaItem(image:theImage)
-                
-                
-                imageMessage = JSQMessage(senderId: message.senderId, displayName:  message.senderId, media: photo)
-                
-                jsqMessageImage.append(imageMessage)
-                
-                print(imageMessage.media)
-                
-                dispatch_group_leave(group)
-                
-               })*/
-
-               
             }
             
             
             
             dispatch_group_notify(group, dispatch_get_main_queue(), { () -> Void in
                 
-                 completionHandler!(jsqMessageImage,jsqMessages,items)
+                SwiftEventBus.unregister(self, name: "message")
+                
+                 completionHandler!(self.jsqMessageImage,self.jsqMessages,items)
             })
         }
         

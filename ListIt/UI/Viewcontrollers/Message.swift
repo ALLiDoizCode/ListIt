@@ -31,9 +31,17 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
     var userIcon:UIImage!
     var sellerId:String!
     var selectedImage:UIImage!
+    var refreshControl:UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView!.addSubview(refreshControl)
         
         
         SwiftEventBus.onMainThread(self, name: "NewMessage") { (result) -> Void in
@@ -57,19 +65,28 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
         
         setup()
         
-        //dispatch_async(dispatch_get_main_queue(), {
+        if messages.count == 0 {
             
-           self.addMessages()
-            
-        //});
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                self.addMessages()
+                
+            });
+        }
         
-       
+
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func refresh(sender:AnyObject){
+        
+       addMessages()
     }
     
     func reloadMessagesView() {
@@ -188,10 +205,11 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
 extension MessageViewController {
     func addMessages() {
         
+         self.messages = []
         
         presenter.getMessages("test") { (image, text, modal) -> Void in
             
-            for var i = 0; i < modal.count; i++ {
+            for var i = 0; i < text.count; i++ {
                 
                 if modal[i].isImage == true {
                     
@@ -225,7 +243,7 @@ extension MessageViewController {
             }
             
             self.finishSendingMessage()
-            self.reloadMessagesView()
+            //boomself.reloadMessagesView()
         }
         
     }
