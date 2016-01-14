@@ -94,11 +94,16 @@ class DetailViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var controller = segue.destinationViewController as! MessageViewController
+        if segue.identifier == "message" {
+            
+            var controller = segue.destinationViewController as! MessageViewController
+            
+            controller.hidesBottomBarWhenPushed = true
+            
+            controller.userIcon = UIImage(named: "me")
+        }
         
-        controller.hidesBottomBarWhenPushed = true
         
-        controller.userIcon = UIImage(named: "me")
     }
 
 

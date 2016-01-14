@@ -27,6 +27,8 @@
 		4DA39A801C18D74900B6F2DD /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA39A7F1C18D74900B6F2DD /* Client.swift */; };
 		4DB332191C36164E0083DB0B /* PublicProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DB332181C36164E0083DB0B /* PublicProfile.storyboard */; };
 		4DBEDEEB1C47FCB700E3B0E1 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBEDEEA1C47FCB700E3B0E1 /* MessagesCell.swift */; };
+		4DBEDEF11C4819CA00E3B0E1 /* SignUp-Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DBEDEF01C4819CA00E3B0E1 /* SignUp-Login.storyboard */; };
+		4DBEDEF31C481BA900E3B0E1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBEDEF21C481BA900E3B0E1 /* Home.swift */; };
 		4DC128281C35E15100904A13 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC128271C35E15100904A13 /* SweetAlert.swift */; };
 		4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */; };
 		4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E21C1788990010C471 /* Main.storyboard */; };
@@ -98,6 +100,8 @@
 		4DA39A7F1C18D74900B6F2DD /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		4DB332181C36164E0083DB0B /* PublicProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PublicProfile.storyboard; sourceTree = "<group>"; };
 		4DBEDEEA1C47FCB700E3B0E1 /* MessagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
+		4DBEDEF01C4819CA00E3B0E1 /* SignUp-Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "SignUp-Login.storyboard"; sourceTree = "<group>"; };
+		4DBEDEF21C481BA900E3B0E1 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		4DC128271C35E15100904A13 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DD5C0E21C1788990010C471 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 				6B5C72761C3A12B7002D8261 /* Messages.storyboard */,
 				6B5C72781C3A175B002D8261 /* MyLists.storyboard */,
 				6B5C727C1C3A1E4A002D8261 /* More.storyboard */,
+				4DBEDEF01C4819CA00E3B0E1 /* SignUp-Login.storyboard */,
 			);
 			name = Storyboards;
 			path = StoryBoards;
@@ -297,6 +302,7 @@
 				6B5C727A1C3A19A3002D8261 /* MyListsViewController.swift */,
 				6B5C727E1C3A1E58002D8261 /* MoreViewController.swift */,
 				4DEAEC091C3E36CF0020CE2C /* Message.swift */,
+				4DBEDEF21C481BA900E3B0E1 /* Home.swift */,
 			);
 			path = Viewcontrollers;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */,
 				4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */,
 				6B5C72771C3A12B7002D8261 /* Messages.storyboard in Resources */,
+				4DBEDEF11C4819CA00E3B0E1 /* SignUp-Login.storyboard in Resources */,
 				6B5C72791C3A175B002D8261 /* MyLists.storyboard in Resources */,
 				6BC3B33D1C2376D700A23D7B /* AddListing.storyboard in Resources */,
 				4D0F5F271C171B8A001E4385 /* Assets.xcassets in Resources */,
@@ -596,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFF23771C1F826200298BAB /* DetailViewController.swift in Sources */,
+				4DBEDEF31C481BA900E3B0E1 /* Home.swift in Sources */,
 				6B5C725D1C364C31002D8261 /* UserViewController.swift in Sources */,
 				4D8BE7C01C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
 				4D1BBA391C1B7B93007FE7DF /* ItemsParse.swift in Sources */,

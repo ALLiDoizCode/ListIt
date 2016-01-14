@@ -295,7 +295,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="message:" destination="D6p-oK-Tha" eventType="touchUpInside" id="kTQ-Tw-KV6"/>
-                                    <segue destination="giF-6v-O2K" kind="show" id="3Io-JQ-vGd"/>
+                                    <segue destination="giF-6v-O2K" kind="show" identifier="message" id="3Io-JQ-vGd"/>
                                 </connections>
                             </button>
                         </subviews>
