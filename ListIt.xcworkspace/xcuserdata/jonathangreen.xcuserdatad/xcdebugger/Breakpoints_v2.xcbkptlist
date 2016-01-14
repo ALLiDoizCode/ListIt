@@ -72,7 +72,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListIt/UI/Viewcontrollers/Message.swift"
-            timestampString = "474442177.164422"
+            timestampString = "474481265.360816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "396"
@@ -151,11 +151,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListIt/Presenters/ParsePresenters.swift"
-            timestampString = "474442340.116174"
+            timestampString = "474481961.412186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158">
+            startingLineNumber = "152"
+            endingLineNumber = "152">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -165,11 +165,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListIt/Presenters/ParsePresenters.swift"
-            timestampString = "474442340.116174"
+            timestampString = "474481961.412186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "getMessages(_:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -181,11 +181,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListIt/Presenters/ParsePresenters.swift"
-            timestampString = "474442340.116174"
+            timestampString = "474481961.412186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "getMessages(_:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>

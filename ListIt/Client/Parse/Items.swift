@@ -17,8 +17,10 @@ class item {
     var shares:String!
     var comments:String!
     var description:String!
+    var objectId:String!
+    var time:String!
     
-    init(theIcon:String,theUserIcon:String,theTitle:String,theShares:String,theComments:String,thePrice:Int,theDescription:String!){
+    init(theIcon:String,theUserIcon:String,theTitle:String,theShares:String,theComments:String,thePrice:Int,theDescription:String!,theObjectId:String!,theTime:String!){
     
         icon = theIcon
         userIcon = theUserIcon
@@ -27,5 +29,8 @@ class item {
         comments = theComments
         price = thePrice
         description = theDescription
+        objectId = theObjectId
+        time = theTime
+        
     }
 }

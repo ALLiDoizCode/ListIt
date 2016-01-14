@@ -44,12 +44,6 @@ class getData {
         
     }
     
-    /*func getMessage(completionHandler: (([MessageModal]!) -> Void)?)  -> JSQMessage {
-        
-        let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.created_at, text: message.text)
-        return jsqMessage
-    }*/
-    
     func getMessages(sellerId:String,completionHandler: (([JSQMessage]!,[JSQMessage]!,[MessageModal]!) -> Void)?){
         
         SwiftEventBus.onBackgroundThread(self, name: "message") { (result) -> Void in

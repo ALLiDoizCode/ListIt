@@ -161,8 +161,16 @@ class getItems {
                         let theComments = object.objectForKey("Comments") as! String!
                         let thePrice = object.objectForKey("Price") as! Int!
                         let theDescription = object.objectForKey("Description") as! String
+                        let objectId = object.objectId
+                        let time = object.createdAt
                         
-                        let theItem:item = item(theIcon: theIcon.url!, theUserIcon: theUserIcon.url!, theTitle: theTitle, theShares: theShares, theComments: theComments, thePrice: thePrice, theDescription:theDescription)
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"
+                        dateFormatter.timeStyle = .ShortStyle
+                        let date = dateFormatter.stringFromDate(time! as NSDate)
+                        print(date)
+                        
+                        let theItem:item = item(theIcon: theIcon.url!, theUserIcon: theUserIcon.url!, theTitle: theTitle, theShares: theShares, theComments: theComments, thePrice: thePrice, theDescription:theDescription,theObjectId:objectId,theTime:date)
                         
                         self.items.append(theItem)
                     }

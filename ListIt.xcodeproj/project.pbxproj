@@ -26,6 +26,7 @@
 		4D8BE7C61C1FFA2B005A9CB2 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BE7C51C1FFA2B005A9CB2 /* Details.storyboard */; };
 		4DA39A801C18D74900B6F2DD /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA39A7F1C18D74900B6F2DD /* Client.swift */; };
 		4DB332191C36164E0083DB0B /* PublicProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DB332181C36164E0083DB0B /* PublicProfile.storyboard */; };
+		4DBEDEEB1C47FCB700E3B0E1 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBEDEEA1C47FCB700E3B0E1 /* MessagesCell.swift */; };
 		4DC128281C35E15100904A13 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC128271C35E15100904A13 /* SweetAlert.swift */; };
 		4DD5C0E31C1788990010C471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */; };
 		4DD5C0E41C1788990010C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5C0E21C1788990010C471 /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		4D8BE7C51C1FFA2B005A9CB2 /* Details.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		4DA39A7F1C18D74900B6F2DD /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		4DB332181C36164E0083DB0B /* PublicProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PublicProfile.storyboard; sourceTree = "<group>"; };
+		4DBEDEEA1C47FCB700E3B0E1 /* MessagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		4DC128271C35E15100904A13 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		4DD5C0E11C1788990010C471 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DD5C0E21C1788990010C471 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		4DD5C0E61C17891D0010C471 /* TableVIewCells */ = {
 			isa = PBXGroup;
 			children = (
+				4DBEDEEA1C47FCB700E3B0E1 /* MessagesCell.swift */,
 			);
 			path = TableVIewCells;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				6B161B521C29010C00AA4346 /* IGLDropDownItem.m in Sources */,
 				4D0F5F221C171B8A001E4385 /* ViewController.swift in Sources */,
 				4D8BE7BA1C1FC3C6005A9CB2 /* GridViewController.swift in Sources */,
+				4DBEDEEB1C47FCB700E3B0E1 /* MessagesCell.swift in Sources */,
 				6BC3B32F1C235E3600A23D7B /* AddListingViewController.swift in Sources */,
 				4D1BBA361C1B7A6F007FE7DF /* Items.swift in Sources */,
 				6B5C727B1C3A19A3002D8261 /* MyListsViewController.swift in Sources */,

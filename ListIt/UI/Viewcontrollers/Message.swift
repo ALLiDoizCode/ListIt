@@ -86,7 +86,7 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
     
     func refresh(sender:AnyObject){
         
-       addMessages()
+       newMessages()
     }
     
     func reloadMessagesView() {
@@ -205,7 +205,7 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
 extension MessageViewController {
     func addMessages() {
         
-         self.messages = []
+         //self.messages = []
         
         presenter.getMessages("test") { (image, text, modal) -> Void in
             
