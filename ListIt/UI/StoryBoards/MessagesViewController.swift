@@ -24,19 +24,24 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
     override func viewWillAppear(animated: Bool) {
         
         searchActive = false
-        
-    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
         presenter.getListOfMessages { (list) -> Void in
+            
+            self.messageArray = []
             
             self.messageArray = list
             
             self.reloadMessagesView()
             
         }
+
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -156,27 +161,27 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
             
             if filtered.count != 0 {
                 
-                cell.userIcon.kf_setImageWithURL(NSURL(string: filtered[0].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
+                cell.userIcon.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
                 
-                cell.theDescription.text = filtered[0].description
-                cell.listingTitle.text = filtered[0].title
-                cell.time.text = filtered[0].time
+                cell.theDescription.text = filtered[indexPath.row].description
+                cell.listingTitle.text = filtered[indexPath.row].title
+                cell.time.text = filtered[indexPath.row].time
                 
             }else {
                 
-                cell.userIcon.kf_setImageWithURL(NSURL(string: messageArray[0].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
+                cell.userIcon.kf_setImageWithURL(NSURL(string: messageArray[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
                 
-                cell.theDescription.text = messageArray[0].description
-                cell.listingTitle.text = messageArray[0].title
-                cell.time.text = messageArray[0].time
+                cell.theDescription.text = messageArray[indexPath.row].description
+                cell.listingTitle.text = messageArray[indexPath.row].title
+                cell.time.text = messageArray[indexPath.row].time
 
             }
          }else {
             
-            cell.userIcon.kf_setImageWithURL(NSURL(string: messageArray[0].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
+            cell.userIcon.kf_setImageWithURL(NSURL(string: messageArray[indexPath.row].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
             
-            cell.theDescription.text = messageArray[0].description
-            cell.listingTitle.text = messageArray[0].title
+            cell.theDescription.text = messageArray[indexPath.row].description
+            cell.listingTitle.text = messageArray[indexPath.row].title
             //cell.time.text = messageArray[indexPath.row].time
         }
         

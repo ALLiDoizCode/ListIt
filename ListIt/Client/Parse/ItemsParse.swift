@@ -81,44 +81,64 @@ class getItems {
         
         let name = (user?.objectId)! + sellerId
         
-       user?.addObject("Convo\(name)", forKey: "Messages")
-        
-        user?.saveInBackground()
+        if let list:[String] = user?.objectForKey("Messages") as? [String] {
+            
+            if list.contains("Convo\(name)") {
+                
+                //do nothing
+                
+                print("we have it")
+                
+            }else {
+                
+                user?.addObject("Convo\(name)", forKey:"Messages")
+                
+                user?.saveInBackground()
 
+            }
+        }else {
+            
+            user?.addObject("Convo\(name)", forKey:"Messages")
+            
+            user?.saveInBackground()
+        }
+        
+        
     }
     
     func getListOfgMessages(){
         
-       let list = user?.objectForKey("Messages") as! [String]
+        messageList = []
         
-        for messageItem in list {
+        if let list:[String] = user?.objectForKey("Messages") as? [String] {
             
-            let messageQuery = PFQuery(className: messageItem)
-            
-            messageQuery.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
+            for messageItem in list {
                 
-                if error == nil {
+                let messageQuery = PFQuery(className: messageItem)
+                
+                messageQuery.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
                     
-                    if let objects = objects {
+                    if error == nil {
                         
-                        for object in objects {
+                        if let objects = objects {
+                
+                                let theIcon = objects[0].objectForKey("Icon") as! PFFile!
+                                let theDescription = objects[0].objectForKey("Description") as! String!
+                                let theTitle = objects[0].objectForKey("Title") as! String!
+                                let objectId = objects[0].objectId
+                                
+                                let theItem:item = item(theIcon: theIcon.url!, theUserIcon: "", theTitle: theTitle, theShares: "", theComments: "", thePrice: 0, theDescription:theDescription,theObjectId:objectId,theTime:"")
+                                
+                                self.messageList.append(theItem)
                             
-                            let theIcon = object.objectForKey("Icon") as! PFFile!
-                            let theDescription = object.objectForKey("Description") as! String!
-                            let theTitle = object.objectForKey("Title") as! String!
-                            let objectId = object.objectId
-
-                            let theItem:item = item(theIcon: theIcon.url!, theUserIcon: "", theTitle: theTitle, theShares: "", theComments: "", thePrice: 0, theDescription:theDescription,theObjectId:objectId,theTime:"")
                             
-                            self.messageList.append(theItem)
+                            SwiftEventBus.postToMainThread("MessageList", sender: self.messageList)
                         }
-                        
-                        SwiftEventBus.postToMainThread("MessageList", sender: self.messageList)
                     }
                 }
             }
+            
         }
-      
     }
 
     
