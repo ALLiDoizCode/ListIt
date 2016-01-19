@@ -11,6 +11,7 @@ import JSQMessagesViewController
 import SwiftEventBus
 import ImagePickerSheetController
 import Photos
+import Parse
 
 
 var blueColor = UIColor(red: 0.596, green: 0.749, blue: 0.804, alpha: 1)
@@ -29,14 +30,16 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
     var messages:[JSQMessage] = []
     
     var userIcon:UIImage!
-    var sellerId:String!
+    var itemId:String!
     var selectedImage:UIImage!
     var refreshControl:UIRefreshControl!
+    var itemTitle:String!
+    var itemDescription:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        presenter.addListOfMessages(itemId)
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -55,7 +58,7 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
            
         }
        
-        presenter.addChannel("test")
+        presenter.addChannel(itemId)
        
         
         /*var avatar:JSQMessagesAvatarImage = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials("JG", backgroundColor: blueColor, textColor: UIColor.lightTextColor(), font: UIFont.systemFontOfSize(14.0), diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))*/
@@ -143,14 +146,14 @@ class MessageViewController: JSQMessagesViewController,UIImagePickerControllerDe
                         
                         let messageMedia = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: photo)
                         
-                        self.presenter.sendMessage(messageMedia, sellerId: "test",hasImage:true,image:finalResult!) { () -> Void in
+                        self.presenter.sendMessage(messageMedia, sellerId:self.itemId,hasImage:true,image:finalResult!,theTitle:self.itemTitle,theDescription:self.itemDescription,theImage:self.userIcon) { () -> Void in
                             
                             self.messages += [messageMedia]
                             self.finishSendingMessage()
                             
                             SwiftEventBus.onMainThread(self, name: "MessageSent", handler: { (result) -> Void in
                                 
-                                self.cloudFunctions.pushMessage("test")
+                                self.cloudFunctions.pushMessage(self.senderId)
                                 SwiftEventBus.unregister(self, name: "MessageSent")
                             })
                             
@@ -207,7 +210,7 @@ extension MessageViewController {
         
          //self.messages = []
         
-        presenter.getMessages("test") { (image, text, modal) -> Void in
+        presenter.getMessages(itemId) { (image, text, modal) -> Void in
             
             for var i = 0; i < text.count; i++ {
                 
@@ -231,7 +234,7 @@ extension MessageViewController {
     func newMessages(){
         
         
-        presenter.getMessages("test") { (image, text, modal) -> Void in
+        presenter.getMessages(itemId) { (image, text, modal) -> Void in
             
             if modal.last!.isImage == true {
                 
@@ -243,7 +246,7 @@ extension MessageViewController {
             }
             
             self.finishSendingMessage()
-            //boomself.reloadMessagesView()
+
         }
         
     }
@@ -309,7 +312,7 @@ extension MessageViewController {
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
             
             let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
-            presenter.sendMessage(message, sellerId: "test",hasImage:false,image:UIImage(named: "placeholder")!) { () -> Void in
+            presenter.sendMessage(message, sellerId: itemId,hasImage:false,image:UIImage(named: "placeholder")!,theTitle:self.itemTitle,theDescription:self.itemDescription,theImage:self.userIcon) { () -> Void in
             
             self.messages += [message]
             self.finishSendingMessage()

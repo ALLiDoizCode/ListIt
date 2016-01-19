@@ -25,17 +25,18 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
         
         searchActive = false
         
-        presenter.getItem { (item) -> Void in
-            
-            self.messageArray = item
-            
-            self.reloadMessagesView()
-        }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter.getListOfMessages { (list) -> Void in
+            
+            self.messageArray = list
+            
+            self.reloadMessagesView()
+            
+        }
         
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -155,28 +156,28 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
             
             if filtered.count != 0 {
                 
-                cell.userIcon.kf_setImageWithURL(NSURL(string: filtered[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
+                cell.userIcon.kf_setImageWithURL(NSURL(string: filtered[0].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
                 
-                cell.theDescription.text = filtered[indexPath.row].description
-                cell.listingTitle.text = filtered[indexPath.row].title
-                cell.time.text = filtered[indexPath.row].time
+                cell.theDescription.text = filtered[0].description
+                cell.listingTitle.text = filtered[0].title
+                cell.time.text = filtered[0].time
                 
             }else {
                 
-                cell.userIcon.kf_setImageWithURL(NSURL(string: messageArray[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
+                cell.userIcon.kf_setImageWithURL(NSURL(string: messageArray[0].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
                 
-                cell.theDescription.text = messageArray[indexPath.row].description
-                cell.listingTitle.text = messageArray[indexPath.row].title
-                cell.time.text = messageArray[indexPath.row].time
+                cell.theDescription.text = messageArray[0].description
+                cell.listingTitle.text = messageArray[0].title
+                cell.time.text = messageArray[0].time
 
             }
          }else {
             
-            cell.userIcon.kf_setImageWithURL(NSURL(string: messageArray[indexPath.row].userIcon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
+            cell.userIcon.kf_setImageWithURL(NSURL(string: messageArray[0].icon)!, placeholderImage: UIImage(named: "placeholder"), optionsInfo: .None)
             
-            cell.theDescription.text = messageArray[indexPath.row].description
-            cell.listingTitle.text = messageArray[indexPath.row].title
-            cell.time.text = messageArray[indexPath.row].time
+            cell.theDescription.text = messageArray[0].description
+            cell.listingTitle.text = messageArray[0].title
+            //cell.time.text = messageArray[indexPath.row].time
         }
         
         return cell
@@ -189,7 +190,7 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var controller = segue.destinationViewController as! MessageViewController
+        let controller = segue.destinationViewController as! MessageViewController
         
         controller.hidesBottomBarWhenPushed = true
         

@@ -12,6 +12,8 @@ import Bolts
 import Venmo_iOS_SDK
 import IQKeyboardManagerSwift
 import SwiftEventBus
+import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,15 +29,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //push notification
         
-        let alert = UIRemoteNotificationType.Alert
-        let sound = UIRemoteNotificationType.Sound
-        let badge = UIRemoteNotificationType.Badge
-        application.registerForRemoteNotificationTypes([alert,sound,badge])
+        let userNotificationTypes: UIUserNotificationType = [.Alert, .Badge, .Sound]
+        
+        
+        let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+        application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
+        //application.registerForRemoteNotifications
         
         // Initialize Parse.
         Parse.setApplicationId("TNSeu9vfrUdDkyMEk5px6WKVUWNDsxmHJTTe5ukU",
             clientKey: "6BZMO0tkYGKrDTtZTECneW8qHkWhUIHLBrDOOtyq")
+        
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
@@ -88,6 +94,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -103,7 +111,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return false
     }
-
-
+    
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject) -> Bool {
+            return FBSDKApplicationDelegate.sharedInstance().application(application,
+                openURL: url,
+                sourceApplication: sourceApplication,
+                annotation: annotation)
+    }
+    
 }
 

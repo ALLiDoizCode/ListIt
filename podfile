@@ -11,3 +11,5 @@ pod 'IQKeyboardManagerSwift'
 pod "SwiftSpinner"
 pod 'JSQMessagesViewController'
 pod 'ImageLoader'
+pod 'FBSDKCoreKit', '~> 4.9.0'
+pod 'ParseFacebookUtilsV4', '~> 1.11.0'

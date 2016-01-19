@@ -16,9 +16,9 @@ class TheCloud {
     
     func pushMessage(sellerId:String) {
         
-        //let channel:String! = "\(user?.objectId)\(sellerId)"
+        let channel:String! = (user?.objectId)! + sellerId
         
-        PFCloud.callFunctionInBackground("PushMessage", withParameters: ["channel":"user1\(sellerId)"]) {
+        PFCloud.callFunctionInBackground("PushMessage", withParameters: ["channel":"Convo\(channel)"]) {
             (response: AnyObject?, error: NSError?) -> Void in
             
             if error != nil {

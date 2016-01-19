@@ -9,6 +9,7 @@
 import Foundation
 import Parse
 import SwiftEventBus
+import ParseFacebookUtilsV4
 
 
 
@@ -21,27 +22,137 @@ class getItems {
     let user = PFUser.currentUser()
     
     var items:[item] = []
+    var messageList:[item] = []
     var messageItem:[MessageModal] = []
     
     
-    
-    func sendMessage(message:MessageModal,sellerId:String){
+    func signUp(firstName:String,LastName:String,email:String,passWord:String){
         
-        let converstation = PFObject(className:"Convo")
-        //let converstation = PFObject(className:"Convo\(user?.objectId)\(sellerId)")
+        let user = PFUser()
+        user.username = email
+        user.password = passWord
+        user.email = email
+        // other fields can be set just like with PFObject
+        user["Phone"] = "415-392-0202"
+        user["FirstName"] = firstName
+        user["LastName"] = LastName
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                
+                print(errorString)
+                
+                // Show the errorString somewhere and let the user try again.
+            } else {
+                // Hooray! Let them use the app now.
+                
+                SwiftEventBus.postToMainThread("SignedUp")
+            }
+        }
+    }
+    
+    func login(userName:String,passWord:String){
+        
+        PFUser.logInWithUsernameInBackground(userName, password: passWord) { (theUser, error) -> Void in
+            
+            SwiftEventBus.postToMainThread("SignedIn")
+        }
+        
+    }
+    
+    func signUpFaceBook(){
+        
+        let manger = PFFacebookUtils.facebookLoginManager()
+        manger.loginBehavior = .Web
+        
+        PFFacebookUtils.logInInBackgroundWithPublishPermissions(["publish_actions"], block: {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                print("facebook boom")
+                // Your app now has publishing permissions for the user
+                 SwiftEventBus.postToMainThread("SignedIn")
+            }
+        })
+    }
+    
+    func addListOfMessages(sellerId:String){
+        
+        let name = (user?.objectId)! + sellerId
+        
+       user?.addObject("Convo\(name)", forKey: "Messages")
+        
+        user?.saveInBackground()
+
+    }
+    
+    func getListOfgMessages(){
+        
+       let list = user?.objectForKey("Messages") as! [String]
+        
+        for messageItem in list {
+            
+            let messageQuery = PFQuery(className: messageItem)
+            
+            messageQuery.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
+                
+                if error == nil {
+                    
+                    if let objects = objects {
+                        
+                        for object in objects {
+                            
+                            let theIcon = object.objectForKey("Icon") as! PFFile!
+                            let theDescription = object.objectForKey("Description") as! String!
+                            let theTitle = object.objectForKey("Title") as! String!
+                            let objectId = object.objectId
+
+                            let theItem:item = item(theIcon: theIcon.url!, theUserIcon: "", theTitle: theTitle, theShares: "", theComments: "", thePrice: 0, theDescription:theDescription,theObjectId:objectId,theTime:"")
+                            
+                            self.messageList.append(theItem)
+                        }
+                        
+                        SwiftEventBus.postToMainThread("MessageList", sender: self.messageList)
+                    }
+                }
+            }
+        }
+      
+    }
+
+    
+    func sendMessage(message:MessageModal,sellerId:String,theTitle:String,theDescription:String,theImage:UIImage){
+        
+        let name = (user?.objectId)! + sellerId
+        
+       
+        let converstation = PFObject(className:"Convo\(name)")
         
         if message.isImage == true {
             
             let photoData = UIImageJPEGRepresentation(message.image, 0.2)
             let photoFile = PFFile(name:"photo", data:photoData!)
+            let iconData = UIImageJPEGRepresentation(theImage, 0.2)
+            let iconFile = PFFile(name:"photo", data:iconData!)
             
             converstation["UserId"] = message.senderId
             converstation["Image"] = photoFile
+            converstation["Title"] = theTitle
+            converstation["Description"] = theDescription
+            converstation["Icon"] = iconFile
             
         }else {
             
+            let iconData = UIImageJPEGRepresentation(theImage, 0.2)
+            let iconFile = PFFile(name:"photo", data:iconData!)
+            
             converstation["UserId"] = message.senderId
             converstation["Message"] = message.text
+            converstation["Title"] = theTitle
+            converstation["Description"] = theDescription
+            converstation["Icon"] = iconFile
+            
         }
         
         converstation.saveInBackgroundWithBlock { (success, error) -> Void in
@@ -63,8 +174,9 @@ class getItems {
         
         self.messageItem = []
         
-        let queryMessage = PFQuery(className:"Convo")
-        //let queryMessage = PFQuery(className: "Convo\(user?.objectId)\(sellerId)")
+        let name = (user?.objectId)! + sellerId
+        
+        let queryMessage = PFQuery(className: "Convo\(name)")
         
         queryMessage.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
             

@@ -25,6 +25,25 @@ class getData {
     var theImage:UIImage = UIImage()
     let imageView = UIImageView()
     
+    
+    func login(email:String,passWord:String){
+        
+        grabItems.login(email,passWord:passWord)
+        
+        
+    }
+    
+    
+    func signUp(firstName:String,LastName:String,email:String,passWord:String) {
+        
+        grabItems.signUp(firstName, LastName: LastName, email: email, passWord: passWord)
+    }
+    
+    func signUpFaceBook() {
+        
+        grabItems.signUpFaceBook()
+    }
+    
     func getItem(completionHandler: (([item]!) -> Void)?){
         
         SwiftEventBus.onBackgroundThread(self, name: "Items") { (result) -> Void in
@@ -44,6 +63,7 @@ class getData {
         
     }
     
+        
     func getMessages(sellerId:String,completionHandler: (([JSQMessage]!,[JSQMessage]!,[MessageModal]!) -> Void)?){
         
         SwiftEventBus.onBackgroundThread(self, name: "message") { (result) -> Void in
@@ -108,13 +128,13 @@ class getData {
         
     }
    
-    func sendMessage(message:JSQMessage,sellerId:String,hasImage:Bool,image:UIImage,completionHandler: (() -> Void)?) {
+    func sendMessage(message:JSQMessage,sellerId:String,hasImage:Bool,image:UIImage,theTitle:String,theDescription:String,theImage:UIImage,completionHandler: (() -> Void)?) {
         
         if hasImage == true {
             
             let messageToSend = MessageModal(theText: "", theSender: message.senderId, theAttachment: "",theDate:NSDate(),theImage:image,hasImage:hasImage)
             
-            grabItems.sendMessage(messageToSend,sellerId: sellerId)
+            grabItems.sendMessage(messageToSend,sellerId: sellerId,theTitle:theTitle,theDescription:theDescription,theImage:theImage)
             
             completionHandler!()
             
@@ -123,13 +143,31 @@ class getData {
             
             let messageToSend = MessageModal(theText: message.text, theSender: message.senderId, theAttachment: "",theDate:NSDate(),theImage:UIImage(named: "placeholder")!,hasImage:hasImage)
             
-            grabItems.sendMessage(messageToSend,sellerId: sellerId)
+            grabItems.sendMessage(messageToSend,sellerId: sellerId,theTitle:theTitle,theDescription:theDescription,theImage:theImage)
             
             completionHandler!()
             
             print("presenter fired")
         }
         
+    }
+    
+    func addListOfMessages(sellerId:String){
+        
+        grabItems.addListOfMessages(sellerId)
+    }
+    
+    func getListOfMessages(completionHandler: (([item]!) -> Void)?){
+        
+        SwiftEventBus.onMainThread(self, name: "MessageList") { (result) -> Void in
+            
+            let list = result.object as! [item]
+            
+            completionHandler!(list)
+            
+        }
+        
+        grabItems.getListOfgMessages()
     }
     
     func addChannel(sellerId: String) {

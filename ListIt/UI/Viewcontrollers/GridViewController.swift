@@ -246,6 +246,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                         //controller.itemDescription.text = theItem.description
                         controller.theShares = "\(self.filtered[indexPath].shares) Shares"
                         controller.theComments = "\(self.filtered[indexPath].comments) Comments"
+                        controller.itemId = self.filtered[indexPath].objectId
                     }else {
                         
                         controller.theImage = self.items[indexPath].icon
@@ -256,6 +257,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                         //controller.itemDescription.text = theItem.description
                         controller.theShares = "\(self.items[indexPath].shares) Shares"
                         controller.theComments = "\(self.items[indexPath].comments) Comments"
+                        controller.itemId = self.items[indexPath].objectId
                     }
                     
                 }else {
@@ -268,6 +270,7 @@ class GridViewController: UIViewController,CHTCollectionViewDelegateWaterfallLay
                     //controller.itemDescription.text = theItem.description
                     controller.theShares = "\(self.items[indexPath].shares) Shares"
                     controller.theComments = "\(self.items[indexPath].comments) Comments"
+                    controller.itemId = self.items[indexPath].objectId
                 }
 
                 

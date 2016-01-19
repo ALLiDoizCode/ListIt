@@ -38,17 +38,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         setupSearchBar()
 
         // Do any additional setup after loading the view, typically from a nib.
-        
-       //populate variables with data and UI binding here
-    /*    self.venmo.getUser { (token) -> Void in
-            let username = self.user.currentUser().user.username
-            let userImage = self.user.currentUser().user.profileImageUrl
-            print("The Token: \(token)")
-            print("UserName: \(username)")
-            print("User Image: \(userImage)")
-            
-            //reload table or collection view
-        }*/
 
         
         //parseData fill the aray for the listview items with this
@@ -268,6 +257,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     //controller.itemDescription.text = theItem.description
                     controller.theShares = "\(self.filtered[(indexPaths?.row)!].shares) Shares"
                     controller.theComments = "\(self.filtered[(indexPaths?.row)!].comments) Comments"
+                    controller.itemId = self.filtered[(indexPaths?.row)!].objectId
                 }else {
                     
                     let controller:DetailViewController = segue.destinationViewController as! DetailViewController
@@ -279,6 +269,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     //controller.itemDescription.text = theItem.description
                     controller.theShares = "\(self.itemData[(indexPaths?.row)!].shares) Shares"
                     controller.theComments = "\(self.itemData[(indexPaths?.row)!].comments) Comments"
+                    controller.itemId = self.itemData[(indexPaths?.row)!].objectId
                 }
                 
             }else {
@@ -292,6 +283,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 //controller.itemDescription.text = theItem.description
                 controller.theShares = "\(self.itemData[(indexPaths?.row)!].shares) Shares"
                 controller.theComments = "\(self.itemData[(indexPaths?.row)!].comments) Comments"
+                controller.itemId = self.itemData[(indexPaths?.row)!].objectId
             }
                 
             

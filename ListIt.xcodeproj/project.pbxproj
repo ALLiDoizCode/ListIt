@@ -18,6 +18,8 @@
 		4D1BBA391C1B7B93007FE7DF /* ItemsParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BBA381C1B7B93007FE7DF /* ItemsParse.swift */; };
 		4D1BBA3B1C1B7E88007FE7DF /* ParsePresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BBA3A1C1B7E88007FE7DF /* ParsePresenters.swift */; };
 		4D2182E41C3F900100C02116 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2182E31C3F900100C02116 /* Cloud.swift */; };
+		4D76963F1C4BF630006ED58A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76963E1C4BF630006ED58A /* SignUpViewController.swift */; };
+		4D7696411C4BF63C006ED58A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7696401C4BF63C006ED58A /* LoginViewController.swift */; };
 		4D8BE7B81C1FC3A8005A9CB2 /* Grid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BE7B71C1FC3A8005A9CB2 /* Grid.storyboard */; };
 		4D8BE7BA1C1FC3C6005A9CB2 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7B91C1FC3C6005A9CB2 /* GridViewController.swift */; };
 		4D8BE7C01C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BE7BF1C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift */; };
@@ -91,6 +93,8 @@
 		4D1BBA381C1B7B93007FE7DF /* ItemsParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsParse.swift; sourceTree = "<group>"; };
 		4D1BBA3A1C1B7E88007FE7DF /* ParsePresenters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsePresenters.swift; sourceTree = "<group>"; };
 		4D2182E31C3F900100C02116 /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		4D76963E1C4BF630006ED58A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4D7696401C4BF63C006ED58A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D8BE7B71C1FC3A8005A9CB2 /* Grid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Grid.storyboard; sourceTree = "<group>"; };
 		4D8BE7B91C1FC3C6005A9CB2 /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		4D8BE7BF1C1FC5D0005A9CB2 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 				6B5C727E1C3A1E58002D8261 /* MoreViewController.swift */,
 				4DEAEC091C3E36CF0020CE2C /* Message.swift */,
 				4DBEDEF21C481BA900E3B0E1 /* Home.swift */,
+				4D76963E1C4BF630006ED58A /* SignUpViewController.swift */,
+				4D7696401C4BF63C006ED58A /* LoginViewController.swift */,
 			);
 			path = Viewcontrollers;
 			sourceTree = "<group>";
@@ -612,6 +618,7 @@
 				4D0B72291C3F987F0028F81B /* Channels.swift in Sources */,
 				4D1BBA3B1C1B7E88007FE7DF /* ParsePresenters.swift in Sources */,
 				4D1BBA331C1B3F96007FE7DF /* VenmoPresenter.swift in Sources */,
+				4D76963F1C4BF630006ED58A /* SignUpViewController.swift in Sources */,
 				6B161B531C29010C00AA4346 /* IGLDropDownMenu.m in Sources */,
 				4DEAEC081C3E2FDB0020CE2C /* DataModal.swift in Sources */,
 				6B5C72611C366EE6002D8261 /* ListTableViewCell.swift in Sources */,
@@ -622,6 +629,7 @@
 				6B161B521C29010C00AA4346 /* IGLDropDownItem.m in Sources */,
 				4D0F5F221C171B8A001E4385 /* ViewController.swift in Sources */,
 				4D8BE7BA1C1FC3C6005A9CB2 /* GridViewController.swift in Sources */,
+				4D7696411C4BF63C006ED58A /* LoginViewController.swift in Sources */,
 				4DBEDEEB1C47FCB700E3B0E1 /* MessagesCell.swift in Sources */,
 				6BC3B32F1C235E3600A23D7B /* AddListingViewController.swift in Sources */,
 				4D1BBA361C1B7A6F007FE7DF /* Items.swift in Sources */,

@@ -14,9 +14,11 @@ class channels {
     let user = PFUser.currentUser()
     
     func messageChannel(sellerId:String) {
+        
+        let channel = (user?.objectId)! + sellerId
+    
         let currentInstallation = PFInstallation.currentInstallation()
-        //currentInstallation.addUniqueObject("\(user?.objectId)\(sellerId)", forKey: "channels")
-        currentInstallation.addUniqueObject("user1\(sellerId)", forKey: "channels")
+        currentInstallation.addUniqueObject("Convo\(channel)", forKey: "channels")
         currentInstallation.saveInBackground()
     }
 }

@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
     var theName:String!
     var theShares:String!
     var theComments:String!
+    var itemId:String!
     
     
     let venmo:PresentVenmo = PresentVenmo()
@@ -73,15 +74,6 @@ class DetailViewController: UIViewController {
     
     @IBAction func message(sender: AnyObject) {
         
-        /*//populate variables with data and UI binding here
-           self.venmo.getUser { (token) -> Void in
-        let username = self.user.currentUser().user.username
-        let userImage = self.user.currentUser().user.profileImageUrl
-        print("The Token: \(token)")
-        print("UserName: \(username)")
-        print("User Image: \(userImage)")
-        
-        }*/
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -96,11 +88,14 @@ class DetailViewController: UIViewController {
         
         if segue.identifier == "message" {
             
-            var controller = segue.destinationViewController as! MessageViewController
+            let controller = segue.destinationViewController as! MessageViewController
             
             controller.hidesBottomBarWhenPushed = true
             
-            controller.userIcon = UIImage(named: "me")
+            controller.userIcon = itemImage.image
+            controller.itemId = self.itemId
+            controller.itemDescription = self.itemDescription
+            controller.itemTitle = self.theTitle
         }
         
         
