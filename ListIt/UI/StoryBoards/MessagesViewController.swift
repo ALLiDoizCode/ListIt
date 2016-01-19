@@ -196,10 +196,17 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let controller = segue.destinationViewController as! MessageViewController
+        let cell:MessagesCell = tableView.dequeueReusableCellWithIdentifier("messages") as! MessagesCell
+        
+        var indexPath = tableView.indexPathForSelectedRow
         
         controller.hidesBottomBarWhenPushed = true
         
-        controller.userIcon = UIImage(named: "me")
+        controller.userIcon = cell.userIcon.image
+        controller.itemDescription = cell.theDescription.text
+        controller.itemTitle = cell.listingTitle.text
+        controller.itemId = messageArray[(indexPath?.row)!].objectId
+
 
     }
     

@@ -125,7 +125,7 @@ class getItems {
                                 let theIcon = objects[0].objectForKey("Icon") as! PFFile!
                                 let theDescription = objects[0].objectForKey("Description") as! String!
                                 let theTitle = objects[0].objectForKey("Title") as! String!
-                                let objectId = objects[0].objectId
+                                let objectId = objects[0].objectForKey("itemId") as! String!
                                 
                                 let theItem:item = item(theIcon: theIcon.url!, theUserIcon: "", theTitle: theTitle, theShares: "", theComments: "", thePrice: 0, theDescription:theDescription,theObjectId:objectId,theTime:"")
                                 
@@ -157,6 +157,7 @@ class getItems {
             let iconFile = PFFile(name:"photo", data:iconData!)
             
             converstation["UserId"] = message.senderId
+            converstation["itemId"] = sellerId
             converstation["Image"] = photoFile
             converstation["Title"] = theTitle
             converstation["Description"] = theDescription
@@ -168,6 +169,7 @@ class getItems {
             let iconFile = PFFile(name:"photo", data:iconData!)
             
             converstation["UserId"] = message.senderId
+            converstation["itemId"] = sellerId
             converstation["Message"] = message.text
             converstation["Title"] = theTitle
             converstation["Description"] = theDescription
