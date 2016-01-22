@@ -58,7 +58,11 @@ class getItems {
         PFUser.logInWithUsernameInBackground(userName, password: passWord) { (theUser, error) -> Void in
             
             SwiftEventBus.postToMainThread("SignedIn")
+            
+            self.loadMessageList()
+            
         }
+        
         
     }
     
@@ -104,9 +108,113 @@ class getItems {
         }
         
         
+        let item = PFQuery(className: "Items")
+        
+        item.getObjectInBackgroundWithId(sellerId) { (theItem, error) -> Void in
+            
+            print("the item id is \(sellerId)")
+            
+            let createdBy = theItem?.objectForKey("SellerId") as! String
+            
+             print("the item creator is \(createdBy)")
+            
+            let query = PFQuery(className: "Convo")
+            
+            query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
+                
+                var channelList:[String] = []
+                
+                if error == nil {
+                    
+                    channelList = []
+                    
+                    if let objects = objects {
+                        
+                        for object in objects {
+                            
+                            let theChannel = object.objectForKey("Channel") as! String
+                           
+                            channelList.append(theChannel)
+                        }
+                        
+                        if channelList.contains("Convo\(name)") {
+                            
+                            // do nothing
+                            
+                        }else {
+                            
+                            let converstatios = PFObject(className: "Convo")
+                            
+                            converstatios["Channel"] = "Convo\(name)"
+                            converstatios["Seller"] = createdBy
+                            
+                            converstatios.saveInBackground()
+                            
+                        }
+                    }
+                    
+                } else {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+                
+            })
+
+    }
+        
+    }
+    
+    func loadMessageList(){
+        
+        let query = PFQuery(className: "Convo")
+        
+        query.whereKey("Seller", equalTo: (self.user?.objectId)!)
+        
+        query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
+            
+            if error == nil {
+                
+                if let objects = objects {
+                    for object in objects {
+                        
+                        let channel = object.objectForKey("Channel") as! String
+                        
+                        
+                        if let list:[String] = self.user?.objectForKey("Messages") as? [String] {
+                            
+                            if list.contains(channel) {
+                                
+                                //do nothing
+                                
+                                print("we have it")
+                                
+                            }else {
+                                
+                                self.user?.addObject(channel, forKey:"Messages")
+                                
+                                self.user?.saveInBackground()
+                                
+                            }
+                        }else {
+                            
+                            self.user?.addObject(channel, forKey:"Messages")
+                            
+                            self.user?.saveInBackground()
+                        }
+                        
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        })
+
     }
     
     func getListOfgMessages(){
+        
+        self.loadMessageList()
         
         messageList = []
         
@@ -263,6 +371,7 @@ class getItems {
         newItem["Description"] = desc
         newItem["Category"] = category
         newItem["Type"] = type
+        newItem["SellerId"] = user?.objectId
         
         newItem.saveInBackgroundWithBlock { (status, error) -> Void in
             

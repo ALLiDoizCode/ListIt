@@ -210,9 +210,9 @@ extension MessageViewController {
         
          //self.messages = []
         
-        presenter.getMessages(itemId) { (image, text, modal) -> Void in
+        presenter.getMessages(itemId) { (text) -> Void in
             
-            for var i = 0; i < text.count; i++ {
+            /*for var i = 0; i < text.count; i++ {
                 
                 if modal[i].isImage == true {
                     
@@ -222,7 +222,9 @@ extension MessageViewController {
                     
                     self.messages.append(text[i])
                 }
-            }
+            }*/
+            
+            self.messages = text
             
             self.finishSendingMessage()
             self.reloadMessagesView()
@@ -234,16 +236,18 @@ extension MessageViewController {
     func newMessages(){
         
         
-        presenter.getMessages(itemId) { (image, text, modal) -> Void in
+        presenter.getMessages(itemId) { (text) -> Void in
             
-            if modal.last!.isImage == true {
+            /*if modal.last!.isImage == true {
                 
                  self.messages.append(image.last!)
                 
             }else {
                 
                 self.messages.append(text.last!)
-            }
+            }*/
+            
+            self.messages.append(text.last!)
             
             self.finishSendingMessage()
 

@@ -198,7 +198,7 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
         let controller = segue.destinationViewController as! MessageViewController
         let cell:MessagesCell = tableView.dequeueReusableCellWithIdentifier("messages") as! MessagesCell
         
-        var indexPath = tableView.indexPathForSelectedRow
+        let indexPath = tableView.indexPathForSelectedRow
         
         controller.hidesBottomBarWhenPushed = true
         

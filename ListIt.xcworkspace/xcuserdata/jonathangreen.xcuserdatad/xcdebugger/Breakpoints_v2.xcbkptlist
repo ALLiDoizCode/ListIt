@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListIt/UI/Viewcontrollers/Message.swift"
-            timestampString = "474921189.518838"
+            timestampString = "475111975.612814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
             landmarkName = "MessageViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -104,7 +104,7 @@
                   moduleName = "ListIt"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
-                  timestampString = "474746872.366357"
+                  timestampString = "475119570.179593"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -119,7 +119,7 @@
                   moduleName = "ListIt"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
-                  timestampString = "474746872.366527"
+                  timestampString = "475119570.179726"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -134,7 +134,7 @@
                   moduleName = "ListIt"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
-                  timestampString = "474746872.366627"
+                  timestampString = "475119570.179815"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -149,7 +149,7 @@
                   moduleName = "ListIt"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonathangreen/Documents/Apps/NerdHouse/ListIt/ListIt/Modal/Messages/DataModal.swift"
-                  timestampString = "474746872.366721"
+                  timestampString = "475119570.179904"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -166,11 +166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListIt/Presenters/ParsePresenters.swift"
-            timestampString = "474853653.750437"
+            timestampString = "475119133.91677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "addChannel(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -205,6 +205,38 @@
             endingLineNumber = "65"
             landmarkName = "getData"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListIt/Client/Parse/ItemsParse.swift"
+            timestampString = "475120676.482112"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "addListOfMessages(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ListIt/Client/Parse/ItemsParse.swift"
+            timestampString = "475119733.353315"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "addListOfMessages(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

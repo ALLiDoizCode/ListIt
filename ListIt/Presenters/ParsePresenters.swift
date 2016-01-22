@@ -64,7 +64,7 @@ class getData {
     }
     
         
-    func getMessages(sellerId:String,completionHandler: (([JSQMessage]!,[JSQMessage]!,[MessageModal]!) -> Void)?){
+    func getMessages(sellerId:String,completionHandler: (([JSQMessage]!) -> Void)?){
         
         SwiftEventBus.onBackgroundThread(self, name: "message") { (result) -> Void in
             
@@ -79,7 +79,11 @@ class getData {
             
             for message in items {
                 
-                dispatch_group_enter(group)
+                let jsqMessage = JSQMessage(senderId: message.senderId, senderDisplayName: message.senderId, date: message.date, text: message.text)
+                
+                self.jsqMessages.append(jsqMessage)
+                
+                /*dispatch_group_enter(group)
                 
                 
                 
@@ -110,7 +114,7 @@ class getData {
                     print(imageMessage.media)
                     
                     
-                })
+                })*/
                 
             }
             
@@ -120,11 +124,13 @@ class getData {
                 
                 SwiftEventBus.unregister(self, name: "message")
                 
-                 completionHandler!(self.jsqMessageImage,self.jsqMessages,items)
+                completionHandler!(self.jsqMessages)
+                
+                 //completionHandler!(self.jsqMessageImage,self.jsqMessages,items)
             })
         }
         
-        grabItems.getMessages(sellerId)
+        self.grabItems.getMessages(sellerId)
         
     }
    
@@ -155,6 +161,7 @@ class getData {
     func addListOfMessages(sellerId:String){
         
         grabItems.addListOfMessages(sellerId)
+    
     }
     
     func getListOfMessages(completionHandler: (([item]!) -> Void)?){

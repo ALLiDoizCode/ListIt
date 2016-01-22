@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -26,6 +27,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l1C-4s-00q" id="bFk-lB-bDr">
+                                            <rect key="frame" x="0.0" y="0.0" width="207" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="cPc-FM-4JN">
@@ -141,18 +143,18 @@
                                                     <exclude reference="rdU-We-Hdl"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="1Xr-GL-4ej"/>
-                                                    <exclude reference="3Ow-mM-t7v"/>
-                                                    <exclude reference="1ci-kx-lPm"/>
-                                                    <exclude reference="K9R-AL-ePy"/>
-                                                    <exclude reference="Weu-Bv-Ouu"/>
-                                                    <exclude reference="7DA-xR-mtW"/>
-                                                    <exclude reference="eAW-1a-Mdq"/>
-                                                    <exclude reference="xxs-oA-fsX"/>
                                                     <exclude reference="8yv-dQ-mQE"/>
                                                     <exclude reference="dgc-aG-AHy"/>
                                                     <exclude reference="gRz-9T-pqe"/>
                                                     <exclude reference="p0F-vX-jsc"/>
+                                                    <exclude reference="7DA-xR-mtW"/>
+                                                    <exclude reference="eAW-1a-Mdq"/>
+                                                    <exclude reference="xxs-oA-fsX"/>
+                                                    <exclude reference="1ci-kx-lPm"/>
+                                                    <exclude reference="K9R-AL-ePy"/>
+                                                    <exclude reference="Weu-Bv-Ouu"/>
+                                                    <exclude reference="1Xr-GL-4ej"/>
+                                                    <exclude reference="3Ow-mM-t7v"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -163,18 +165,18 @@
                                                     <include reference="rdU-We-Hdl"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="1Xr-GL-4ej"/>
-                                                    <include reference="3Ow-mM-t7v"/>
-                                                    <include reference="1ci-kx-lPm"/>
-                                                    <include reference="K9R-AL-ePy"/>
-                                                    <include reference="Weu-Bv-Ouu"/>
-                                                    <include reference="7DA-xR-mtW"/>
-                                                    <include reference="eAW-1a-Mdq"/>
-                                                    <include reference="xxs-oA-fsX"/>
                                                     <include reference="8yv-dQ-mQE"/>
                                                     <include reference="dgc-aG-AHy"/>
                                                     <include reference="gRz-9T-pqe"/>
                                                     <include reference="p0F-vX-jsc"/>
+                                                    <include reference="7DA-xR-mtW"/>
+                                                    <include reference="eAW-1a-Mdq"/>
+                                                    <include reference="xxs-oA-fsX"/>
+                                                    <include reference="1ci-kx-lPm"/>
+                                                    <include reference="K9R-AL-ePy"/>
+                                                    <include reference="Weu-Bv-Ouu"/>
+                                                    <include reference="1Xr-GL-4ej"/>
+                                                    <include reference="3Ow-mM-t7v"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
